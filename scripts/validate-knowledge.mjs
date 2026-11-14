@@ -5,7 +5,7 @@ const base=new URL('../',import.meta.url);
 const get=p=>fs.readFileSync(new URL(p,base),'utf8');
 const data=JSON.parse(get('docs/knowledge/data.json'));
 assert.equal(data.countries.length,7,'七国索引');
-assert.equal(data.accounts.length,8,'八个重点客户群');
+assert.equal(data.accounts.length,9,'九个重点客户群');
 assert.ok(data.insights.length>=80,'公开记录意外减少');
 const ids=new Set(), accountIds=new Set(data.accounts.map(a=>a.id));
 const countries=new Set(data.countries.map(c=>c.id));

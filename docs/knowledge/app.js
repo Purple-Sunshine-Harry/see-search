@@ -111,7 +111,7 @@ function accountCard(a) {
 function overview() {
   const frag=document.createDocumentFragment();
   const accounts=el('section','section');
-  add(accounts,sectionTitle('八个重点客户群','名单为研究范围，不代表机会排名'));
+  add(accounts,sectionTitle('九个重点客户群','名单为研究范围，不代表机会排名'));
   const grid=el('div','grid');data.accounts.forEach(a=>grid.append(accountCard(a)));accounts.append(grid);frag.append(accounts);
   const verified=data.insights.filter(r=>r.status==='verified').sort(byReview).slice(0,6);
   frag.append(renderRecords(verified,'近期复核的公开证据','按复核日期展示；事件可能早于复核日期'));
@@ -121,7 +121,7 @@ function overview() {
 }
 function accountView() {
   if (state.account==='all') {
-    const s=el('section','section');s.append(sectionTitle('重点客户','八个客户群，PPF 同时覆盖 Yettel 与 CETIN'));
+    const s=el('section','section');s.append(sectionTitle('重点客户','九个客户群，PPF 同时覆盖 Yettel 与 CETIN'));
     const grid=el('div','grid');data.accounts.filter(a=>state.country==='all'||a.country===state.country).forEach(a=>grid.append(accountCard(a)));
     s.append(grid);return s;
   }
@@ -188,7 +188,7 @@ function render() {
   document.querySelectorAll('#nav button').forEach(b=>{b.classList.toggle('active',b.dataset.view===state.view);b.setAttribute('aria-current',b.dataset.view===state.view?'page':'false');});
   const title=navItems.find(([id])=>id===state.view)?.[1];
   $('page-title').textContent=state.view==='overview'?'东南欧光传送':title;
-  $('page-subtitle').textContent='七国 × 八个重点客户群 · 可追溯来源与明确判断边界';
+  $('page-subtitle').textContent='七国 × 九个重点客户群 · 可追溯来源与明确判断边界';
   const body=$('content-body');body.replaceChildren();
   if (state.query) body.append(renderRecords(matching().sort(byReview),`搜索结果：${state.query}`));
   else if (state.view==='overview' && ['country','account','topic','status'].some(key=>state[key]!=='all')) body.append(renderRecords(matching().sort(byReview),'筛选结果'));

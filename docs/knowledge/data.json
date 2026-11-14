@@ -1,9 +1,9 @@
 {
   "title": "东南欧光传送 · 公开研究库",
   "source": {
-    "siteVersion": 23,
-    "siteCommit": "54605dea83388eef6dfebb4aa8df784cddf4aefa",
-    "siteUpdated": "2026-11-11",
+    "siteVersion": 24,
+    "siteCommit": "dec00f405cd13090fe9181b3e61b5f652647a2dd",
+    "siteUpdated": "2026-11-14",
     "exported": "2026-11-14",
     "note": "仅公开来源研究记录；未经复核的本期建议包独立保留"
   },
@@ -211,6 +211,19 @@
         "北部 DWDM、光接口与监测项目的规格、授标、合同、验收及未覆盖工作包；历史 8 槽 / 自研 DSP / 800G / C+L 条款是否仍适用",
         "北中部六个设计位置及跨区终结方向的竣工拓扑、实际厂家 / 型号、容量余量、SRLG 与保护实测；不以接入覆盖代替验收",
         "客户认可的试点目标、量化验收条件、集成和生命周期成本、预算责任人及转采购路径"
+      ]
+    },
+    {
+      "id": "digi-ro",
+      "name": "罗马尼亚 DIGI",
+      "country": "RO",
+      "scope": "DIGI Romania S.A. 的罗马尼亚本地业务；集团其他国家与资本市场口径单列",
+      "boundary": "DIGI Romania 本地网络、DIGI 集团跨国经营和企业产品分开。无日期产品页仅证明其公开宣传的产品范围，不能推定全网设备、波长容量、保护实测或当前采购；集团财报不拆算为罗马尼亚光传送预算。",
+      "requests": [
+        "本地骨干 / 城域与跨境路由的实际端点、光纤属性、点亮与空闲容量、现网厂家和独立 SRLG",
+        "企业专线与 MPLS L2 / L3 的客户侧接口、保障带宽、SLA、保护域及是否需要独立波长或 OTN",
+        "2026 Q3 罗马尼亚业务的可比数据、网络投资项目、合同覆盖与采购主体；区分集团披露和本地工作包",
+        "一条具名客户链路的需求、负载、交付约束、预算责任人与采购窗口；无增量价值时撤回扩容假设"
       ]
     }
   ],
@@ -2344,6 +2357,106 @@
       "checkedAt": "",
       "scenario": "OTN 专线",
       "updatedAt": "2026-10-01"
+    },
+    {
+      "id": "digi-ro-leased-lines-undated",
+      "title": "DIGI 企业专线目录列出 64 Kbps 至 10 Gbps 和多环网络自述",
+      "countries": [
+        "RO"
+      ],
+      "accounts": [
+        "digi-ro"
+      ],
+      "topic": "market",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "DIGI Romania 企业专线产品页列出 64 Kbps–10 Gbps 的服务速率，并称自有国家网络采用中心环与多个区域环，由布加勒斯特及区域 NOC 监控。",
+      "sourceName": "DIGI Romania · Linii închiriate",
+      "sourceUrl": "https://www.digi.ro/business/servicii/internet/linii-inchiriate",
+      "sourceDate": "未标注",
+      "period": "无发布日期产品页；2026-11-14 核验；Kbps / Gbps 为产品速率，不是现网容量",
+      "locator": "Avantaje 速率列表；页末国家网络和 NOC 描述",
+      "method": "逐段读取运营商产品页，区分商品速率与网络拓扑自述；未以产品上限估算波长或设备采购。",
+      "boundary": "多环是运营商自述，不证明目标端点的物理独立 SRLG、倒换实测、当前设备或可售余量；10 Gbps 不是全网容量上限。",
+      "nextAction": "取得目标端点、路由、保护域、可售带宽、现网设备与 SLA。",
+      "checkedAt": "2026-11-14",
+      "scenario": "OTN 专线",
+      "updatedAt": "2026-11-14"
+    },
+    {
+      "id": "digi-ro-mpls-catalog-undated",
+      "title": "DIGI 企业 VPN 目录区分 MPLS L2 与 L3",
+      "countries": [
+        "RO"
+      ],
+      "accounts": [
+        "digi-ro"
+      ],
+      "topic": "market",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "DIGI Romania 企业目录分别列出基于 EoMPLS 的两地点 L2 VPN（标示 1 Mbps–10 Gbps）以及多站点 L3 VPN 与动态路由。",
+      "sourceName": "DIGI Romania · Internet pentru companii",
+      "sourceUrl": "https://www.digi.ro/business/servicii/internet",
+      "sourceDate": "未标注",
+      "period": "无发布日期产品页；2026-11-14 核验；L2 标示速率为 Mbps / Gbps",
+      "locator": "VPN - comunicații de date 下 MPLS LAYER 2、MPLS LAYER 3",
+      "method": "按产品页的 L2、L3 交付描述分别归类，不从 VPN 名称推定底层光层能力。",
+      "boundary": "MPLS / Ethernet 产品目录不能证明 ODU / OSU 交换、专用波长、全路径保护或具名客户采购；L2 标示速率不是传送网络上限。",
+      "nextAction": "取得具名企业端点、L2 / L3 SLA 与客户隔离和保护要求，再比较现有方案与波长 / OTN。",
+      "checkedAt": "2026-11-14",
+      "scenario": "OTN 专线",
+      "updatedAt": "2026-11-14"
+    },
+    {
+      "id": "digi-q3-2026-report-availability-20261113",
+      "title": "DIGI 已公告 2026 Q3 财报可获取，罗马尼亚传送投资仍待拆分",
+      "countries": [
+        "RO"
+      ],
+      "accounts": [
+        "digi-ro"
+      ],
+      "topic": "operator",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "DIGI 的投资者关系页面于 2026 年 11 月 13 日公告 2026 年第三季度财务报告可获取。",
+      "sourceName": "DIGI · Availability of Q3 2026 financial report",
+      "sourceUrl": "https://www.digi-communications.ro/en/announcements/current-reports/digi-current-report-availability-of-q3-2026-financial-report",
+      "sourceDate": "2026-11-13",
+      "period": "2026 Q3 报告可获取公告；不摘录未逐项复核的财务数字",
+      "locator": "页面标题、13.11.2026 日期和 Availability of Q3 2026 financial results",
+      "method": "核对官方投资者关系公告日期与报告可用性；把后续数据提取列为独立复核任务。",
+      "boundary": "公告本身不证明本地光传送投资、设备采购、当前合同或扩容需求；集团与罗马尼亚本地口径需分列。",
+      "nextAction": "读取正式财报，逐项定位罗马尼亚业务、资本支出及网络项目口径，再与采购文件和客户需求交叉核对。",
+      "checkedAt": "2026-11-14",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-11-14"
+    },
+    {
+      "id": "digi-ro-transport-lead",
+      "title": "DIGI · 从具名企业链路验证专线承载的增量需求",
+      "countries": [
+        "RO"
+      ],
+      "accounts": [
+        "digi-ro"
+      ],
+      "topic": "opportunity",
+      "kind": "hypothesis",
+      "status": "pending",
+      "summary": "用现有专线和 MPLS 产品作为访谈入口，核实高带宽、隔离或物理双路由的具名需求与现有交付差距，再比较波长、OTN 和现有 IP / Ethernet 方案。",
+      "sourceName": "DIGI Romania · Linii închiriate",
+      "sourceUrl": "https://www.digi.ro/business/servicii/internet/linii-inchiriate",
+      "sourceDate": "未标注",
+      "period": "候选假设整理于 2026-11-14；依据时期见来源记录",
+      "locator": "Avantaje 速率列表；页末国家网络和 NOC 描述",
+      "method": "业务信号仅作取证入口；逐项验证具名需求、技术交付、产品差距、预算窗口、责任人和经济性。",
+      "boundary": "产品速率、多环自述或 2026 Q3 财报可获取不等于设备机会；若现有方案满足需求、无独立工作包或经济性不成立，应撤回候选。",
+      "nextAction": "取得一条具名链路的端点、利用率、SLA、保护实测、合同覆盖、预算与采购负责人。",
+      "checkedAt": "",
+      "scenario": "OTN 专线",
+      "updatedAt": "2026-11-14"
     }
   ]
 }
