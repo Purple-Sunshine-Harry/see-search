@@ -1,0 +1,219 @@
+<title>SEE7 光网络情报</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&display=swap">
+<style>
+/* Layout: one reading column; status grid up top, then evidence cards with a stage ladder per item */
+:root{
+  --bg:#f5f7f8; --surface:#ffffff; --fg:#17212b; --muted:#5b6874; --line:#d9e0e5;
+  --accent:#0b6e8a; --accent-soft:#e1f0f4;
+  --ok:#1f7a4d; --ok-soft:#e3f3ea; --warn:#9a6a00; --warn-soft:#fbf1d9; --idle:#6b7680; --idle-soft:#eceff1;
+  --gA:#1f7a4d; --gB:#0b6e8a; --gC:#9a6a00; --gD:#a33b3b;
+  --f-body:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --f-head:"IBM Plex Sans Condensed","Noto Sans SC",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f151a; --surface:#162028; --fg:#e4eaee; --muted:#9aa7b2; --line:#26333d;
+  --accent:#4fb6d3; --accent-soft:#12303a;
+  --ok:#5cc58f; --ok-soft:#14301f; --warn:#e0b24a; --warn-soft:#33290f; --idle:#8d98a2; --idle-soft:#1d262d;
+  --gA:#5cc58f; --gB:#4fb6d3; --gC:#e0b24a; --gD:#e57a7a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f151a; --surface:#162028; --fg:#e4eaee; --muted:#9aa7b2; --line:#26333d;
+  --accent:#4fb6d3; --accent-soft:#12303a;
+  --ok:#5cc58f; --ok-soft:#14301f; --warn:#e0b24a; --warn-soft:#33290f; --idle:#8d98a2; --idle-soft:#1d262d;
+  --gA:#5cc58f; --gB:#4fb6d3; --gC:#e0b24a; --gD:#e57a7a; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.7}
+.wrap{max-width:920px;margin:0 auto;padding-block:32px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:40px}
+h1,h2,h3{font-family:var(--f-head);text-wrap:balance;margin:0;line-height:1.3}
+h1{font-size:30px;font-weight:600}
+h2{font-size:20px;font-weight:600;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+h2 small{font-family:var(--f-body);font-size:13px;font-weight:400;color:var(--muted)}
+h3{font-size:17px;font-weight:600}
+a{color:var(--accent);word-break:break-all}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+header{display:flex;flex-direction:column;gap:12px}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 24px;font-size:13px;color:var(--muted)}
+.meta b{display:block;color:var(--fg);font-family:var(--f-mono);font-weight:500;font-size:13px}
+.note{font-size:13px;color:var(--muted);border-left:3px solid var(--line);padding-left:12px}
+section{display:flex;flex-direction:column;gap:16px}
+.status{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.st{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;background:var(--surface);border:1px solid var(--line);border-radius:6px;font-size:14px}
+.st span:first-child{min-width:0}
+.pill{font-size:12px;padding:2px 8px;border-radius:999px;white-space:nowrap;font-weight:500}
+.p-ok{background:var(--ok-soft);color:var(--ok)}
+.p-idle{background:var(--idle-soft);color:var(--idle)}
+.p-warn{background:var(--warn-soft);color:var(--warn)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.card.boundary{border-style:dashed}
+.card-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:12px;padding:1px 8px;border:1px solid var(--line);border-radius:4px;color:var(--muted)}
+.grade{font-family:var(--f-mono);font-size:12px;font-weight:500;padding:1px 8px;border-radius:4px;border:1px solid currentColor}
+.gA{color:var(--gA)}.gB{color:var(--gB)}.gC{color:var(--gC)}.gD{color:var(--gD)}
+.dates{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:4px 16px;font-size:13px}
+.dates dt{color:var(--muted);font-size:12px}
+.dates dd{margin:0;font-family:var(--f-mono);font-size:13px}
+.ladder{display:flex;gap:2px;overflow-x:auto}
+.ladder span{flex:1 0 auto;min-width:52px;text-align:center;font-size:12px;padding:4px 6px;background:var(--idle-soft);color:var(--idle)}
+.ladder span:first-child{border-radius:4px 0 0 4px}.ladder span:last-child{border-radius:0 4px 4px 0}
+.ladder .done{background:var(--accent-soft);color:var(--accent)}
+.ladder .now{background:var(--accent);color:var(--surface);font-weight:700}
+.ladder.na span{opacity:.5}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.split>div{min-width:0}
+.lbl{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.lbl.inf{color:var(--warn)}
+ul{margin:0;padding-left:18px}
+li+li{margin-top:4px}
+.opp{background:var(--accent-soft);border-radius:6px;padding:12px 14px}
+.verify li::marker{content:"? ";color:var(--warn);font-family:var(--f-mono)}
+.src{font-size:13px}
+.src li{word-break:break-word}
+table{border-collapse:collapse;width:100%;font-size:14px}
+.tbl{overflow-x:auto}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:500}
+footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+@media (max-width:640px){.split{grid-template-columns:1fr}h1{font-size:24px}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">东南欧七国 · 光传送 / 运营商 / DC / 海缆 / DCI / Transit / 企业专线</div>
+  <h1>变更建议包 2026-11-14</h1>
+  <div class="meta">
+    <div>覆盖窗口（Europe/Sofia）<b>2026-11-11 00:00 → 11-14 11:25</b></div>
+    <div>检索日期<b>2026-11-14</b></div>
+    <div>国家<b>GR · BG · CY · RO · MD · MK · AL</b></div>
+  </div>
+  <p class="note">本页仅供人工审阅，内容不是最终结论。evidence-audit、operator-deep-dive、optical-market-intelligence 技能未安装，本期按任务规则执行。部分付费墙内容只读到摘要。每条都把事实与推断分开列出。</p>
+</header>
+
+<section>
+  <h2>客户状态 <small>3 条窗口内更新，2 条窗口前补收</small></h2>
+  <div class="status">
+    <div class="st"><span>OTE / COSMOTE TELEKOM（含 OTEGLOBE）</span><span class="pill p-idle">无可核实更新</span></div>
+    <div class="st"><span>Vodafone Greece</span><span class="pill p-ok">有更新 · #1</span></div>
+    <div class="st"><span>NOVA Greece</span><span class="pill p-idle">无可核实更新</span></div>
+    <div class="st"><span>Vivacom Bulgaria</span><span class="pill p-idle">无可核实更新</span></div>
+    <div class="st"><span>A1 Bulgaria</span><span class="pill p-idle">无可核实更新</span></div>
+    <div class="st"><span>Yettel Bulgaria（商业侧）</span><span class="pill p-idle">无可核实更新</span></div>
+    <div class="st"><span>CETIN Bulgaria（基础设施侧）</span><span class="pill p-idle">无可核实更新</span></div>
+    <div class="st"><span>DIGI Romania</span><span class="pill p-ok">有更新 · #2 #3</span></div>
+    <div class="st"><span>Moldtelecom (MTC)</span><span class="pill p-warn">窗口前 · B2</span></div>
+    <div class="st"><span>Cyta</span><span class="pill p-idle">无可核实更新</span></div>
+    <div class="st"><span>UGI（仅当影响 NOVA / Vivacom）</span><span class="pill p-idle">无直接影响动态</span></div>
+  </div>
+  <div class="legend">
+    <span><span class="grade gA">A</span> 官方 / 监管 / 招标 / 财报</span>
+    <span><span class="grade gB">B</span> 厂商正式发布</span>
+    <span><span class="grade gC">C</span> 权威行业媒体</span>
+    <span><span class="grade gD">D</span> 线索 / 传闻</span>
+  </div>
+</section>
+
+<section id="items"></section>
+<section id="boundary"></section>
+
+<section>
+  <h2>日历提示 <small>非本周期新闻，不计入更新</small></h2>
+  <div class="tbl"><table>
+    <thead><tr><th>日期</th><th>事项</th><th>来源</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">2026-12-02</td><td>ANCOM 就 DIGI 参考接入报价（5,894 个地点，物理光纤接入 + VULA）公众咨询截止</td><td><span class="grade gC">C</span> <a href="https://www.mobilissimo.ro/articole-diverse/digi-trebuie-sa-si-deschida-reteaua-de-internet-catre-concurenta-in-5-894-de-localitati-ancom-consulta-conditiile-de-acces" target="_blank" rel="noopener">Mobilissimo, 2026-11-02</a></td></tr>
+      <tr><td class="mono">2026-12-09</td><td>Moldtelecom FTTR 终端招标截止（见 B2）</td><td><span class="grade gA">A</span> Logos Press</td></tr>
+      <tr><td class="mono">2026 年底</td><td>PPC–Vodafone Greece 光纤 JV 的媒体预期签约时点</td><td><span class="grade gC">C</span> Business Daily, 2026-09-27</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2>已排除条目</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>条目</th><th>排除原因</th></tr></thead>
+    <tbody>
+      <tr><td>Vivacom 黑色十一月促销、VivaHome 智能家居、eSIM 转号（11-04 至 11-06）</td><td>零售业务，不在范围内</td></tr>
+      <tr><td>NOVA 全国网络中断</td><td>报道日期 2026-01-29，属旧闻</td></tr>
+      <tr><td>COSMOTE TELEKOM 雅典 AI 数据中心</td><td>报道日期 2026-03-27，属旧闻</td></tr>
+      <tr><td>A1 Bulgaria 恢复与韧性计划（RRP）农村网络完工</td><td>报道日期 2026-09-20，属旧闻</td></tr>
+      <tr><td>摩尔多瓦–罗马尼亚 400kV 输电线投运（约 11-09）</td><td>电力项目，没有 OPGW 光纤的证据</td></tr>
+      <tr><td>希腊恢复塞浦路斯"电缆"勘测（GreekReporter, 11-09）</td><td>页面无法读取；推测为 GSI 电力互联</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<footer>本期只生成建议包，没有修改任何网站或知识库，也没有对外发送消息。数据文件见同一项目的 data/2026-11-14.json。</footer>
+</div>
+
+<script>
+const STAGES=["规划","许可","融资","采购","合同","建设","验收","商用"];
+const ITEMS=[
+{id:"#1",title:"Vodafone Greece：H1 FY27 财报显示希腊业务增长，PPC 光纤合资仍是框架协议",entity:"Vodafone Greece",country:"希腊",topic:"运营商财报 · FTTH 批发 · 企业公共部门项目",grade:["A","C"],gradeNote:"财报为 A；希腊单国数字来自媒体，为 C",
+ dates:{"事件":"财报期截至 2026-09-30","发表":"Group 2026-11-10；希腊媒体 11-11","检索":"2026-11-14"},
+ stage:0,stageNote:"PPC JV 处于规划阶段：只签了框架协议（heads of terms），尽调、正式文件和监管审批均未完成",
+ facts:["财报原文：\"In Greece, service revenue increased as a result of growth in mobile and fixed service revenue\"。希腊未单独披露增长率，并入 Other Europe（H1 有机 +1.4%，Q2 +1.8%）。","Other Europe 的 Vodafone Business 有机服务收入 Q2 +9.9%，财报归因于希腊公共部门项目交付，含欧盟复苏基金（RRF）项目（RRF 已于 2026-09 关闭）。","PPC JV：双方光纤合计覆盖 >1.6M 户，定位为 50:50 批发开放接入。","媒体（C）：服务收入 €286M（+15.8%，期间口径不清）；自有光纤 >650,000 户；5G 人口覆盖 96.9%。"],
+ infer:["RRF 关闭后，下半财年公共部门项目收入可能放缓，企业侧会更依赖私营专线和云连接。","自有 FTTH 从约 620k（2026-09）增至约 650k，说明 JV 签约前仍在自建。"],
+ opp:"JV 签约后 6–12 个月，OLT/汇聚、批发 OSS 和开放接入平台可能集中选型，可以提前准备开放接入和城域 WDM/OTN 回传方案。另外，RRF 结束后企业专线和 DCI 需求值得跟进。",
+ verify:["€286M 是 Q2 单季还是 H1（对照财报 PDF 的国家附表）","\"fixed broadband customers declined by 6,000\" 是希腊口径还是 Other Europe 口径","JV 是否仍按 2026 年底签约推进"],
+ src:[["Vodafone H1 FY27 Results announcement (PDF) — Vodafone Group Plc","https://www.vodafone.com/~/media/Files/V/vodafone/corp/results-and-presentations/vodafone-h1-fy27-results-announcement.pdf"],["Vodafone Group announces H1 FY27 results — Vodafone","https://www.vodafone.com/news/newsroom/corporate-and-financial/vodafone-group-announces-h1-fy27-results"],["Στα 286 εκατ. ευρώ τα έσοδα υπηρεσιών της Vodafone Ελλάδας — To Pontiki","https://www.topontiki.gr/2026/11/11/sta-286-ekat-evro-ta-esoda-ipiresion-tis-vodafone-elladas-me-othisi-apo-psifiaka-erga/"]]},
+{id:"#2",title:"DIGI Romania：Q3 2026 业绩与罗马尼亚运营数据",entity:"Digi Communications N.V. / DIGI România",country:"罗马尼亚",topic:"运营商财报 · 固网宽带",grade:["A","C"],gradeNote:"集团数字为 A；罗马尼亚数字来自电话会转录，为 C",
+ dates:{"事件":"2026 Q3","发表":"2026-11-13","检索":"2026-11-14"},
+ stage:null,stageNote:"不适用（经营数据）",
+ facts:["集团：Q3 收入 €633M（+13%），调整后 EBITDA €197M（+26%）；9M 收入 €1.8B（+11%），EBITDA €528M（+21%）。","集团 Q3 capex €207M；2026 全年指引 €720–730M，未按国家拆分（C）。","罗马尼亚（电话会，C）：Q3 销售约 €336M，服务收入约 €280M，EBITDA 约 €158–159M，利润率 >52%。宽带 RGU >5.3M，移动近 9M，付费电视 6.1M。2026-07-01 起改以欧元计价。","CEO 称正在 \"consolidating the networks in Romania\"。"],
+ infer:["\"网络整合\"可能指接入或城域网络的合并、优化（例如 HFC/FTTB 迁移到 FTTH、机房收敛）。目前没有一手细节。"],
+ opp:"罗马尼亚利润率高、现金流强。网络整合再加上 ANCOM 的批发开放义务，可能带来 VULA 批发平台、城域汇聚扩容和 OSS/BSS 改造需求。",
+ verify:["对照 BVB 上的 Q3 报告原文，核实罗马尼亚分部数字和 capex 拆分","\"consolidating the networks\" 的具体含义"],
+ src:[["Digi Communications N.V. 9M 2026 results — Digi Communications N.V. (EuropaWire)","https://news.europawire.eu/digi-communications-n-v-reports-consolidated-revenues-of-18-billion-euros-in-the-first-nine-months-of-2026-up-11-year-on-year-and-528-million-euros-of-adjusted-ebitda-excluding-operating-leases/eu-press-release/2026/11/13/09/23/04/187690/"],["Romanian telco giant Digi reports EUR 1.8 billion in revenues — Romania Insider","https://www.romania-insider.com/business/romanian-telco-giant-digi-reports-eur-18-billion"],["Earnings call transcript: Digi Communications Q3 2026 — Investing.com","https://in.investing.com/news/stock-market-news/earnings-call-transcript-digi-communications-posts-strong-q3-2026-growth-93CH-5703573"]]},
+{id:"#3",title:"DIGI Romania：最高法院（ICCJ）终审维持无罪，反腐局（DNA）案结束",entity:"DIGI România",country:"罗马尼亚",topic:"法律合规（公共部门采购资格风险）",grade:["A"],gradeNote:"上市公司监管披露",
+ dates:{"事件":"2026-11-11","发表":"2026-11-11 18:39 布加勒斯特时间","检索":"2026-11-14"},
+ stage:null,stageNote:"不适用（司法终结）",
+ facts:["ICCJ 驳回 DNA 上诉，维持 2025-11-25 布加勒斯特上诉法院对 Digi Romania S.A.、相关董事和其他当事方的无罪判决。判决为终审。"],
+ infer:["DIGI 参与政府和公共部门项目（含此前媒体报道的 SAFE 相关合同）的声誉和资格阻力可能下降。"],
+ opp:"中等。DIGI 作为合作伙伴或总包方参与公共项目、企业专线标的时，风险评估分数会降低。",
+ verify:["DIGI 在罗马尼亚公共部门和国防通信相关合同的实际进展"],
+ src:[["DIGI – Hotărâre definitivă pronunțată de ICCJ în dosarul DNA — Digi Communications N.V. (BVB)","https://m.bvb.ro/FinancialInstruments/SelectedData/NewsItem/DIGI-Hotarare-definitiva-pronuntata-de-ICCJ-in-dosarul-DNA/6DFF9"]]}
+];
+const BOUNDARY=[
+{id:"B1",title:"Balkans Digital Gateway Works：希腊–保加利亚–罗马尼亚光纤走廊（Vestitel）",entity:"Vestitel · Digital Realty Greece · 希腊电信监管机构 EETT",country:"希腊 · 保加利亚 · 罗马尼亚",topic:"骨干光纤 · 跨境 DCI · Transit",grade:["C"],gradeNote:"国家通讯社报道推介会，尚无一手文件",
+ dates:{"事件":"雅典推介会（2026-11 初）","发表":"BTA 2026-11-05；Novini247 11-07","检索":"2026-11-14"},
+ stage:2,stageNote:"融资：报道称 EU 资金 €10.1M（总投资 €24M）。未证实已进入采购或建设，不上调阶段",
+ facts:["走廊 Athens–Thessaloniki–Sofia–Bucharest；新建 Burgas–Alexandroupoli、Ofrynio–Serres 两条路由；升级 Sofia–Kulata–Thessaloniki。","单段最高 40 Tbps，总计最高 200 Tbps；工期 36 个月，从 2025-12 起算。","未来可能延伸至摩尔多瓦、乌克兰，以及黑海–爱琴海海缆。另一来源称已获 EETT 批准（C）。"],
+ infer:["Vestitel 将成为 Vivacom、A1 BG、Yettel/CETIN 和 OTEGLOBE 在 GR–BG 跨境 Transit 和 DCI 上的新增竞争者或供给方。","与 Digital Realty 同台推介，说明目标客户是 DC 互联和海缆登陆回传。"],
+ opp:"高。新建骨干涉及光缆、DWDM/C+L 开放线路和 400G/800G 相干光模块，可以直接接触 Vestitel；也可以向 OTEGLOBE、Vivacom 推既有 Sofia–Thessaloniki 路由扩容方案。",
+ verify:["EU 资金来源（CEF Digital？）、项目编号、受益方","光设备和光缆是否已招标或签约","\"EETT 批准\"的具体性质"],
+ src:[["Проект за изграждане на високоскоростна оптична мрежа… представен в Атина — BTA","https://www.bta.bg/bg/news/balkans/1241010-proekt-za-izgrazhdane-na-visokoskorostna-optichna-mrezha-svarzvashta-balgariya-"],["Високоскоростната оптична мрежа между Гърция и България ще бъде разширена — Novini247","https://novini247.com/novini/visokoskorostnata-optichna-mreja-mejdu-gartsiya-i-balgariya-shte-bade-razshirena_11374816.html"]]},
+{id:"B2",title:"Moldtelecom：FTTR（GPON/XGS-PON）终端公开招标",entity:"S.A. \"Moldtelecom\"",country:"摩尔多瓦",topic:"FTTH 接入 · 终端采购",grade:["A"],gradeNote:"招标公告",
+ dates:{"发表":"2026-11-09","投标截止":"2026-12-09 12:00","检索":"2026-11-14"},
+ stage:3,stageNote:"采购：公开招标进行中",
+ facts:["采购对象为 GPON/XGS-PON 的光纤到房间（FTTR）终端设备，数量未披露。","在基希讷乌 Bd. Ștefan cel Mare și Sfânt 10 递交，联系人为招标委员会秘书 Victor Gherasim。"],
+ infer:["结合 2026 年已发布的 GPON/XGS-PON SFP（05 月）和光缆（09 月）招标，MTC 正在推进 XGS-PON 升级和 FTTR 产品化。"],
+ opp:"中。有接入产品线的话可以在 12-09 前投标，也可以借此了解 OLT 和汇聚侧后续扩容。",
+ verify:["数量和技术规格书","是否限定厂商或资质"],
+ src:[["Licitaţie deschisă privind achiziţionarea echipamentelor terminale FTTR — Logos Press","https://logos-pres.md/articol/licitatie-deschisa-privind-achizitionarea-echipamentelor-terminale-fttr"]]}
+];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function ladder(i){
+  if(i===null) return `<div class="ladder na" aria-label="阶段不适用">${STAGES.map(s=>`<span>${s}</span>`).join("")}</div>`;
+  return `<div class="ladder" aria-label="当前阶段：${STAGES[i]}">${STAGES.map((s,k)=>`<span class="${k<i?"done":k===i?"now":""}">${s}</span>`).join("")}</div>`;
+}
+function card(x,boundary){
+  return `<article class="card${boundary?" boundary":""}">
+  <div class="card-top"><div class="tags"><span class="tag mono">${x.id}</span><span class="tag">${esc(x.country)}</span><span class="tag">${esc(x.topic)}</span></div>
+  <div class="tags">${x.grade.map(g=>`<span class="grade g${g}">${g}</span>`).join("")}</div></div>
+  <h3>${esc(x.title)}</h3>
+  <div style="font-size:13px;color:var(--muted)">实体：${esc(x.entity)} · 证据：${esc(x.gradeNote)}</div>
+  <dl class="dates">${Object.entries(x.dates).map(([k,v])=>`<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>
+  <div><div class="lbl">项目阶段</div>${ladder(x.stage)}<div style="font-size:13px;color:var(--muted);margin-top:6px">${esc(x.stageNote)}</div></div>
+  <div class="split"><div><div class="lbl">事实</div><ul>${x.facts.map(f=>`<li>${esc(f)}</li>`).join("")}</ul></div>
+  <div><div class="lbl inf">推断</div><ul>${x.infer.map(f=>`<li>${esc(f)}</li>`).join("")}</ul></div></div>
+  <div class="opp"><div class="lbl">销售机会意义</div>${esc(x.opp)}</div>
+  <div><div class="lbl">待核实</div><ul class="verify">${x.verify.map(f=>`<li>${esc(f)}</li>`).join("")}</ul></div>
+  <div class="src"><div class="lbl">来源</div><ul>${x.src.map(([t,u])=>`<li>${esc(t)}<br><a href="${esc(u)}" target="_blank" rel="noopener">${esc(u)}</a></li>`).join("")}</ul></div>
+  </article>`;
+}
+document.getElementById("items").innerHTML=`<h2>窗口内新增事实 <small>2026-11-11 至 11-14</small></h2>`+ITEMS.map(x=>card(x,false)).join("");
+document.getElementById("boundary").innerHTML=`<h2>窗口前补收 <small>上次已收录的话可以忽略</small></h2>`+BOUNDARY.map(x=>card(x,true)).join("");
+</script>
