@@ -1,0 +1,2349 @@
+{
+  "title": "东南欧光传送 · 公开研究库",
+  "source": {
+    "siteVersion": 23,
+    "siteCommit": "54605dea83388eef6dfebb4aa8df784cddf4aefa",
+    "siteUpdated": "2026-11-11",
+    "exported": "2026-11-14",
+    "note": "仅公开来源研究记录；未经复核的本期建议包独立保留"
+  },
+  "countries": [
+    {
+      "id": "GR",
+      "name": "希腊",
+      "en": "Greece",
+      "focus": "海缆登陆、城域 DCI 与国际批发",
+      "question": "登陆站到数据中心之间，哪些光层与保护需求已有客户或招标支持？"
+    },
+    {
+      "id": "BG",
+      "name": "保加利亚",
+      "en": "Bulgaria",
+      "focus": "跨境 Transit、互联与高端专线",
+      "question": "索菲亚互联与跨境路由的需求，能否转化为具名波长或 OTN 订单？"
+    },
+    {
+      "id": "CY",
+      "name": "塞浦路斯",
+      "en": "Cyprus",
+      "focus": "多数据中心互联、灾备与海缆回传",
+      "question": "数据中心扩建需要哪些实际端点、独立路由、容量和业务 SLA？"
+    },
+    {
+      "id": "RO",
+      "name": "罗马尼亚",
+      "en": "Romania",
+      "focus": "数据中心接入、跨境互联与承载",
+      "question": "已获许可的数据中心项目，何时形成可确认的运营商接入采购？"
+    },
+    {
+      "id": "MD",
+      "name": "摩尔多瓦",
+      "en": "Moldova",
+      "focus": "跨境冗余、汇聚与业务连续性",
+      "question": "跨境业务的物理分离与容量缺口，是否有路由和客户数据支持？"
+    },
+    {
+      "id": "MK",
+      "name": "北马其顿",
+      "en": "North Macedonia",
+      "focus": "城域汇聚、移动承载与跨境波长",
+      "question": "接入增长是否已造成汇聚瓶颈？在哪些链路、哪个时间窗口发生？"
+    },
+    {
+      "id": "AL",
+      "name": "阿尔巴尼亚",
+      "en": "Albania",
+      "focus": "海陆互联、登陆回传与批发",
+      "question": "海陆互联合作从意向到采购，还缺融资、许可或锚定客户中的哪一项？"
+    }
+  ],
+  "topics": [
+    {
+      "id": "macro",
+      "name": "国家基本情况",
+      "purpose": "理解需求底盘与可服务市场"
+    },
+    {
+      "id": "policy",
+      "name": "政策与监管",
+      "purpose": "识别投资驱动与准入条件"
+    },
+    {
+      "id": "operator",
+      "name": "运营商与客户",
+      "purpose": "连接业务诉求与网络现状"
+    },
+    {
+      "id": "market",
+      "name": "市场与需求",
+      "purpose": "用一致口径判断需求空间"
+    },
+    {
+      "id": "network",
+      "name": "网络与基础设施",
+      "purpose": "定位容量、路由与互联缺口"
+    },
+    {
+      "id": "technology",
+      "name": "竞争与技术",
+      "purpose": "判断产品匹配和竞争边界"
+    },
+    {
+      "id": "opportunity",
+      "name": "空间机会点",
+      "purpose": "把行业信号转化为可验证机会"
+    },
+    {
+      "id": "risk",
+      "name": "风险与约束",
+      "purpose": "识别会改变结论的约束"
+    }
+  ],
+  "scenarios": [
+    "国家 / 政策",
+    "骨干 / 城域",
+    "DCI",
+    "OTN 专线",
+    "Transit / 批发",
+    "海缆 / 回传",
+    "移动 / 固网承载",
+    "行业专网"
+  ],
+  "accounts": [
+    {
+      "id": "ote-gr",
+      "name": "希腊 OTE",
+      "country": "GR",
+      "scope": "OTE / COSMOTE TELEKOM；另列 OTEGLOBE 国际批发",
+      "boundary": "国内承载网络、企业业务与国际批发分开取证；不能把集团关系视为统一采购权限。OTE 集团批发分部数据不能替代 OTEGLOBE 单体口径。SVO 为 PON 接入产品，不与 OTN 硬管道混写。获批价格、产品参考报价修改、实际交付和传送采购分别验证。",
+      "requests": [
+        "OTEGLOBE 2023–2026 单体财务、产品 / 客户 / 流量结构，以及 OTE 所称部分零利润国际 transit 活动退出的具体范围、客户迁移与资产影响",
+        "SVO 500M / 1G 的最终产品文本、生效参考报价、实际可订购区域、完整收费项、VLAN / QoS 与采用率；23 个局所区域 FTTH 成本导向义务咨询后的最终决定、适用产品 / 地域和生效日",
+        "国内骨干与 OTEGLOBE 各自的采购主体、技术负责人、框架合同与已覆盖工作包",
+        "OTEGLOBE 目标路由的租赁期限、真实 SRLG、点亮 / 空闲容量、现网厂家、频谱、端口与忙时利用率，以及客户侧 100G / 400G 端点、保护需求与采购窗口"
+      ]
+    },
+    {
+      "id": "vodafone-gr",
+      "name": "希腊 Vodafone",
+      "country": "GR",
+      "scope": "Vodafone Greece；Fiber2All 资产与合作项目单列",
+      "boundary": "Grid Telecom 光纤使用权、Vodafone 自有资产与拟议 FiberGrid 合资分开；意向公告不作为交割证明。PPC FiberGrid 的独立覆盖更新不自动成为合资资产；Vodafone 监管意见也不替代交易或具名现网证据。",
+      "requests": [
+        "Fiber2All 与拟议合资项目的约束性文件、审批、最终资产清单及合资前后采购授权",
+        "FTTH 成本导向义务的最终决定、实际可服务区域、基础设施接入 KPI 与交付数据；区分 homes passed 与可用性，不把意见当裁定",
+        "已用 / 租用光纤路由、期限、扩容权限和保护域；核对 PPC 10 月覆盖基线与交易范围的关系",
+        "把接入覆盖映射到具名汇聚 / 城域链路的容量、现网设备、合同覆盖及可参与工作包"
+      ]
+    },
+    {
+      "id": "nova-gr",
+      "name": "希腊 NOVA",
+      "country": "GR",
+      "scope": "以 NOVA 希腊本地子网为重点；UGI 集团干线仅跟踪相关影响",
+      "boundary": "原 Wind 不重复计算；NOVA 本地子网与 UGI 集团干线分开记录。组织定位按研究范围使用，具体资产、合同和采购授权仍逐项目核实。",
+      "requests": [
+        "NOVA 本地骨干 / 城域拓扑、设备与退网计划",
+        "OTE 8G FTTH 批发的 100G ΟΚΣΥΑ 接口实际可用区域、申请量、聚合拓扑与现有传送余量",
+        "涉及 NOVA 的 UGI 交接点、容量及采购分工；本地已签合同与可参与工作包"
+      ]
+    },
+    {
+      "id": "vivacom-bg",
+      "name": "保加利亚 VIVACOM",
+      "country": "BG",
+      "scope": "Vivacom Bulgaria；UGI 仅收录与本地网络有关的项目",
+      "boundary": "保加利亚本地经营口径与 UGI 集团干线分开；关联需说明具体端点、路由或交付影响。无日期产品页中的容量不作为当前现网总量。",
+      "requests": [
+        "涉及本地业务的 UGI 网络资产、交付及采购责任划分",
+        "BG-RRP-7.008-0001 / 0002 的实际完成分段、竣工 / 验收 / RFS、纤芯、主动设备与未覆盖工作包",
+        "云主备站点、RPO / RTO、复制峰值、现有 DCI 余量及全路径 SRLG",
+        "索菲亚—跨境路由的利用率和厂家；当前专线 / 波长产品、具名需求及传送预算分项"
+      ]
+    },
+    {
+      "id": "ppf-bg",
+      "name": "保加利亚 PPF",
+      "country": "BG",
+      "scope": "Yettel Bulgaria + CETIN Bulgaria，均纳入研究",
+      "boundary": "账户范围与业务 / 基础设施分工已由研究范围。两家主体分别建立需求、资产与采购证据，不把组织分工自动等同于统一预算或采购权。",
+      "requests": [
+        "一般 OTN / SNCP 产品与区域未保护 DWDM 的端点、保护层次、SRLG、倒换实测和生效 SLA；不能混用 99.70% 模板与保护产品",
+        "5G Balkans 与 BG-RRP 的完工 / 验收、主动设备合同及剩余工作包；区域条款批准决定和实际可售路由",
+        "Yettel 业务需求与 CETIN 网络规划如何衔接、由谁批准技术和预算，以及两家各自的采购授权",
+        "双环、跨境路由的容量、接口和利用率；先以具名需求验证扩容必要性"
+      ]
+    },
+    {
+      "id": "mtc-md",
+      "name": "摩尔多瓦 MTC",
+      "country": "MD",
+      "scope": "摩尔多瓦电信公司（S.A. Moldtelecom）",
+      "boundary": "MTC 对应 Moldtelecom 已由研究范围；现网、预算、合同及采购权限仍需分别取证。主体对应确认不构成商机或订单确认。",
+      "requests": [
+        "公告 1838 / 1849 的材料采购已延期至 11 月 9 日 12:00 且期限已过：完整文件、后续结果 / 取消 / 再延期、标包、规格、投标与授标 / 合同 / 验收；是否另有主动设备工作包",
+        "10 月 22 日公布 4 名最终候选之后的 Business Case / 最终面试结果、董事会任命与生效日；任命后的网络规划、技术签署、预算与采购审批授权链",
+        "Data City 与跨境 / 企业端点的现网拓扑、利用率和独立路由",
+        "现网厂家、专线产品与 SLA、具名需求及采购计划"
+      ]
+    },
+    {
+      "id": "cyta-cy",
+      "name": "塞浦路斯 Cyta",
+      "country": "CY",
+      "scope": "Cyta；RedMax 数据中心扩建与专线产品分列",
+      "boundary": "RedMax 收购签约、交割、扩建投产和传送采购分别取证；不要把旧报告 RedOne 标题替代官方资产名称。",
+      "requests": [
+        "RedMax 项目是否需监管申报、交割状态及首阶段建设 / 网络开通计划",
+        "实际互联端点、可用容量、物理双路由及 RPO / RTO",
+        "目标客户需求、预算负责人、采购工作包和存量合同"
+      ]
+    },
+    {
+      "id": "a1-bg",
+      "name": "保加利亚 A1",
+      "country": "BG",
+      "scope": "A1 Bulgaria 本地光传送网络；长期重点，目标方案切入",
+      "boundary": "国内与集团国际网分别取证。2025 年国内附件披露既有 Nokia WaveSuite-NOC，只能证明当时网管及集成要求，不能外推全国硬件份额或排他框架；已截止招标不视为开放机会。",
+      "requests": [
+        "当前 WS-NOC 版本 / 接口 / 许可、等效集成判定与验证责任；本地 / 集团准入、框架及试点审批人",
+        "北部 DWDM、光接口与监测项目的规格、授标、合同、验收及未覆盖工作包；历史 8 槽 / 自研 DSP / 800G / C+L 条款是否仍适用",
+        "北中部六个设计位置及跨区终结方向的竣工拓扑、实际厂家 / 型号、容量余量、SRLG 与保护实测；不以接入覆盖代替验收",
+        "客户认可的试点目标、量化验收条件、集成和生命周期成本、预算责任人及转采购路径"
+      ]
+    }
+  ],
+  "insights": [
+    {
+      "id": "cyta-announcement",
+      "title": "Cyta 已公告签署 RedMax 收购及扩建协议",
+      "countries": [
+        "CY"
+      ],
+      "accounts": [
+        "cyta-cy"
+      ],
+      "topic": "operator",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "Cyta 公告称已签署 Latsia 工业区 RedMax 数据中心收购协议，包含扩建与升级；首阶段计划于 2027 年初商用。目标服务包括企业、公共机构及国际组织的云与托管需求。",
+      "sourceName": "Cyta 官方新闻稿 15/2026",
+      "sourceUrl": "https://www.cyta.com.cy/pr/2026-jul-15?postid=383",
+      "sourceDate": "2026-07-07",
+      "period": "公告时点：2026-07-07；计划首阶段：2027 年初",
+      "locator": "正文第 1–3 段；落款 7 Ιουλίου 2026",
+      "method": "回查官方希腊语公告；按正文落款确定发布日期。URL 中的 jul-15 不作为日期依据。",
+      "boundary": "核验的是官方已作出的披露。公告未证明交割已完成、扩建已投产、具体 OTT 租户入驻或 DWDM 采购金额。",
+      "nextAction": "获取首期网络端点、实际开通计划与容量需求。",
+      "checkedAt": "2026-09-20",
+      "scenario": "DCI",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "oteglobe-catalog",
+      "title": "OTEGLOBE 官方目录列出 10G / 400G 波长服务",
+      "countries": [
+        "GR"
+      ],
+      "accounts": [
+        "ote-gr"
+      ],
+      "topic": "market",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "官方目录列有 10Gbps 和 400Gbps 波长服务，可按客户需求提供保护或无保护配置；Ethernet 服务速率最高 400Gbps。",
+      "sourceName": "OTEGLOBE · Carrier Data Solutions",
+      "sourceUrl": "https://www.oteglobe.gr/carrier-data-solutions",
+      "sourceDate": "未标注",
+      "period": "网页核验日：2026-09-20",
+      "locator": "Capacity Services 与 Ethernet Services",
+      "method": "逐项读取运营商产品目录，按波长与 Ethernet 两类保留产品口径。",
+      "boundary": "产品目录不能证明所有路由可交付，也不能单凭 400G 或波长服务认定存在 ODU / OSU 级 OTN 硬管道。",
+      "nextAction": "索取目标路由报价、交付范围、保护域和 OTN 交换能力。",
+      "checkedAt": "2026-09-20",
+      "scenario": "OTN 专线",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "artemis-plan",
+      "title": "ARTEMIS 公告披露至少 720 Tbps 设计容量",
+      "countries": [
+        "GR"
+      ],
+      "accounts": [],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "Grid Telecom 的 ARTEMIS 公告规划连接克里特与阿提卡，约 280 公里（包含陆上段），至少 24 纤对；每纤对最高 30 Tbps，总设计容量至少 720 Tbps。",
+      "sourceName": "Grid Telecom · ARTEMIS 建设公告",
+      "sourceUrl": "https://www.grid-telecom.com/nea/anakoinoseis/grid-telecom-construct-artemis-new-subsea-optical-fiber-cable-system-connecting",
+      "sourceDate": "2026-02-04",
+      "period": "正文新闻稿日期 2026-02-03；页面日期 2026-02-04",
+      "locator": "新闻稿第 2 段的长度、纤对与容量披露",
+      "method": "回查项目方公告；记录页面与新闻稿日期差异。24 × 30 = 720 Tbps 是设计参数的算术核对。",
+      "boundary": "规划设计容量不等于已点亮、已售或当前流量；该公告未提供本知识空间可确认的新增设备订单。",
+      "nextAction": "跟进建设批次、登陆站、陆上回传和采购边界。",
+      "checkedAt": "2026-09-20",
+      "scenario": "海缆 / 回传",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "cyta-opportunity",
+      "title": "Cyta 多数据中心 DCI · 先验证业务与双路由",
+      "countries": [
+        "CY"
+      ],
+      "accounts": [
+        "cyta-cy"
+      ],
+      "topic": "opportunity",
+      "kind": "hypothesis",
+      "status": "pending",
+      "summary": "将 RedMax 扩建作为客户讨论入口，验证其与现有数据中心之间的互联、灾备与保护需求。当前保留为候选机会，尚无已确认的容量、预算或采购时间。",
+      "sourceName": "Cyta 官方公告 + 既有 RedOne 研究",
+      "sourceUrl": "https://www.cyta.com.cy/pr/2026-jul-15?postid=383",
+      "sourceDate": "2026-07-07",
+      "period": "候选机会；2026-09-19整理",
+      "locator": "公告对云、托管及既有数据中心体系的描述",
+      "method": "从业务里程碑出发，验证端点—路由—容量—SLA—采购窗口；不由机柜或 MW 直接推算传送投资。",
+      "boundary": "收购扩建提供讨论线索，不能证明必须采用某种 OTN / DWDM 方案；若已有足够互联能力或业务无需双活，需下调或撤回机会。",
+      "nextAction": "确认两个实际端点、现有可用容量、RPO / RTO、双路由证据及预算负责人。",
+      "checkedAt": "",
+      "scenario": "DCI",
+      "updatedAt": "2026-09-19"
+    },
+    {
+      "id": "artemis-opportunity",
+      "title": "ARTEMIS 登陆回传 · 明确可参与的设备边界",
+      "countries": [
+        "GR"
+      ],
+      "accounts": [],
+      "topic": "opportunity",
+      "kind": "hypothesis",
+      "status": "pending",
+      "summary": "围绕登陆站到数据中心的回传与互联，研究光层扩容、保护及运维的可参与范围。先确认已签合同与供应商边界，再判断潜在项目。",
+      "sourceName": "Grid Telecom · ARTEMIS 建设公告",
+      "sourceUrl": "https://www.grid-telecom.com/nea/anakoinoseis/grid-telecom-construct-artemis-new-subsea-optical-fiber-cable-system-connecting",
+      "sourceDate": "2026-02-04",
+      "period": "建设公告后续待核验",
+      "locator": "新登陆站、OCIE 和数据中心回传段落",
+      "method": "按海缆湿段、终端、登陆站与陆上回传拆分工作包，以采购边界与交付需求验证可进入空间。",
+      "boundary": "不把海缆总设计容量折算为本供应商可获得收入；若终端与回传均已包含在现有合同内，需要重新评估进入路径。",
+      "nextAction": "核实目标登陆站、责任主体、已定供应商、未覆盖工作包和最新建设节点。",
+      "checkedAt": "",
+      "scenario": "海缆 / 回传",
+      "updatedAt": "2026-09-19"
+    },
+    {
+      "id": "institutional-gr",
+      "title": "希腊 · 欧盟身份与计价币种",
+      "countries": [
+        "GR"
+      ],
+      "accounts": [],
+      "topic": "macro",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "首都雅典；1981-01-01 加入欧盟，2001-01-01 加入欧元区，货币为欧元。",
+      "sourceName": "欧盟官方国家概况 · 希腊",
+      "sourceUrl": "https://european-union.europa.eu/principles-countries-history/eu-countries/greece_en",
+      "sourceDate": "未标注；2026-09-20 回查",
+      "period": "2026-09-20 页面快照；国家制度与货币类别，非市场规模统计；单位不适用。",
+      "locator": "Overview：Capital、EU Member State、Currency / Euro area",
+      "method": "逐项核对欧盟官方国家页；加入日期与当前网页回查日期分开。不抽取该概况页的人口或人均 GDP 作为统一年度统计。",
+      "boundary": "仅建立制度与币种底稿；不据此推导购买力、设备投资、欧盟资金获批或具体项目资格。历史金额必须另列币种、年份及换算方法。",
+      "nextAction": "补齐官方 GDP、企业行业与规模、主要城市和数字基础设施的同口径原表。",
+      "checkedAt": "2026-09-20",
+      "scenario": "国家 / 政策",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "institutional-bg",
+      "title": "保加利亚 · 欧盟身份与计价币种",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [],
+      "topic": "macro",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "首都索菲亚；2007-01-01 加入欧盟，2026-01-01 加入欧元区，货币为欧元。旧资料中的保加利亚列弗金额须保留原始币种和时期，不能直接与欧元金额合计。",
+      "sourceName": "欧盟官方国家概况 · 保加利亚",
+      "sourceUrl": "https://european-union.europa.eu/principles-countries-history/eu-countries/bulgaria_en",
+      "sourceDate": "未标注；2026-09-20 回查",
+      "period": "2026-09-20 页面快照；国家制度与货币类别，非市场规模统计；单位不适用。",
+      "locator": "Overview：Capital、EU Member State、Currency / Euro area",
+      "method": "逐项核对欧盟官方国家页；加入日期与当前网页回查日期分开。不抽取该概况页的人口或人均 GDP 作为统一年度统计。",
+      "boundary": "仅建立制度与币种底稿；不据此推导购买力、设备投资、欧盟资金获批或具体项目资格。历史金额必须另列币种、年份及换算方法。",
+      "nextAction": "补齐官方 GDP、企业行业与规模、主要城市和数字基础设施的同口径原表。",
+      "checkedAt": "2026-09-20",
+      "scenario": "国家 / 政策",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "institutional-cy",
+      "title": "塞浦路斯 · 欧盟身份与计价币种",
+      "countries": [
+        "CY"
+      ],
+      "accounts": [],
+      "topic": "macro",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "首都尼科西亚；2004-05-01 加入欧盟，2008-01-01 加入欧元区，货币为欧元。",
+      "sourceName": "欧盟官方国家概况 · 塞浦路斯",
+      "sourceUrl": "https://european-union.europa.eu/principles-countries-history/eu-countries/cyprus_en",
+      "sourceDate": "未标注；2026-09-20 回查",
+      "period": "2026-09-20 页面快照；国家制度与货币类别，非市场规模统计；单位不适用。",
+      "locator": "Overview：Capital、EU Member State、Currency / Euro area",
+      "method": "逐项核对欧盟官方国家页；加入日期与当前网页回查日期分开。不抽取该概况页的人口或人均 GDP 作为统一年度统计。",
+      "boundary": "仅建立制度与币种底稿；不据此推导购买力、设备投资、欧盟资金获批或具体项目资格。历史金额必须另列币种、年份及换算方法。",
+      "nextAction": "补齐官方 GDP、企业行业与规模、主要城市和数字基础设施的同口径原表。",
+      "checkedAt": "2026-09-20",
+      "scenario": "国家 / 政策",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "institutional-ro",
+      "title": "罗马尼亚 · 欧盟身份与计价币种",
+      "countries": [
+        "RO"
+      ],
+      "accounts": [],
+      "topic": "macro",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "首都布加勒斯特；2007-01-01 加入欧盟，货币为罗马尼亚列伊（RON）；欧盟国家页仍将采用欧元列为满足条件后的安排。",
+      "sourceName": "欧盟官方国家概况 · 罗马尼亚",
+      "sourceUrl": "https://european-union.europa.eu/principles-countries-history/eu-countries/romania_en",
+      "sourceDate": "未标注；2026-09-20 回查",
+      "period": "2026-09-20 页面快照；国家制度与货币类别，非市场规模统计；单位不适用。",
+      "locator": "Overview：Capital、EU Member State、Currency / Euro area",
+      "method": "逐项核对欧盟官方国家页；加入日期与当前网页回查日期分开。不抽取该概况页的人口或人均 GDP 作为统一年度统计。",
+      "boundary": "仅建立制度与币种底稿；不据此推导购买力、设备投资、欧盟资金获批或具体项目资格。历史金额必须另列币种、年份及换算方法。",
+      "nextAction": "补齐官方 GDP、企业行业与规模、主要城市和数字基础设施的同口径原表。",
+      "checkedAt": "2026-09-20",
+      "scenario": "国家 / 政策",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "institutional-md",
+      "title": "摩尔多瓦 · 欧盟候选国身份",
+      "countries": [
+        "MD"
+      ],
+      "accounts": [],
+      "topic": "macro",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "欧盟委员会将摩尔多瓦列为候选国；首次入盟政府间会议于 2024-06-25 举行。候选国身份不能替代对本国电信法律和投资规则的逐项核查。",
+      "sourceName": "欧盟委员会扩大事务 · 摩尔多瓦",
+      "sourceUrl": "https://enlargement.ec.europa.eu/countries/moldova_en",
+      "sourceDate": "未标注；2026-09-20 回查",
+      "period": "2026-09-20 页面快照；候选国身份与历史入盟里程碑；单位不适用。",
+      "locator": "Country status / Background / Timeline；首次政府间会议说明",
+      "method": "读取欧盟委员会国家页的身份及里程碑，不把谈判目标或进度转写为已入盟。",
+      "boundary": "不是对国内法律的适用意见；不能自动套用欧盟基础设施法规。人口、GDP、币种及国内执行规则仍需各自原始来源。",
+      "nextAction": "补齐本国统计局原表、监管机构法规及跨境建设和许可要求。",
+      "checkedAt": "2026-09-20",
+      "scenario": "国家 / 政策",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "institutional-mk",
+      "title": "北马其顿 · 欧盟候选国身份",
+      "countries": [
+        "MK"
+      ],
+      "accounts": [],
+      "topic": "macro",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "欧盟委员会记录北马其顿于 2005 年 12 月取得候选国地位，2022 年 7 月举行首次入盟政府间会议。入盟进程不等于已成为欧盟成员国。",
+      "sourceName": "欧盟委员会扩大事务 · 北马其顿",
+      "sourceUrl": "https://enlargement.ec.europa.eu/countries/north-macedonia_en",
+      "sourceDate": "未标注；2026-09-20 回查",
+      "period": "2026-09-20 页面快照；候选国身份与历史入盟里程碑；单位不适用。",
+      "locator": "Country status / Background / Timeline；首次政府间会议说明",
+      "method": "读取欧盟委员会国家页的身份及里程碑，不把谈判目标或进度转写为已入盟。",
+      "boundary": "不是对国内法律的适用意见；不能自动套用欧盟基础设施法规。人口、GDP、币种及国内执行规则仍需各自原始来源。",
+      "nextAction": "补齐本国统计局原表、监管机构法规及跨境建设和许可要求。",
+      "checkedAt": "2026-09-20",
+      "scenario": "国家 / 政策",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "institutional-al",
+      "title": "阿尔巴尼亚 · 欧盟候选国身份",
+      "countries": [
+        "AL"
+      ],
+      "accounts": [],
+      "topic": "macro",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "欧盟委员会记录阿尔巴尼亚于 2014 年 6 月取得候选国地位，2022 年 7 月举行首次入盟政府间会议。入盟进程不等于已成为欧盟成员国。",
+      "sourceName": "欧盟委员会扩大事务 · 阿尔巴尼亚",
+      "sourceUrl": "https://enlargement.ec.europa.eu/countries/albania_en",
+      "sourceDate": "未标注；2026-09-20 回查",
+      "period": "2026-09-20 页面快照；候选国身份与历史入盟里程碑；单位不适用。",
+      "locator": "Country status / Background / Timeline；首次政府间会议说明",
+      "method": "读取欧盟委员会国家页的身份及里程碑，不把谈判目标或进度转写为已入盟。",
+      "boundary": "不是对国内法律的适用意见；不能自动套用欧盟基础设施法规。人口、GDP、币种及国内执行规则仍需各自原始来源。",
+      "nextAction": "补齐本国统计局原表、监管机构法规及跨境建设和许可要求。",
+      "checkedAt": "2026-09-20",
+      "scenario": "国家 / 政策",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "population-bg-2025",
+      "title": "保加利亚人口 · 2025 年末 6,423,207 人",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [],
+      "topic": "macro",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "保加利亚国家统计局表列 2025-12-31 全国人口 6,423,207 人。作为需求背景保留原始人数，不折算为企业专线或光传送设备需求。",
+      "sourceName": "NSI · Population by districts, age, place of residence and sex",
+      "sourceUrl": "https://www.nsi.bg/en/statistical-data/206/649",
+      "sourceDate": "2026-04-29",
+      "period": "2025-12-31；保加利亚全国通常居住人口；单位：人；年末存量，非年度平均人口。",
+      "locator": "表头 AS OF 31.12.2025 (Number)；Total 行、Total 列；元数据 Methodology",
+      "method": "直接读取全国合计；依据统计局人口普查基数与出生、死亡、迁移更新方法。不同基准日的人口不混算。",
+      "boundary": "人口不等于企业客户数、宽带连接数或付费需求；不与其他国家不同日期的快照相加排名。",
+      "nextAction": "补齐同年度企业行业分布、非金融企业数量及通信监管统计。",
+      "checkedAt": "2026-09-20",
+      "scenario": "国家 / 政策",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "population-gr-2025",
+      "title": "希腊人口 · 2025 年初估计 10,372,335 人",
+      "countries": [
+        "GR"
+      ],
+      "accounts": [],
+      "topic": "macro",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "ELSTAT 于 2025-12-18 发布的估计显示，2025-01-01 希腊常住人口为 10,372,335 人；该版本同时修订了上年估计。保留统计局原始版本，不与未说明修订状态的国家概况值拼接。",
+      "sourceName": "ELSTAT · Estimated population, 1 January 2025",
+      "sourceUrl": "https://www.statistics.gr/en/statistics?_documents_WAR_publicationsportlet_INSTANCE_qDQ8fBKKo4lN_documentID=583955&_documents_WAR_publicationsportlet_INSTANCE_qDQ8fBKKo4lN_javax.faces.resource=document&_documents_WAR_publicationsportlet_INSTANCE_qDQ8fBKKo4lN_ln=downloadResources&_documents_WAR_publicationsportlet_INSTANCE_qDQ8fBKKo4lN_locale=en&p_p_cacheability=cacheLevelPage&p_p_col_count=4&p_p_col_id=column-2&p_p_col_pos=1&p_p_id=documents_WAR_publicationsportlet_INSTANCE_qDQ8fBKKo4lN&p_p_lifecycle=2&p_p_mode=view&p_p_state=normal",
+      "sourceDate": "2025-12-18",
+      "period": "2025-01-01；希腊全国常住人口估计；单位：人；基于 2021 年人口普查的修订序列。",
+      "locator": "2025 新闻稿（文档 583955）PDF 第 1 页总量、第 2 页 Table 1；末尾方法说明",
+      "method": "读取原始新闻稿 TOTAL；核对 2021 年普查基数、2024 年人口自然变动及迁移估计的更新方法。",
+      "boundary": "这是 2025 年初估计，不是 2026 年人口预测；欧盟概况页数值不同，未追清版本前不混用。不能用人口乘以任意单价估算传送市场。",
+      "nextAction": "需要跨国人口比较时，另取统一基准日、统一修订版本的原表。",
+      "checkedAt": "2026-09-20",
+      "scenario": "国家 / 政策",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "population-al-2026",
+      "title": "阿尔巴尼亚人口 · 2026 年初 2,335,930 人",
+      "countries": [
+        "AL"
+      ],
+      "accounts": [],
+      "topic": "macro",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "INSTAT 披露 2026-01-01 阿尔巴尼亚人口为 2,335,930 人；这是通常居住人口估计，不是持有国籍的人口总数。",
+      "sourceName": "INSTAT · Population of Albania on 1st January 2026",
+      "sourceUrl": "https://www.instat.gov.al/media/eixp0cg0/population-on-1-st-january-2026.pdf",
+      "sourceDate": "2026-06-02",
+      "period": "2026-01-01；阿尔巴尼亚全国、通常居住口径；单位：人。通常居住以已居住或计划居住至少 12 个月界定。",
+      "locator": "PDF 第 1 页总量与发布日期；Methodology；人口主题页的 Statistical population 定义",
+      "method": "直接取国家合计；按 INSTAT 的 2023 年普查基数、人口自然变动及迁移估计方法记录，不将省人口当作城市人口。",
+      "boundary": "迁移包含估计成分；与本空间希腊 2025 年初、保加利亚 2025 年末值不构成统一年度排名。人口总量不代表设备需求。",
+      "nextAction": "后续补企业行业、城市与运营商需求数据；跨国比较前统一人口参考日。",
+      "checkedAt": "2026-09-20",
+      "scenario": "国家 / 政策",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "gia-eu-scope",
+      "title": "欧盟 GIA · 建设便利规则与成员国适用边界",
+      "countries": [
+        "GR",
+        "BG",
+        "CY",
+        "RO"
+      ],
+      "accounts": [],
+      "topic": "policy",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "《千兆基础设施法》Regulation (EU) 2024/1309 涉及现有物理基础设施接入、工程协调及许可等建设条件。第 19 条规定主要条款自 2025-11-12 适用；楼内设施和部分程序性条款另有 2026 年适用日期。应分条核对，不写成光传送采购补贴。",
+      "sourceName": "EUR-Lex · Regulation (EU) 2024/1309 合并文本",
+      "sourceUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02024R1309-20240508",
+      "sourceDate": "2024-05-08（官方公报日期）",
+      "period": "本空间对应欧盟成员国 GR / BG / CY / RO；第 19 条主要适用日 2025-11-12，10(1–3) 为 2026-02-12，4(3)、6(1)、7(2–3)、12(1–3) 为 2026-05-12；另有 2024 年先行条款。单位不适用。",
+      "locator": "Articles 1、3、19；原始公报及合并版本日期",
+      "method": "核对法规原文的对象、基础设施接入条件及分条适用日期；仅登记共同规则，不替代本国执行文件与项目审查。",
+      "boundary": "不自动适用于三个非欧盟候选国；存在适用条件、拒绝接入理由和安全约束。法规本身不能证明本国预算获批、供应商准入或 OTN 订单。",
+      "nextAction": "逐国核验单一信息点、主管机构、许可流程及具体项目是否符合条款。",
+      "checkedAt": "2026-09-20",
+      "scenario": "国家 / 政策",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "eett-leased-line-scope",
+      "title": "希腊专线统计 · Leased Line 不等于 OTN",
+      "countries": [
+        "GR"
+      ],
+      "accounts": [],
+      "topic": "market",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "EETT 将专线描述为端点之间持续、专用且通常对称的容量；批发专线可用于运营商自身网络或企业零售业务。其页面按技术列举模拟、传统数字（SDH / PDH）与 Ethernet，并区分终接段和干线段。",
+      "sourceName": "EETT · Leased Lines",
+      "sourceUrl": "https://www.eett.gr/en/operators/electronic-communications/wholesale-services/leased-lines/",
+      "sourceDate": "未标注；2026-09-20 回查",
+      "period": "2026-09-20 页面回查；希腊批发专线分类；定义口径，无收入或连接数统计。单位不适用。",
+      "locator": "Leased Lines 正文第 1–2 段",
+      "method": "按监管机构的服务对象、技术类别和网络分段拆分统计；不把分类说明解释为当前各类产品份额。",
+      "boundary": "专线或 Ethernet 名称不能单独证明 OTN 硬隔离、交换粒度或端到端物理独立；该页未提供 OTN 市场规模。",
+      "nextAction": "索取按业务类型拆分的监管原表；客户逐路由核验接口、保护域、SLA 和承载机制。",
+      "checkedAt": "2026-09-20",
+      "scenario": "OTN 专线",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "itu-g709-method",
+      "title": "技术核验基线 · G.709 定义 OTN 接口，非市场部署证明",
+      "countries": [
+        "GR",
+        "BG",
+        "CY",
+        "RO",
+        "MD",
+        "MK",
+        "AL"
+      ],
+      "accounts": [],
+      "topic": "technology",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "ITU-T G.709/Y.1331 的 2020 版摘要覆盖 OTN 接口的信号层级、帧结构、开销、比特率与客户信号映射。用于设计客户取证清单，不用于推断七国运营商均已部署这些能力。",
+      "sourceName": "ITU-T · G.709/Y.1331 (06/2020) 官方摘要",
+      "sourceUrl": "https://www.itu.int/dms_pubrec/itu-t/rec/g/T-REC-G.709-202006-I!!SUM-HTM-E.htm",
+      "sourceDate": "2020-06-06（基础版本批准日）",
+      "period": "G.709/Y.1331 (06/2020) 基础版；接口规范而非国家统计，单位不适用；2026-09-20 回查，后续修订另行适用。",
+      "locator": "官方 Summary；批准日期见同版本 Recommendation 元数据",
+      "method": "以标准的接口、映射和开销范围建立技术核验维度；实际合同须明确基础版本、修订项和测试条件。",
+      "boundary": "未对各运营商做标准符合性认证，也未比较厂商份额或性能；400G 产品名称不能替代 ODU 映射、交叉连接、保护及隔离机制的证据。",
+      "nextAction": "客户提供端口与映射表、交叉连接能力、保护配置及测试报告；核对合同引用的具体修订版本。",
+      "checkedAt": "2026-09-20",
+      "scenario": "OTN 专线",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "neterra-layer1",
+      "title": "Neterra 产品底稿 · 暗纤与 DWDM 波长分列",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [],
+      "topic": "operator",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "Neterra 的 Layer 1 官方产品页分别列出暗纤租赁与 DWDM Channel（Lambda）；后者描述为其 DWDM 基础设施上分配给客户的透明点到点波长通道。",
+      "sourceName": "Neterra · Layer 1 Services",
+      "sourceUrl": "https://neterra.net/point-to-point-services/layer-1-services",
+      "sourceDate": "未标注；2026-09-20 回查",
+      "period": "2026-09-20 产品网页快照；Neterra 网络内产品类别，不是保加利亚市场统计；无数量或金额。",
+      "locator": "Dark Fiber Rental 与 DWDM Channel (Lambda) 小节",
+      "method": "将暗纤和有源波长作为不同服务登记，仅核验运营商公开提供的产品描述。",
+      "boundary": "页面不证明特定路由的可用纤芯、带宽、保护或报价；未披露本空间可确认的现网厂家、设备份额及采购计划。",
+      "nextAction": "按实际端点获取可交付性、路由与 SRLG、SLA、容量和价格。",
+      "checkedAt": "2026-09-20",
+      "scenario": "Transit / 批发",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "neterra-layer2",
+      "title": "Neterra 产品底稿 · Ethernet 与 IP VPN 速率不可混用",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [],
+      "topic": "market",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "Neterra 同一官方页面分别描述 Ethernet（最高 100 Gbps）和基于 MPLS / VRF 的 IP VPN（最高 10 Gbps）。这两个上限分别属于对应产品描述，不能互相替代。",
+      "sourceName": "Neterra · Layer 2 Services / Ethernet & IP VPN",
+      "sourceUrl": "https://neterra.net/point-to-point-services/layer-2-services",
+      "sourceDate": "未标注；2026-09-20 回查",
+      "period": "2026-09-20 产品网页快照；单位：Gbps；产品目录上限，非实测、非所有路由承诺、非已售带宽。",
+      "locator": "Ethernet Advantages 的 up to 100 Gbps；VPN 说明 MPLS / VRF 与 Advantages 的 up to 10 Gbps",
+      "method": "按页面子章节分别归属参数，不把同页不同产品的速率或 SLA 合并。",
+      "boundary": "Ethernet 服务、IP VPN 与 OTN 硬管道应分项核验；没有依据计算收入、份额或新增设备投资。",
+      "nextAction": "为优先路由取得正式产品说明、保护与时延指标、交付承诺及报价。",
+      "checkedAt": "2026-09-20",
+      "scenario": "Transit / 批发",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "ote-entity",
+      "title": "OTE 集团与希腊 Telekom 业务主体已定位",
+      "countries": [
+        "GR"
+      ],
+      "accounts": [
+        "ote-gr"
+      ],
+      "topic": "operator",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "Deutsche Telekom 的希腊公司页将当地业务主体列为 OTE Group（Hellenic Telecommunications Organization S.A.），业务覆盖固网、移动、宽带、电视及 ICT。",
+      "sourceName": "Deutsche Telekom · National Company Greece",
+      "sourceUrl": "https://www.telekom.com/en/about-us/worldwide/national-company-greece",
+      "sourceDate": "未标注",
+      "period": "网页核验日 2026-09-20；仅核验页面所作披露",
+      "locator": "National Company Greece 首段及服务介绍",
+      "method": "逐段读取一手来源，保留原文主体、技术层次和时间边界；不由产品宣传推算订单或市场规模。",
+      "boundary": "只确认主体与业务边界；网页未注明更新日，不将其中投资、覆盖目标视为有明确统计截止日的传送预算。",
+      "nextAction": "确认 OTE 国内承载、企业业务和集团采购的责任边界。",
+      "checkedAt": "2026-09-20",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "oteglobe-entity",
+      "title": "OTEGLOBE 属于 OTE 集团国际批发业务",
+      "countries": [
+        "GR"
+      ],
+      "accounts": [
+        "ote-gr"
+      ],
+      "topic": "operator",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "OTEGLOBE 官方简介将其定位为 OTE Group 的国际批发业务机构，总部位于雅典，提供语音和数据服务。",
+      "sourceName": "OTEGLOBE · About Us",
+      "sourceUrl": "https://www.oteglobe.gr/about-us",
+      "sourceDate": "未标注",
+      "period": "网页核验日 2026-09-20；仅核验页面所作披露",
+      "locator": "About Us 首段",
+      "method": "逐段读取一手来源，保留原文主体、技术层次和时间边界；不由产品宣传推算订单或市场规模。",
+      "boundary": "国际批发产品与 OTE 国内零售 / 承载网络分开；集团归属不能证明采购流程、合同或预算统一。",
+      "nextAction": "取得 OTEGLOBE 的目标路由、交付条件和采购授权。",
+      "checkedAt": "2026-09-20",
+      "scenario": "Transit / 批发",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "ote-q3-2026-wholesale-rundown-20261030",
+      "title": "OTE Q3：部分零利润国际 transit 活动计划于 2026 年底退出",
+      "countries": [
+        "GR"
+      ],
+      "accounts": [
+        "ote-gr"
+      ],
+      "topic": "operator",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "OTE Group 披露，2026 年第三季度 Wholesale Services 收入为 106.6 百万欧元，较 2025 年同期 140.5 百万欧元下降 24.1%；主要原因是按计划退出部分零利润国际 transit 活动，该退出预计于 2026 年底完成。国内批发收入亦受竞争运营商 FTTH 扩张和结构变化影响，但 OTE 批发 FTTH 需求形成部分抵消。",
+      "sourceName": "OTE Group · 2026 Q3 Results（LSE 发行人公告）",
+      "sourceUrl": "https://www.londonstockexchange.com/en/news/article/OTES/3rd-quarter-results/b75a-3b-09-9e-50-4193be",
+      "sourceDate": "2026-10-30",
+      "period": "2026 Q3 对比 2025 Q3；收入单位 EUR million；24.1% 为同比变动；退出计划截至 2026 年底",
+      "locator": "Key Financial Data 的 Wholesale Services 行；Business Review 的 Wholesale Business 段",
+      "method": "读取 OTE 发行人公告，分列集团批发收入、国际 transit 退出与国内批发驱动；不把集团分部收入拆算为单体或光传送设备市场。",
+      "boundary": "这是 OTE Group 的 Wholesale Services 分部口径，不是 OTEGLOBE 法人单体收入；“部分零利润国际 transit 活动退出”不证明全部国际批发退出、任何具名路由关闭、光纤退租、资产处置、现网厂家变化或设备采购。",
+      "nextAction": "取得被退出活动的产品、客户与路由范围，核实 OTEGLOBE 单体收入 / 流量结构、客户迁移、合同与网络资产影响，以及是否产生独立的整合或采购工作包。",
+      "checkedAt": "2026-11-06",
+      "scenario": "Transit / 批发",
+      "updatedAt": "2026-11-06"
+    },
+    {
+      "id": "oteglobe-european-network-footprint-undated",
+      "title": "OTEGLOBE 欧洲骨干自述基于逾 21,000 公里租用光纤与 4 条以上不同路由",
+      "countries": [
+        "GR"
+      ],
+      "accounts": [
+        "ote-gr"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "OTEGLOBE 无日期的欧洲网络页面称，其陆地光纤骨干从希腊经意大利和巴尔干连接西欧，采用多路由拓扑，基于总长超过 21,000 公里的租用光纤，并以 4 条以上不同路由连接东西欧主要电信中心。",
+      "sourceName": "OTEGLOBE · European Network",
+      "sourceUrl": "https://www.oteglobe.gr/el/eyropaiko-diktyo",
+      "sourceDate": "未标注",
+      "period": "网页未标发布日期；2026-11-06 核验；光纤长度单位 km；路由数量为“超过 4 条”",
+      "locator": "ΕΥΡΩΠΑΪΚΟ ΔΙΚΤΥΟ 正文第 2 段及 Βασικά Χαρακτηριστικά 前两项",
+      "method": "逐项保留运营商自述中的地域、拓扑、租赁属性、长度与路由数量；不把营销描述推算为所有权、当前可售容量或设备规模。",
+      "boundary": "21,000 公里明确为租用光纤，不是自有光纤；无日期营销页不能证明 2026 年新增建设、独立 SRLG、当前点亮 / 空闲 / 已售容量、路由级 SLA、设备厂家、合同或采购。页面所称保护与多路由仍需目标路由工程资料验证。",
+      "nextAction": "取得页面版本日期、目标路由与 PoP 清单、租赁期限、真实 SRLG、点亮 / 空闲容量、客户和产品流量结构，以及合同与采购责任。",
+      "checkedAt": "2026-11-06",
+      "scenario": "Transit / 批发",
+      "updatedAt": "2026-11-06"
+    },
+    {
+      "id": "ote-nokia-trial-2024",
+      "title": "OTE / Nokia 2024 年现网试验：800G、900G 需保留距离条件",
+      "countries": [
+        "GR"
+      ],
+      "accounts": [
+        "ote-gr"
+      ],
+      "topic": "technology",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "Nokia 披露与 OTE 在希腊 DWDM 现网进行 1830 PSI-M / PSE-6s 试验：单通道 800Gbps 传输 2,580km，900Gbps 传输 1,290km；测试链路满载 DWDM 通道，频谱为 4.8THz。",
+      "sourceName": "Nokia · OTE 光传输现网试验公告",
+      "sourceUrl": "https://www.nokia.com/newsroom/nokia-and-ote-group-set-dual-world-record-optical-transmission-rates-over-ultra-long-distances/",
+      "sourceDate": "2024-09-12",
+      "period": "2024-09-12 公告的历史现网试验；单位 Gb/s、km、THz",
+      "locator": "正文 field trial 与测试结果两段",
+      "method": "按试验产品、单通道速率、距离和加载条件摘录；不与不同距离或条件的方案直接排名。",
+      "boundary": "厂商参与方披露可证明该次试验，不能外推 2026 年全网厂家份额、商用覆盖、订单或可替换设备数量。",
+      "nextAction": "索取当前光层清单、试验验收结果及相关路由的商用状态。",
+      "checkedAt": "2026-09-20",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "vodafone-ppc-intent-2026",
+      "title": "Vodafone / PPC：6 月披露的是非约束性 FTTH 合资意向",
+      "countries": [
+        "GR"
+      ],
+      "accounts": [
+        "vodafone-gr"
+      ],
+      "topic": "operator",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "PPC 于 2026-06-10 公告与 Vodafone Greece 签署非约束性条款清单，拟将 PPC FiberGrid 与 Vodafone 全资子公司 Fiber2All 合并为 50:50 的中立 FTTH 批发合资公司。",
+      "sourceName": "PPC · Vodafone Greece 光纤合作公告",
+      "sourceUrl": "https://www.ppcgroup.com/en/investor-relations/announcements/stock-news/stock-news-2026/ppc-and-vodafone-greece-explore-joining-forces-in-fibre-optics/",
+      "sourceDate": "2026-06-10",
+      "period": "2026-06-10 公告时点；50:50 为拟议股权比例",
+      "locator": "Regulated Information 正文第 1–3 段",
+      "method": "区分非约束性条款、尽调、约束性协议、监管批准和完成交割五个阶段。",
+      "boundary": "本次未取得后续签约或交割证据；不能把拟议股权结构、FTTH 覆盖或合作意向写成已完成合并或光传送采购。",
+      "nextAction": "取得最新交易进度与合资前后各工作包的采购授权。",
+      "checkedAt": "2026-09-20",
+      "scenario": "移动 / 固网承载",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "vodafone-grid-agreement-2021",
+      "title": "Vodafone / Grid Telecom 的 20 年光纤互用协议为历史签约事实",
+      "countries": [
+        "GR"
+      ],
+      "accounts": [
+        "vodafone-gr"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "IPTO 在 2021-06-28 公告 Grid Telecom 与 Vodafone Greece 签署为期 20 年的光纤网络互换及使用权框架协议，涉及部分骨干网络资源。",
+      "sourceName": "IPTO · Grid Telecom–Vodafone Greece 公告",
+      "sourceUrl": "https://www.admie.gr/en/kentro-typoy/press-releases/grid-telecom-vodafone-greece-agreement-optical-networks-mutual",
+      "sourceDate": "2021-06-28",
+      "period": "2021 年签约公告；20 年是框架期限，不是本次已核实的剩余期限",
+      "locator": "日期、标题及正文第 1 段",
+      "method": "逐段读取一手来源，保留原文主体、技术层次和时间边界；不由产品宣传推算订单或市场规模。",
+      "boundary": "历史签约不证明每条线路已交付或当前仍可扩容；公告中 Grid 的光纤长度不可记作 Vodafone 自有网络。",
+      "nextAction": "核实实际使用路由、合同变更、扩容权限及到期条件。",
+      "checkedAt": "2026-09-20",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "nova-entity",
+      "title": "NOVA 已整合原 Nova 与 Wind Hellas",
+      "countries": [
+        "GR"
+      ],
+      "accounts": [
+        "nova-gr"
+      ],
+      "topic": "operator",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "Nova 官方公司简介说明，其为 United Group 成员，并由原 Nova 与 Wind Hellas 整合而来，经营电视、互联网、移动和固定通信业务。",
+      "sourceName": "Nova · 公司简介",
+      "sourceUrl": "https://nova.gr/etairia/etairiko-profil",
+      "sourceDate": "未标注",
+      "period": "网页核验日 2026-09-20；仅核验页面所作披露",
+      "locator": "公司简介首段及合并说明",
+      "method": "逐段读取一手来源，保留原文主体、技术层次和时间边界；不由产品宣传推算订单或市场规模。",
+      "boundary": "不能将原 Wind Hellas 和现 Nova 重复计算为两个客户群；公司整合也不代表现网、产品和采购系统均已统一。",
+      "nextAction": "核实整合后的网络资产、技术团队及采购责任。",
+      "checkedAt": "2026-09-20",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "nova-leased-lines",
+      "title": "NOVA 专线目录明确列有 Ethernet、SDH、DWDM 与暗纤",
+      "countries": [
+        "GR"
+      ],
+      "accounts": [
+        "nova-gr"
+      ],
+      "topic": "market",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "Nova 企业专线页描述希腊境内及国际点到点 L2 连接、保证对称容量，并列出 Ethernet、SDH、DWDM L2L / λ 与 Dark Fiber 等交付方式。",
+      "sourceName": "Nova · Leased Lines",
+      "sourceUrl": "https://nova.gr/epixeiriseis/corporate-solutions/data-connectivity/leased-lines",
+      "sourceDate": "未标注",
+      "period": "网页核验日 2026-09-20；仅核验页面所作披露",
+      "locator": "Leased Lines 服务介绍与特性列表",
+      "method": "逐段读取一手来源，保留原文主体、技术层次和时间边界；不由产品宣传推算订单或市场规模。",
+      "boundary": "该页面没有足够信息证明 ODU / OSU 交换、全部端点速率或现网厂家；产品目录不等于已售规模。",
+      "nextAction": "按目标端点索取具体接口、带宽、SLA、保护方式与报价。",
+      "checkedAt": "2026-09-20",
+      "scenario": "OTN 专线",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "ug-local-h1-2026",
+      "title": "United Group 2026H1 披露可区分 NOVA、VIVACOM 投资口径",
+      "countries": [
+        "GR",
+        "BG"
+      ],
+      "accounts": [
+        "nova-gr",
+        "vivacom-bg"
+      ],
+      "topic": "operator",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "2026H1：Nova Greece 收入 531.6、资本开支 151.0；Vivacom Bulgaria 收入 392.3、资本开支 56.5，单位均为百万欧元。公告另称 8 月已出售 Nova ICT 的 50% 权益。",
+      "sourceName": "United Group · H1 2026 业绩公告",
+      "sourceUrl": "https://united.group/united-group-b-v-s-portfolio-strategy-delivers-double-digit-revenue-and-earnings-growth-in-h1-2026/",
+      "sourceDate": "2026-08-28",
+      "period": "收入 / CAPEX：2026-01-01 至 2026-06-30；EUR million；各当地业务披露口径",
+      "locator": "Key performance highlights；Nova ICT 处置段落",
+      "method": "直接摘录当地业务半年值，不年化、不套集团总额；金额保留原币种与单位。",
+      "boundary": "CAPEX 含非传送投入，不能视为光传送可争取规模；Nova ICT 权益处置不等于出售 Nova Greece 电信业务，跨期比较须核对合并范围。",
+      "nextAction": "取得当地传送 CAPEX 分项、在手合同及可参与采购批次。",
+      "checkedAt": "2026-09-20",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "vivacom-dedicated-internet",
+      "title": "VIVACOM 保证带宽互联网属于 IP/MPLS 产品口径",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "vivacom-bg"
+      ],
+      "topic": "market",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "Vivacom 官方保证带宽互联网产品页说明采用 IP/MPLS 网络，提供对称上下行、保证速率、静态 IP 及 SLA 选项。",
+      "sourceName": "Vivacom · Гарантиран интернет",
+      "sourceUrl": "https://www.vivacom.bg/business/internet/garantiran-internet",
+      "sourceDate": "未标注",
+      "period": "网页核验日 2026-09-20；仅核验页面所作披露",
+      "locator": "产品说明、Характеристики 与 Предимства",
+      "method": "逐段读取一手来源，保留原文主体、技术层次和时间边界；不由产品宣传推算订单或市场规模。",
+      "boundary": "页面未标注发布日期；其中 20Gbps 国际、90Gbps 本地互联等数字不作为当前总容量。IP/MPLS 产品也不证明 OTN 硬管道。",
+      "nextAction": "索取有生效日期的产品参数、端点可交付性与当前容量资料。",
+      "checkedAt": "2026-09-20",
+      "scenario": "OTN 专线",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "vivacom-ugi-history-2023",
+      "title": "UGI / Vivacom 的 GÉANT 项目需区分历史交付与计划",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "vivacom-bg"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "Vivacom 2023-07-10 公告披露 UGI Wholesale 经 Vivacom 参与 GÉANT 项目：部分光纤线路于 2022 年完成；若干 100G 传输服务在公告时仍属拟于 2023 年交付或实施中。",
+      "sourceName": "Vivacom · UGI Wholesale 两周年项目公告",
+      "sourceUrl": "https://www.vivacom.bg/za-nas/novini/samo-za-2-godini-ugi-wholesale-realizira-uspeshno-reditsa-proekti-v-tsyala-evropa",
+      "sourceDate": "2023-07-10",
+      "period": "公告历史快照 2023-07-10；100G 为单项传输服务速率，不是网络总量",
+      "locator": "GÉANT 项目列表及后续 100G 服务段落",
+      "method": "逐段读取一手来源，保留原文主体、技术层次和时间边界；不由产品宣传推算订单或市场规模。",
+      "boundary": "这些是历史项目披露，不是本轮发现的新订单；UGI 跨国网络不能全部归入 Vivacom 本地资产。",
+      "nextAction": "核实目标路由的当前合同、扩容批次与实际采购主体。",
+      "checkedAt": "2026-09-20",
+      "scenario": "Transit / 批发",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "ppf-group-boundary",
+      "title": "e& PPF 的集团股权与服务 / 基建分工已有官方说明",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "ppf-bg"
+      ],
+      "topic": "operator",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "PPF 官方公司页列示：e& 持有 e& PPF Telecom Group 50% 加一股，PPF 持有 50% 减一股；零售和企业业务使用 Yettel / O2 品牌，基础设施业务归入 CETIN International。",
+      "sourceName": "PPF · e& PPF Telecom Group",
+      "sourceUrl": "https://www.ppf.eu/en/our-companies/eand-ppf-telecom-group",
+      "sourceDate": "未标注",
+      "period": "网页核验日 2026-09-20；仅核验页面所作披露",
+      "locator": "Yettel and O2、CETIN International 与末段股权说明",
+      "method": "逐段读取一手来源，保留原文主体、技术层次和时间边界；不由产品宣传推算订单或市场规模。",
+      "boundary": "这是集团口径，不是 Yettel Bulgaria 与 CETIN Bulgaria 各自的直接持股比例；PPF 范围已于 2026-10-01 由研究范围包含 Yettel Bulgaria 与 CETIN Bulgaria；具体采购权仍待取证。",
+      "nextAction": "分别核实 Yettel Bulgaria 与 CETIN Bulgaria 的采购权；范围已由研究范围。",
+      "checkedAt": "2026-09-20",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-10-01"
+    },
+    {
+      "id": "cetin-bg-entity",
+      "title": "CETIN Bulgaria 属于 CETIN International 基础设施业务",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "ppf-bg"
+      ],
+      "topic": "operator",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "CETIN Bulgaria 官方简介确认其为 CETIN International 成员，定位于保加利亚电信基础设施及批发服务。",
+      "sourceName": "CETIN Bulgaria · Profile",
+      "sourceUrl": "https://www.cetinbg.bg/what-we-do/profile",
+      "sourceDate": "未标注",
+      "period": "网页核验日 2026-09-20；仅核验页面所作披露",
+      "locator": "Profile 首段与 Our shareholder",
+      "method": "逐段读取一手来源，保留原文主体、技术层次和时间边界；不由产品宣传推算订单或市场规模。",
+      "boundary": "页面的 CETIN Group in Numbers 属集团汇总；86.8K 公里光缆等数字不能记作保加利亚本地规模。PPF 简称关联已于 2026-10-01 由研究范围；不刷新本条公开来源复核日期。",
+      "nextAction": "取得保加利亚本地资产及组织清单，剔除其他国家基础设施。",
+      "checkedAt": "2026-09-20",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-10-01"
+    },
+    {
+      "id": "cetin-bg-network",
+      "title": "CETIN Bulgaria 披露双光环及塞尔维亚、希腊跨境连接",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "ppf-bg"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "官方 Network 页称 Yettel Bulgaria 的移动技术使用 CETIN 网络；光纤部分披露保加利亚境内 2 个光环、索菲亚城域覆盖，以及通往塞尔维亚和希腊的光纤跨境连接。",
+      "sourceName": "CETIN Bulgaria · Network",
+      "sourceUrl": "https://www.cetinbg.bg/what-we-do/network",
+      "sourceDate": "未标注",
+      "period": "无发布日期的网页披露；核验日 2026-09-20；2 个指光环数量",
+      "locator": "开篇 Yettel 网络关系与 Fiber Optic 段落",
+      "method": "逐段读取一手来源，保留原文主体、技术层次和时间边界；不由产品宣传推算订单或市场规模。",
+      "boundary": "未核实点亮容量、独立管道、设备商或全路径 SRLG；两个环不能直接等同于完全物理独立。PPF 范围已由研究范围；具体路由和采购权限仍待取证。",
+      "nextAction": "取得目标端点、路由底图、保护域及利用率，再判断承载扩容。",
+      "checkedAt": "2026-09-20",
+      "scenario": "移动 / 固网承载",
+      "updatedAt": "2026-10-01"
+    },
+    {
+      "id": "moldtelecom-entity",
+      "title": "Moldtelecom 法人及 2025 年国家持股口径",
+      "countries": [
+        "MD"
+      ],
+      "accounts": [
+        "mtc-md"
+      ],
+      "topic": "operator",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "摩尔多瓦公共财产署页面列明 SOCIETATEA PE ACȚIUNI MOLDTELECOM，IDNO 1002600048836；2025 报告年度的国家持股比例为 100%。",
+      "sourceName": "摩尔多瓦公共财产署 · Moldtelecom",
+      "sourceUrl": "https://app.gov.md/companies/moldtelecom/",
+      "sourceDate": "未标注",
+      "period": "法人信息网页核验于 2026-09-20；100% 持股数据为页面所列 2025 报告年度",
+      "locator": "Informații generale；Situația economică curentă（2025）",
+      "method": "按政府企业页的法人名称及 IDNO 定位；持股比例保留报告年度，不沿用网页抓取日作为数据期。",
+      "boundary": "这些政府资料支持 Moldtelecom 法人识别与所列年度持股口径；MTC 对应关系的研究范围单列于客户档案。不将全公司收入或采购计划金额视为光传送需求。",
+      "nextAction": "关联 Moldtelecom 现网、账户编码及采购责任资料。",
+      "checkedAt": "2026-09-20",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "moldtelecom-vpn",
+      "title": "Moldtelecom 提供企业多站点 VPN 连接",
+      "countries": [
+        "MD"
+      ],
+      "accounts": [
+        "mtc-md"
+      ],
+      "topic": "market",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "Moldtelecom 的企业 VPN 页面说明可连接企业多个办公地点，另列光纤、专用连接及按组织需求定制的连接方案。",
+      "sourceName": "Moldtelecom · VPN pentru afaceri",
+      "sourceUrl": "https://www.moldtelecom.md/ro/business/vpn/",
+      "sourceDate": "未标注",
+      "period": "网页核验日 2026-09-20；仅核验页面所作披露",
+      "locator": "服务简介及多站点连接 FAQ",
+      "method": "逐段读取一手来源，保留原文主体、技术层次和时间边界；不由产品宣传推算订单或市场规模。",
+      "boundary": "页面未给出 MPLS / OTN 结构、硬隔离粒度、确定带宽或数值 SLA；VPN 名称不能证明光层能力。",
+      "nextAction": "确认目标产品的接口、保护、带宽与实际端点需求。",
+      "checkedAt": "2026-09-20",
+      "scenario": "OTN 专线",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "moldtelecom-data-city",
+      "title": "Moldtelecom Data City 可作为 DCI 端点核验入口",
+      "countries": [
+        "MD"
+      ],
+      "accounts": [
+        "mtc-md"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "Moldtelecom 官方页列出 Data City 托管与 hosting 服务，地址为基希讷乌 Alba Iulia 街 77 号，并自述按 Tier 3 标准建设。",
+      "sourceName": "Moldtelecom · Data City",
+      "sourceUrl": "https://www.moldtelecom.md/ro/business/data-centru/",
+      "sourceDate": "未标注",
+      "period": "网页核验日 2026-09-20；仅核验页面所作披露",
+      "locator": "服务简介、What is Data City 与位置 FAQ",
+      "method": "逐段读取一手来源，保留原文主体、技术层次和时间边界；不由产品宣传推算订单或市场规模。",
+      "boundary": "运营方所称 Tier 3 标准不等于已核实独立认证；未取得机柜、IT 负载、租户或互联采购数据。",
+      "nextAction": "核实需要互联的第二端点、现有容量与实际业务需求。",
+      "checkedAt": "2026-09-20",
+      "scenario": "DCI",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "cyta-leased-lines",
+      "title": "Cyta 专线页列明对称独享连接与可选替代路由",
+      "countries": [
+        "CY"
+      ],
+      "accounts": [
+        "cyta-cy"
+      ],
+      "topic": "market",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "Cyta Leased Lines 产品页列出 9.6Kbps 至 10Gbps 的专线范围、点到点对称独享连接，以及可选替代路由；应用包括数据中心互联。",
+      "sourceName": "Cyta · Leased Lines",
+      "sourceUrl": "https://www.cyta.com.cy/business-leased-lines/en",
+      "sourceDate": "未标注",
+      "period": "无发布日期产品页；核验日 2026-09-20；Kbps / Gbps 为该产品页的服务速率",
+      "locator": "Connections with High Specifications；速度与独享容量段落",
+      "method": "逐段读取一手来源，保留原文主体、技术层次和时间边界；不由产品宣传推算订单或市场规模。",
+      "boundary": "不能把该页上限当作 Cyta 全网能力上限；替代路由选项不证明目标端点已具备物理双路由或 ODU / OSU 硬管道。",
+      "nextAction": "取得实际端点的可交付速率、物理路由及 SLA。",
+      "checkedAt": "2026-09-20",
+      "scenario": "OTN 专线",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "cyta-ethernet",
+      "title": "Cyta Ethernet 目录与专线目录应分开归类",
+      "countries": [
+        "CY"
+      ],
+      "accounts": [
+        "cyta-cy"
+      ],
+      "topic": "market",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "Cyta Ethernet 页列出 E-Line 与 Ethernet VPN，宣传速率最高 10Gbps，并提供备份和灾备选项。",
+      "sourceName": "Cyta · Ethernet",
+      "sourceUrl": "https://www.cyta.com.cy/business-ethernet/en",
+      "sourceDate": "未标注",
+      "period": "无发布日期产品页；核验日 2026-09-20；Gbps 为服务速率",
+      "locator": "Ethernet E-Line、Ethernet VPN 与灾备选项",
+      "method": "逐段读取一手来源，保留原文主体、技术层次和时间边界；不由产品宣传推算订单或市场规模。",
+      "boundary": "这是 Ethernet 服务目录，不足以证明底层 OTN 交换、确定性时延、保护域或具体数值 SLA。",
+      "nextAction": "对比 Ethernet、专用波长和 OTN 的客户需求、交付条件及成本。",
+      "checkedAt": "2026-09-20",
+      "scenario": "OTN 专线",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "ote-transport-lead",
+      "title": "OTE · 从具名骨干路由验证扩容与互通",
+      "countries": [
+        "GR"
+      ],
+      "accounts": [
+        "ote-gr"
+      ],
+      "topic": "opportunity",
+      "kind": "hypothesis",
+      "status": "pending",
+      "summary": "以历史试验和现有产品为讨论入口，验证哪些路由确有容量、频谱或能耗约束，再评估光层扩容或互通方案。",
+      "sourceName": "Nokia · OTE 光传输现网试验公告",
+      "sourceUrl": "https://www.nokia.com/newsroom/nokia-and-ote-group-set-dual-world-record-optical-transmission-rates-over-ultra-long-distances/",
+      "sourceDate": "2024-09-12",
+      "period": "候选假设整理于 2026-09-20；依据时期见来源记录",
+      "locator": "正文 field trial 与测试结果两段",
+      "method": "业务信号仅作取证入口；逐项验证具名需求、技术交付、产品差距、预算窗口、责任人和经济性。",
+      "boundary": "试验性能不代表新采购需求；若现网余量足够或工作包已被合同覆盖，应撤回候选。",
+      "nextAction": "取得路由级利用率、空闲频谱、接口和采购批次，区分 OTE 与 OTEGLOBE 责任。",
+      "checkedAt": "",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "vodafone-transport-lead",
+      "title": "Vodafone Greece · 先确认资产与扩容采购权限",
+      "countries": [
+        "GR"
+      ],
+      "accounts": [
+        "vodafone-gr"
+      ],
+      "topic": "opportunity",
+      "kind": "hypothesis",
+      "status": "pending",
+      "summary": "围绕接入汇聚及骨干承载，先确认拟议合资、既有光纤使用权和本地采购边界，再寻找有具名端点支持的扩容需求。",
+      "sourceName": "PPC · Vodafone Greece 光纤合作公告",
+      "sourceUrl": "https://www.ppcgroup.com/en/investor-relations/announcements/stock-news/stock-news-2026/ppc-and-vodafone-greece-explore-joining-forces-in-fibre-optics/",
+      "sourceDate": "2026-06-10",
+      "period": "候选假设整理于 2026-09-20；依据时期见来源记录",
+      "locator": "Regulated Information 正文第 1–3 段",
+      "method": "业务信号仅作取证入口；逐项验证具名需求、技术交付、产品差距、预算窗口、责任人和经济性。",
+      "boundary": "FTTH 合作意向不自动形成传送订单；若采购主体、预算或扩容必要性不成立，不能立项。",
+      "nextAction": "补最新交易阶段、目标链路负载及未被现有合同覆盖的设备工作包。",
+      "checkedAt": "",
+      "scenario": "移动 / 固网承载",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "nova-transport-lead",
+      "title": "NOVA · 验证专线差异化与整合后承载需求",
+      "countries": [
+        "GR"
+      ],
+      "accounts": [
+        "nova-gr"
+      ],
+      "topic": "opportunity",
+      "kind": "hypothesis",
+      "status": "pending",
+      "summary": "从企业专线产品出发，核验实际端点的保护、时延、隔离要求及现网整合约束，再判断波长或 OTN 方案是否有增量价值。",
+      "sourceName": "Nova · Leased Lines",
+      "sourceUrl": "https://nova.gr/epixeiriseis/corporate-solutions/data-connectivity/leased-lines",
+      "sourceDate": "未标注",
+      "period": "候选假设整理于 2026-09-20；依据时期见来源记录",
+      "locator": "Leased Lines 服务介绍与特性列表",
+      "method": "业务信号仅作取证入口；逐项验证具名需求、技术交付、产品差距、预算窗口、责任人和经济性。",
+      "boundary": "整合与多技术产品并存不证明存在 OTN 缺口；若 Ethernet 已满足需求且经济性更好，不应强推 OTN。",
+      "nextAction": "取得产品 SLA、现网路由、整合计划及客户愿付价格。",
+      "checkedAt": "",
+      "scenario": "OTN 专线",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "vivacom-transport-lead",
+      "title": "VIVACOM · 以跨境批发路由验证新增容量",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "vivacom-bg"
+      ],
+      "topic": "opportunity",
+      "kind": "hypothesis",
+      "status": "pending",
+      "summary": "把历史跨境项目作为询证入口，核验索菲亚与周边端点的新带宽、保护和交付需求，区分本地网络与集团批发职责。",
+      "sourceName": "Vivacom · UGI Wholesale 两周年项目公告",
+      "sourceUrl": "https://www.vivacom.bg/za-nas/novini/samo-za-2-godini-ugi-wholesale-realizira-uspeshno-reditsa-proekti-v-tsyala-evropa",
+      "sourceDate": "2023-07-10",
+      "period": "候选假设整理于 2026-09-20；依据时期见来源记录",
+      "locator": "GÉANT 项目列表及后续 100G 服务段落",
+      "method": "业务信号仅作取证入口；逐项验证具名需求、技术交付、产品差距、预算窗口、责任人和经济性。",
+      "boundary": "既有 100G 合同或全公司 CAPEX 不证明本轮可参与订单；若没有新增需求或设备采购权，保留观察。",
+      "nextAction": "索取当前利用率、续约 / 扩容批次、客户端点及本地传送预算。",
+      "checkedAt": "",
+      "scenario": "Transit / 批发",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "id": "ppf-transport-lead",
+      "title": "PPF · 分别核验 Yettel 业务需求与 CETIN 基础设施",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "ppf-bg"
+      ],
+      "topic": "opportunity",
+      "kind": "hypothesis",
+      "status": "pending",
+      "summary": "账户范围与组织分工已由研究范围；按业务需求方、网络资产方和采购方分别收集证据，验证移动 / FWA 汇聚及跨境保护是否存在瓶颈。",
+      "sourceName": "CETIN Bulgaria · Network",
+      "sourceUrl": "https://www.cetinbg.bg/what-we-do/network",
+      "sourceDate": "未标注",
+      "period": "候选假设整理于 2026-09-20；依据时期见来源记录",
+      "locator": "开篇 Yettel 网络关系与 Fiber Optic 段落",
+      "method": "业务信号仅作取证入口；逐项验证具名需求、技术交付、产品差距、预算窗口、责任人和经济性。",
+      "boundary": "移动业务增长或双环结构不自动推出传送扩容；若现网余量足够或合同已覆盖，则撤回相关扩容候选。",
+      "nextAction": "补 Yettel / CETIN 项目级采购责任、双环容量与 SRLG。",
+      "checkedAt": "",
+      "scenario": "移动 / 固网承载",
+      "updatedAt": "2026-10-01"
+    },
+    {
+      "id": "mtc-transport-lead",
+      "title": "MTC（Moldtelecom）· 验证 Data City 与第二端点",
+      "countries": [
+        "MD"
+      ],
+      "accounts": [
+        "mtc-md"
+      ],
+      "topic": "opportunity",
+      "kind": "hypothesis",
+      "status": "pending",
+      "summary": "以 Moldtelecom Data City 为候选端点，验证企业 VPN、灾备或跨境互联是否提出容量与物理保护需求。",
+      "sourceName": "Moldtelecom · Data City",
+      "sourceUrl": "https://www.moldtelecom.md/ro/business/data-centru/",
+      "sourceDate": "未标注",
+      "period": "候选假设整理于 2026-09-20；依据时期见来源记录",
+      "locator": "服务简介、What is Data City 与位置 FAQ",
+      "method": "业务信号仅作取证入口；逐项验证具名需求、技术交付、产品差距、预算窗口、责任人和经济性。",
+      "boundary": "单个数据中心、VPN 产品或 Tier 3 自述不能证明 DCI 订单；无第二端点或实际互联需求时撤回此路径。",
+      "nextAction": "补齐第二端点、容量、业务 SLA 与 Moldtelecom 采购负责人。",
+      "checkedAt": "",
+      "scenario": "DCI",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": "vivacom-bg-northeast-permit-rs117-20260622",
+      "title": "VIVACOM 东北部项目已有 Dolni Chiflik–Ruen 分段施工许可",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "vivacom-bg"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "保加利亚《国家公报》2026-06-26 公告，BG-RRP-7.008-0002-C01 东北部数字基础设施项目于 2026-06-22 获得 RS-117 施工许可，范围为 СИ02 Dolni Chiflik–Ruen–Lyulyakovo 支线的若干分段，包括 Varna / Burgas 州界至 Yabalchevo、III-208 公路至 Lyulyakovo 等。该项目编号在交通与通信部资金决定中对应 VIVACOM Bulgaria。",
+      "sourceName": "保加利亚《国家公报》· RS-117 施工许可",
+      "sourceUrl": "https://dv.parliament.bg/DVWeb/showMaterialDV.jsp?idMat=244306",
+      "sourceDate": "2026-06-22",
+      "period": "施工许可签发 2026-06-22，《国家公报》第 58 期于 2026-06-26 发布；范围仅为 BG-RRP-7.008-0002-C01 东北部项目中所列 СИ02 Dolni Chiflik–Ruen–Lyulyakovo 支线分段。",
+      "locator": "《国家公报》第 58 期第 189 页公告第 117 项：RS-117、签发日期、项目编号、东北部区域及 СИ02 路由分段；交通与通信部 2025-05-19 决定第 2 页表格第 2 行将 0002 映射到 VIVACOM 东北部项目。",
+      "method": "读取《国家公报》原始公告，以 BG-RRP-7.008-0002-C01 与交通和通信部资金决定交叉核对主体和区域；分列许可签发日与公报发布日期，并把许可、开工、竣工、验收、点亮和商用作为不同阶段。",
+      "boundary": "这是此前未入库的历史行政节点，不是 11 月新事件、订单或开放采购。施工许可不证明已经开工、建成、验收、RFS 或商用；所列路线也不是 as-built 证明，不提供实际长度、纤芯、点亮容量、SRLG、主动设备、供应商、合同或采购权。单一分段不能代表整个东北部项目的完成比例，也不能与东南部许可合并推算进度。",
+      "nextAction": "取得该分段及东北 / 东南全项目的开工、竣工、验收、as-built 与 RFS 文件；按端点核实实际长度、纤芯、点亮容量、保护路由、承包商、主动设备和采购责任，并区分已签合同与未覆盖工作包。",
+      "checkedAt": "2026-11-09",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-11-09"
+    },
+    {
+      "id": "a1-bg-north-central-optical-interfaces-20260114",
+      "title": "A1 北中部曾单列新光接口采购；规格、授标与验收仍待取证",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "a1-bg"
+      ],
+      "topic": "technology",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "保加利亚 EUMIS 归档显示，A1 Bulgaria 为北中部 BG-RRP-7.008 项目的骨干网运营单列新光接口供货程序：2026-01-14 公告、01-22 截止，页面记录 2 份报价，状态为已公告且未终止。公开页未列接口类型、速率、数量、兼容平台或获选供应商。",
+      "sourceName": "保加利亚 EUMIS · A1 北中部新光接口采购归档",
+      "sourceUrl": "https://eumis2020.government.bg/bg/063a80a8/Offers/Details/f3e3212c-8d1e-4be4-84c1-e393529237ff",
+      "sourceDate": "2026-01-14",
+      "period": "公告日期 2026-01-14；报价截止 2026-01-22；地域限北中部 BG-RRP-7.008 项目。页面列预计值 90,000.00，但未显示币种，因此不计入金额或机会测算；2 的单位为提交报价份数。",
+      "locator": "归档第 17–35 行的受益人、程序名称、对象、预计值、公告与截止日期；第 39–49 行的区域描述、已公告 / 未终止状态及 SFP Север Център.zip；第 50–55 行的 2 份报价。",
+      "method": "从 EUMIS 原始归档读取对象、日期、状态和报价份数，并与西北部独立程序按区域和页面 ID 分开；附件跳转返回临时下载地址但当前研究工具无法取得文件，未据文件名补写技术参数。把公告、报价、授标、合同、交付和验收分开。",
+      "boundary": "这是已截止的历史供货程序，不是当前开放机会。2 份报价不等于两家供应商中标或部署；‘未终止’也不证明已授标、签约、交付或验收。页面未标币种，90,000.00 不作 BGN、EUR 或其他货币推定。‘光接口’和附件名中的 SFP 不足以证明具体 SFP / SFP+ / QSFP 型号、速率、数量、厂家、DWDM 彩光能力或现网兼容性。它与西北部程序地域和归档均不同，不能合并为同一合同或重复累计金额。",
+      "nextAction": "取得 SFP Север Център.zip 原始规格、评选 / 授标决定、合同与验收资料；逐项核实接口形态、速率、波长、距离、DOM、FEC、平台兼容清单、数量和质保，并确认北中部与西北部各自是否存在合同未覆盖的后续扩容或互通工作包。",
+      "checkedAt": "2026-11-04",
+      "scenario": "移动 / 固网承载",
+      "updatedAt": "2026-11-04"
+    },
+    {
+      "id": "cetin-bg-rrf-10g-municipal-base-station-scope-undated",
+      "title": "CETIN 两区域项目列出 10Gbps 市镇中心与基站连接目标",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "ppf-bg"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "CETIN Bulgaria 的 RRF 项目页列明：西南部 BG-RRP-7.008-0003 计划建设全光超高容量网络，为关键市镇中心提供对称 10Gbps，覆盖 60 个居民点、连接 108 个移动基站并涉及 129,698 人；南中部 BG-RRP-7.008-0004 列 27 个市镇中心、50 个居民点、129 个基站和超过 109,342 人。两项均列 CETIN Bulgaria 为最终受益人。",
+      "sourceName": "CETIN Bulgaria · Recovery and Resilience Facility 项目范围",
+      "sourceUrl": "https://www.cetinbg.bg/what-we-do/rrf",
+      "sourceDate": "未标注",
+      "period": "无发布日期的项目页，2026-11-02 可读快照。0003 与 0004 均列 2025-06-10 开始、2026-06-30 计划结束；0003 总值 83,060,211.50 BGN、其中 EU 无偿资金 74,754,189.60 BGN，0004 总值 81,206,561.00 BGN、其中 EU 无偿资金 73,085,904.70 BGN。10Gbps 为对称连接目标；居民点、基站与人口均为各项目披露范围。",
+      "locator": "RRF 页面 BG-RRP-7.008-0003 段的项目编号、全光 10Gbps、60 个居民点、108 个基站、129,698 人、金额与起止日；BG-RRP-7.008-0004 段的 27 个市镇中心、50 个居民点、129 个基站、超过 109,342 人、金额与起止日。",
+      "method": "直接读取 CETIN 自有 RRF 项目页，按项目编号分别摘录范围、单位、金额和计划日期；用既有 NextGenerationEU 条款与许可记录核对 0003 / 0004 身份。把页面顶部的全国性总体宣传口径与两个具体项目分开，并保留 0004 标题和正文的区域名称不一致。",
+      "boundary": "这是无发布日期页面披露的项目目标和计划范围，不是完工、验收、RFS、实际 10Gbps 可用性、已连接基站数、现网路由、主动设备或采购订单。两项 BGN 金额为整个项目价值，不能当作光传送设备预算、市场规模或可参与工作包。0004 标题写南中部，但正文误写西南部；本站以项目编号和标题标识南中部，同时保留该原文冲突。两项页面计划结束日为 2026-06-30，而既有 0004 许可在 2026-08-25 仍有分段补充，当前完成状态不能据此自行判定。",
+      "nextAction": "取得两项目的竣工 / 验收 / RFS 与 as-built 资料，核对实际居民点、基站、路由、光纤公里 / 芯数、10Gbps 端点、保护和容量；另行确认主动设备合同、供应商准入、剩余工作包以及 Yettel / CETIN 的采购授权。",
+      "checkedAt": "2026-11-02",
+      "scenario": "移动 / 固网承载",
+      "updatedAt": "2026-11-02"
+    },
+    {
+      "id": "a1-bg-northwest-optical-interfaces-20260109",
+      "title": "A1 西北部曾单列新光接口采购；授标、规格与验收仍待取证",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "a1-bg"
+      ],
+      "topic": "technology",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "保加利亚 EUMIS 归档显示，A1 Bulgaria 为西北部 BG-RRP-7.008-0007-C01 项目的骨干网运营单列新光接口供货程序：2026-01-09 公告、01-19 截止，页面记录 2 份报价，状态为已公告且未终止。公开页未列接口类型、速率、数量、兼容平台或获选供应商。",
+      "sourceName": "保加利亚 EUMIS · A1 西北部新光接口采购归档",
+      "sourceUrl": "https://eumis2020.government.bg/bg/s/Offers/Details/abdb8b96-16fe-4ad0-a619-cd9f656de654",
+      "sourceDate": "2026-01-09",
+      "period": "公告日期 2026-01-09；报价截止 2026-01-19；地域与合同限 BG-RRP-7.008-0007-C01 西北部项目。页面列预计值 125,000.00，但未显示币种，因此不计入金额或机会测算；2 的单位为提交报价份数。",
+      "locator": "归档第 22–39 行的程序名称、对象、预计值、公告与截止日期；第 41–49 行的已公告 / 未终止状态及 SFP Северозапад.zip；第 50–55 行的 2 份报价。",
+      "method": "从 EUMIS A1 项目归档按合同编号定位独立程序，再读取原始详情页核对对象、日期、状态和报价份数；附件跳转返回临时下载地址但当前研究工具无法取得文件，未据文件名补写技术参数。把公告、报价、授标、合同、交付和验收分开。",
+      "boundary": "这是已截止的历史供货程序，不是当前开放机会。2 份报价不等于两家供应商中标或部署；‘未终止’也不证明已授标、签约、交付或验收。页面未标币种，125,000.00 不作 BGN、EUR 或其他货币推定。‘光接口’和附件名中的 SFP 不足以证明具体 SFP / SFP+ / QSFP 型号、速率、数量、厂家、DWDM 彩光能力或现网兼容性。",
+      "nextAction": "取得 SFP Северозапад.zip 原始规格、评选 / 授标决定、合同与验收资料；逐项核实接口形态、速率、波长、距离、DOM、FEC、平台兼容清单、数量和质保，并确认是否存在合同未覆盖的后续扩容或互通工作包。",
+      "checkedAt": "2026-10-26",
+      "scenario": "移动 / 固网承载",
+      "updatedAt": "2026-10-26"
+    },
+    {
+      "id": "eett-ote-svo-approved-price-baseline-20260730",
+      "title": "OTE SVO 500M / 1G 已有获批价格：€28.57 / €48.88 每月",
+      "countries": [
+        "GR"
+      ],
+      "accounts": [
+        "ote-gr"
+      ],
+      "topic": "market",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "EETT 决定 1185/003/06-07-2026 的政府公报版本已批准 NGA 与批发租赁线路成本模型及相关价格。表 23 的 2026 年列分别列 SVO 500Mbps 月费 €28.57、1Gbps 月费 €48.88。价格批准证据与 9 月公开的产品参考报价咨询分属不同程序，不能合并为一项最终产品批准。",
+      "sourceName": "EETT · 决定 1185/003，政府公报 B 4716/30.07.2026",
+      "sourceUrl": "https://www.eett.gr/wp-content/uploads/2026/08/%CE%91%CE%A0-1185-003.%CE%A6%CE%95%CE%9A.pdf",
+      "sourceDate": "2026-07-30",
+      "period": "决定编号日期 2026-07-06，文末签署 2026-07-07，政府公报发布 2026-07-30，EETT 公告 2026-08-06；第 2.6 项规定新价格自公报发布次月首日起适用，按日期推得 2026-08-01。仅摘录表 23 的 2026 年列，单位 EUR / 月，速率 Mbps / Gbps；不计作 € M 市场规模。",
+      "locator": "PDF 第 6 页第 1.1–1.2 项批准范围；第 48 页 / 公报页 52408 第 1.3.1 节表 23 的 SVO 500Mbps、1Gbps 两行与 2026 年列；第 64 页第 2.5–2.6 项生效及价格适用时点。EETT 2026-08-06 成本模型批准公告链接同一文件。",
+      "method": "读取监管批准公告和公报原文；下载同一公开 PDF，渲染第 48 页核对横置表的行列、年份、欧元符号和月费标题，逐项摘录、不换算或年化；把价格决定与产品参考报价修改分别核验。",
+      "boundary": "历史价格基线补录，不是 10 月新降价或订单。月费不是零售端到端合同总价，也未在本条确认税费、其他接入 / 汇聚 / 一次性费用；不能与 OTN 硬管道直接作同质价格比较。价格表不证明 500M / 1G 产品参考报价最终修订、具体区域可交付、SLA、采用率、容量缺口或设备采购。原 9 月咨询记录保留为独立证据。",
+      "nextAction": "价格决定已取得；下一步核对产品参考报价的最终决定、生效文本、实际可订购区域、完整收费项、VLAN / QoS 与客户 SLA。只对明确产品差异和具名端点讨论 Ethernet 或 OTN 替代，不把低月费直接换算传送预算。",
+      "checkedAt": "2026-10-19",
+      "scenario": "移动 / 固网承载",
+      "updatedAt": "2026-10-19"
+    },
+    {
+      "id": "eett-ote-ftth-cost-orientation-position-20261015",
+      "title": "OTE 支持在 23 个局所区域解除 FTTH 成本导向义务；仍为咨询意见",
+      "countries": [
+        "GR"
+      ],
+      "accounts": [
+        "ote-gr"
+      ],
+      "topic": "policy",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "EETT 于 2026-10-15 公开相关咨询答复。OTE 在落款 9 月 25 日的答复第 1 页支持对咨询涉及的 23 个 ΑΚ 局所区域解除 FTTH 成本导向定价义务，并主张条件已经满足。该观点为 OTE 的具名监管立场，不是监管机构的最终结论。",
+      "sourceName": "EETT · 2026-10-15 答复发布及所附 OTE 非保密意见",
+      "sourceUrl": "https://www.eett.gr/anakinosis/apantiseis-diavoulefsis-arsi-kostostrefeias-ote-se-perioches-me-enallaktiko-diktyo-optikon-inon/",
+      "sourceDate": "2026-10-15",
+      "period": "公开日期 2026-10-15；OTE 答复落款 2026-09-25，编号 17/550。咨询期 2026-07-22 至 2026-09-25 15:00，当前为关闭状态；23 的单位为本次咨询的 ΑΚ 局所区域，不是全国站点总量、城市、DC 或已解除管制区域数。",
+      "locator": "EETT 发布页日期及正文第 1–2 段、附件“Απάντηση ΟΤΕ”；该附件第 1 页“Απάντηση στο κυρίως ερώτημα της διαβούλευσης”的首段。原咨询页明确文本不约束 EETT 后续决定。",
+      "method": "交叉读取 EETT 原咨询、10 月 15 日发布页及 OTE 五页附件；以正文落款而非文件名确定答复日期，以发布页确定公开日期；仅记录立场与程序范围，不将参与方论证当成已核实的覆盖 / 竞争结论。",
+      "boundary": "本条补入 10 月 15 日公开的材料，不是 10 月 19 日新决定。FTTH 接入成本导向义务不等同于专线、OTN 或 DWDM 价格全部解除监管；23 个区域也不证明已最终获准、实际降价 / 涨价、设备替换或传送采购。未取得最终决定、具体生效范围及 OTE 最终商业条款。",
+      "nextAction": "按区域取得最终监管决定、产品适用范围和生效日期，并与有效报价、实际可交付替代网络、用户需求和汇聚余量对照；只在明确端点形成实际需求后判断是否影响传送方案。",
+      "checkedAt": "2026-10-19",
+      "scenario": "移动 / 固网承载",
+      "updatedAt": "2026-10-19"
+    },
+    {
+      "id": "eett-vodafone-ftth-operability-position-20261015",
+      "title": "Vodafone 要求核验 FTTH 实际可用性与基础设施接入 KPI，不只看覆盖率",
+      "countries": [
+        "GR"
+      ],
+      "accounts": [
+        "vodafone-gr"
+      ],
+      "topic": "policy",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "EETT 10 月 15 日公开的 Vodafone 非保密答复认为，对 OTE 解除部分 FTTH 成本导向义务前，应验证替代网络确实可用、基础设施接入及时有效且无歧视；不能仅依名义覆盖数据。其第 3 页将 23 个局所区域的 homes-passed 口径与实际选择能力分开，并要求以可核验数据和接入 KPI 评价实际运作。",
+      "sourceName": "EETT · 2026-10-15 答复发布及所附 Vodafone 非保密意见",
+      "sourceUrl": "https://www.eett.gr/wp-content/uploads/2026/10/VF%CE%AC%CF%81%CF%83%CE%B7-%CE%BA%CE%BF%CF%83%CF%84%CE%BF%CF%83%CF%84%CF%81%CE%AD%CF%86%CE%B5%CE%B9%CE%B1%CF%82-_%CE%9C%CE%97-%CE%95%CE%9C%CE%A0%CE%99%CE%A3%CE%A4%CE%95%CE%A5%CE%A4%CE%99%CE%9A%CE%97-%CE%95%CE%9A%CE%94%CE%9F%CE%A3%CE%97.pdf",
+      "sourceDate": "2026-10-15",
+      "period": "EETT 于 2026-10-15 公开；所读 Vodafone 正文未标答复落款日期。PDF 元数据标题显示旧日期，不作为来源日期。适用讨论为本次 23 个 ΑΚ 区域的 FTTH 批发接入，不是传送网覆盖、利用率或故障率统计。",
+      "locator": "EETT 发布页“Απάντηση Vodafone”附件；PDF 第 2 页“Γενική Τοποθέτηση”、第 3 页的双条件与 homes passed 讨论，第 4 页第 2 节的技术基础设施接入 / KPI 论述。",
+      "method": "从 EETT 的具名附件读取 Vodafone 原意见，与同次 OTE 意见分别归档；保留非保密版本的省略号，不补写删除内容。仅核实其提出的观点，不把指控、观点或文件元数据当作监管裁定或实测事实。",
+      "boundary": "参与方意见不是 EETT 最终决定或双方达成的客户共识，也不能证明具名路由确有故障、容量不足或新增采购。它与 Vodafone–PPC 的约束性协议、审批和交割是不同证据链；本轮 PPC 公告检索未取得后续交易证明，不据此断言交易没有进展。",
+      "nextAction": "分开核验监管最终决定、真实可服务区域 / 接入 KPI，以及 Vodafone–PPC 的交易和采购授权链。网络方案仍需具名端点、接口、容量余量、实际交付问题与未覆盖工作包，不能只从 homes passed 推导 OTN / DWDM 机会。",
+      "checkedAt": "2026-10-19",
+      "scenario": "移动 / 固网承载",
+      "updatedAt": "2026-10-19"
+    },
+    {
+      "id": "a1-bg-domestic-wavesuite-noc-baseline-20251205",
+      "title": "A1 国内 DWDM 招标披露既有 Nokia WaveSuite-NOC，并要求新网接入",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "a1-bg"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "A1 北中部与西北部 2025 年 12 月 DWDM 招标技术附件均写明：A1 Bulgaria 全国 DWDM 骨干已有 Nokia Wavesuite-NOC Rel.24.12 集中管理系统，新建区域网须接入。北中部附件第 4.3 节还要求设备配置、故障定位、Rx/Tx 监测、资产清单、报告、软件管理及告警等集成功能。",
+      "sourceName": "保加利亚 EUMIS · A1 国内两区域 DWDM 技术规格附件",
+      "sourceUrl": "https://eumis2020.government.bg/bg/dc1ea0d2/Offers/Details/b60170e8-ec6b-4e64-829d-4badc5c34b82",
+      "sourceDate": "2025-12-05",
+      "period": "父程序公告 2025-12-05，截止 2025-12-15；附件未另列发布日期。既有系统描述限该采购编制时点，不冒充 2026 年 10 月在网版本；Rel.24.12 是软件版本，不是设备数量或日期。",
+      "locator": "北中部 DWDM Север център.zip 内 Техническа спецификация_DWDM_СЦ.docx：第 1.1 节现状与第 4.3 节集成；本次渲染第 1、8 页。西北部程序 2b2926a0-9127-4175-a2b6-e298b9cd34b5 的同名 СЗ 附件第 1.1 节独立互校。",
+      "method": "从两个 EUMIS 程序各自的公开 ZIP 下载并读取原始 DOCX，核对区域、主语和软件版本；渲染北中部原页确认。把国内全国网管披露与集团国际网设备公告分别取证。",
+      "boundary": "这是历史国内网管与拟建网集成要求，不是中标、设备合同、验收或当前全网清单；不证明所有国内硬件均为 Nokia、其份额或排他框架。附件所称当时缺少区域专用 DWDM 不能延用为当前痛点。文末有“或等效”条款，不能直接判定其他厂家不具资格。",
+      "nextAction": "优先核实当前 WS-NOC 版本、接口和许可、等效集成的接受方式、验证责任与成本；取得授标及合同覆盖后，才选择可独立验收的互通试点或未覆盖工作包。",
+      "checkedAt": "2026-10-16",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-10-16"
+    },
+    {
+      "id": "a1-bg-north-central-platform-gates-20251205",
+      "title": "A1 北中部历史采购要求 8 槽、800G 升级及 C+L 演进，不能当作已部署能力",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "a1-bg"
+      ],
+      "topic": "technology",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "北中部技术规格要求至少 8 个全尺寸转发器槽位、C 波段 50GHz 固定栅格及 Flex-grid；拟供设备须统一 OS 二进制与版本，转发器 DSP 为供应方内部开发，支持投标时已可提供的 800G 转发器升级及不中断业务的 C+L 演进。10/100GE 为交付业务，400GE 在主规格中列为未来扩展选项。",
+      "sourceName": "保加利亚 EUMIS · A1 北中部 DWDM 主规格与附件 1.2",
+      "sourceUrl": "https://eumis2020.government.bg/bg/dc1ea0d2/Offers/Details/b60170e8-ec6b-4e64-829d-4badc5c34b82",
+      "sourceDate": "2025-12-05",
+      "period": "2025-12-05 父程序归档的历史要求，附件未另列发布日期；槽位为机框规格，GHz 为栅格间隔，G / Gbps 为业务或升级能力，不是采购数量或当前点亮容量。",
+      "locator": "ZIP 内 Техническа спецификация_DWDM_СЦ.docx 第 4.1 节，本次渲染第 5–6 页及文末“或等效”说明；Приложение 1.2 第 1 页的备份组件切换 50ms、G.873.1 与 OCh / ODUk SNCP 方案说明要求。",
+      "method": "逐条读取主规格与附件 1.2 并对照原页；把首期交付、未来选项、投标时升级可用性和保护层次分开，不将要求写成中标方案或实测性能。",
+      "boundary": "只适用于已截止的该次采购，不是当前全 A1 准入政策。800G、C+L 是升级要求，不证明采购或开通；附件的 50ms 指故障时备份组件切换造成的业务中断上限，不能外推为全网 SNCP / ASON 恢复实测。列出 OTN 标准不证明 OTN 交叉容量；“或等效”条款须由采购方解释，不自行判定任何厂家被排除。",
+      "nextAction": "若存在未覆盖新需求，先取得当前有效规格和等效判定口径，逐项验证平台、DSP、网管、800G / C+L 及保护指标；不以 1U 外形或单一速率标签替代合规与需求确认。",
+      "checkedAt": "2026-10-16",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-10-16"
+    },
+    {
+      "id": "a1-bg-north-central-design-topology-20251205",
+      "title": "A1 北中部附件列出 6 个设计设备位置与具名 10G / 100G 方向",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "a1-bg"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "北中部附件 1.1 的设计位置表列 Veliko Tarnovo 一个三维 ROADM，Gabrovo、Ruse、Razgrad 各一个二维 ROADM，Gostilitsa、Galoper 各一个 ILA，共 6 个设备位置。业务矩阵列 Gabrovo–Veliko Tarnovo 的 Nx10G，以及 Razgrad–Ruse、Ruse–Veliko Tarnovo、Razgrad–Varna 的 100G，最后一项用于汇聚流量终结。",
+      "sourceName": "保加利亚 EUMIS · A1 北中部 DWDM 附件 1.1 拓扑与业务矩阵",
+      "sourceUrl": "https://eumis2020.government.bg/bg/dc1ea0d2/Offers/Details/b60170e8-ec6b-4e64-829d-4badc5c34b82",
+      "sourceDate": "2025-12-05",
+      "period": "2025-12-05 父程序的设计附件，附件未另列发布日期；6 为表 3 的区域设备位置数，4 ROADM + 2 ILA 为逐行分类计数，不是全国在网站点或已验收数量。Nx10G 未给 N，100G 不代表已售或实测流量。",
+      "locator": "DWDM Север център.zip 内 Приложение 1.1 Техническа спецификация към DWDM_СЦ.docx：表 2 光纤段、表 3 设备位置、图 1 与表 4 业务矩阵；本次渲染第 2–3 页。",
+      "method": "逐行核对表 3 的位置 / 类型 / 数量，与图 1 及表 4 对照；保留区域边界、跨区终结方向和未知 N，不累加业务矩阵速率为网络容量或机会金额。",
+      "boundary": "这是投标设计输入，不是竣工拓扑、现网硬件型号或剩余采购清单。Varna 出现在业务终结方向不等于表 3 在该地新建节点；跨区光段带 tbd 注记，不能据此承诺路由独立性或链路预算。不得外推西北部或全国网。",
+      "nextAction": "以这六个具名位置和流量方向索取竣工 / 验收拓扑、现有合同、点亮与余量、保护及 SRLG；只对确认未被覆盖的一条端点对设计试点。",
+      "checkedAt": "2026-10-16",
+      "scenario": "移动 / 固网承载",
+      "updatedAt": "2026-10-16"
+    },
+    {
+      "id": "a1-bg-north-access-footprint-20260918",
+      "title": "A1 9 月披露北部 64 市镇、逾 18.1 万居民可接入；不等于 DWDM 验收",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "a1-bg"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "A1 2026-09-18 Tech Trip 官方公告称，西北部与北中部项目已使 64 个市镇超过 181,000 名居民可获得高速互联网。这提供了晚于 6 月项目进度的接入可达披露，但未列 DWDM 厂家、线路点亮容量、验收或授标文件。",
+      "sourceName": "A1 Bulgaria · A1 Tech Trip 2026 官方公告",
+      "sourceUrl": "https://newscenter.a1.bg/-lonxzg",
+      "sourceDate": "2026-09-18",
+      "period": "2026-09-18 公告时点，范围仅西北部与北中部恢复与韧性计划项目；64 的单位为市镇，181,000 为可获得接入的居民人数下限，不是订户、家庭或付费连接数。",
+      "locator": "标题下 18 септември 2026 г.；正文含 Над 181 хиляди жители в 64 общини 的段落（网页第 10–12 行）。",
+      "method": "直接读取 A1 公告并与其 Business News 索引日期互校；与 6 月光纤进度保留为独立快照，不把市镇服务可达性和光纤连接施工口径拼成同口径完成率。",
+      "boundary": "这是运营方自述的接入可达覆盖，不是独立验收、实际采用率、DWDM 全项目完工或有源设备订单；不得把 64 市镇直接解读为 100% 传送验收，也不以人口换算传送预算。本次为历史补录，不是 10 月新增事件。",
+      "nextAction": "取得 64 市镇的实际交付范围、承载汇聚关系与验收 / RFS 文件，再核实相关端点余量和未覆盖后续需求。",
+      "checkedAt": "2026-10-16",
+      "scenario": "移动 / 固网承载",
+      "updatedAt": "2026-10-16"
+    },
+    {
+      "id": "moldtelecom-cable-materials-tender-20260930",
+      "title": "Moldtelecom 光缆等材料采购公告：10 月 26 日截止",
+      "countries": [
+        "MD"
+      ],
+      "accounts": [
+        "mtc-md"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "Moldtelecom 于 2026-09-30 公告公开采购光缆、铜缆及附件，公告列报价截止为 2026-10-26 12:00，提交地点为 Chișinău 公司总部；招标文件需向招标委员会秘书取得。2026-10-14 复核时公告仍可读取，所列截止日尚未到；页面没有披露数量、金额、具体路由或主动光传送设备标的。",
+      "sourceName": "Moldtelecom · 光缆、铜缆及附件公开采购公告 1838",
+      "sourceUrl": "https://www.moldtelecom.md/ro/licitatii/1838/",
+      "sourceDate": "2026-09-30",
+      "period": "公告发布 2026-09-30；所列报价截止 2026-10-26 12:00，提交地点 Chișinău，原文未显式标注时区；范围为 S.A. Moldtelecom 的光缆、铜缆及附件采购。公告无数量、币种、金额或设备容量。",
+      "locator": "标题及日期；正文第 1 段的采购对象、第 2 段的招标文件获取方式，以及第 3 段的提交地址和 26.10.2026 / 12.00 截止时间。",
+      "method": "直接读取运营商公告并核对采购对象、发布日期和截止时间；同时检查采购索引，但索引动态内容未被完整返回，因此不声称已核查所有变更或撤销公告。",
+      "boundary": "这是已发布的材料采购公告，不是 OTN / DWDM 主动设备招标、授标或订单。所列截止日尚未到不等于已确认程序仍有效或用户具备投标资格；需取得正式文件及变更记录。材料采购不能推导新建路由、点亮容量、设备预算、采购授权变化或自动暂停 / 恢复采购。",
+      "nextAction": "先取得公告 1838 的完整文件、有效性 / 变更、标包、规格、数量和资格要求；确认是否仅材料，是否存在单独的主动设备或后续点亮工作包。不在文件缺失时推定可参与订单或联系客户。",
+      "checkedAt": "2026-10-14",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-10-14"
+    },
+    {
+      "id": "moldtelecom-cable-materials-tender-extension-20261023",
+      "title": "Moldtelecom 将光缆等材料采购截止延至 11 月 9 日，结果仍待核实",
+      "countries": [
+        "MD"
+      ],
+      "accounts": [
+        "mtc-md"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "Moldtelecom 于 2026-10-23 公告，将光缆、铜缆及附件公开采购的报价截止从原公告所列 2026-10-26 12:00 延至 2026-11-09 12:00。11 月 11 日复核时该期限已过；本轮未取得可核对的授标、取消、再次延期或结果公告。",
+      "sourceName": "Moldtelecom · 光缆、铜缆及附件采购延期公告 1849",
+      "sourceUrl": "https://www.moldtelecom.md/ro/licitatii/1849/",
+      "sourceDate": "2026-10-23",
+      "period": "延期公告发布 2026-10-23；新报价截止 2026-11-09 12:00，原文未显式标注时区。范围仍为 S.A. Moldtelecom 的光缆、铜缆及附件采购；公告未披露数量、金额、路由、设备容量或投标数量。",
+      "locator": "标题及日期；正文第 1 段的采购对象与延期至 09.11.2026 / 12:00 的截止时间。",
+      "method": "将运营商延期公告 1849 与原公告 1838 的 2026-10-26 截止逐项对照，并复核运营商采购与新闻入口；以独立 ID 记录后续程序节点，不修改原公告的来源日期或历史内容。",
+      "boundary": "延期仅证明提交期限发生变化。11 月 9 日截止已过，不能把它列为当前开放机会；本轮未取得结果也不能断言未授标、已取消或没有再次延期。标的仍是光缆、铜缆及附件，不等于 OTN / DWDM 主动设备招标、网络扩容、订单或采购窗口。",
+      "nextAction": "取得公告 1838 / 1849 的完整文件及后续结果、取消或再次延期公告，核实标包、规格、数量、投标数量、评选 / 授标、合同与交付验收；另行确认是否存在主动设备或点亮工作包。",
+      "checkedAt": "2026-11-11",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-11-11"
+    },
+    {
+      "id": "cetin-bg-otn-wavelength-sncp-catalog-undated",
+      "title": "CETIN 产品目录明确列出 2.5–100G OTN 波长与 SNCP 保护",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "ppf-bg"
+      ],
+      "topic": "market",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "CETIN Bulgaria 的 Services 页面列出 ITU-T OTN Wavelength 2.5–100Gbps 和 Carrier Ethernet 1–100Gbps。波分连接提供单路无保护、两条不同路由的双点到点连接，以及采用 SNCP 的受保护连接。该目录为 Yettel 业务需求与 CETIN 传送产品能力的核验提供入口。",
+      "sourceName": "CETIN Bulgaria · Services / Carrier Data Services",
+      "sourceUrl": "https://www.cetinbg.bg/services/",
+      "sourceDate": "未标注",
+      "period": "无发布日期的产品页；2026-10-14 可读快照。速率单位 Gbps，2.5–100 为 OTN 波长产品范围，1–100 为 Carrier Ethernet 产品范围；两条路由是产品描述，不是独立性实测或全网容量。",
+      "locator": "Network Services → Carrier Data Services：两项速率以及 Protection 下的单路、双点到点和 SNCP 三种选项（页面正文第 24–29 行）。",
+      "method": "逐项读取运营商自有产品目录，把 OTN 波长与 Carrier Ethernet、双连接与 SNCP 保护分开记录；与区域 NextGenerationEU 文件分开，不默认同一产品范围或相同 SLA。",
+      "boundary": "页面未注明发布日期，不能称为 10 月新发布；目录不证明每个端点可售、已售规模、物理 SRLG 独立或现网容量上限。SNCP 宣传不证明倒换小于 50ms、ASON、ODU / OSU 交叉能力、设备厂家或新增采购。不能把一般服务目录的保护能力移植到待审批区域 DWDM 合同。",
+      "nextAction": "按具名端点取得接口 / ODU 映射、带宽粒度、保护层次、倒换实测、双路由 SRLG、有效 SLA、容量余量和框架合同；与 Yettel 的服务需求对照，再验证未覆盖工作包。",
+      "checkedAt": "2026-10-14",
+      "scenario": "OTN 专线",
+      "updatedAt": "2026-10-14"
+    },
+    {
+      "id": "cetin-bg-nrrp-dwdm-sla-unprotected-undated",
+      "title": "CETIN 区域 DWDM 模板列未保护服务月度 99.70% 可用率",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "ppf-bg"
+      ],
+      "topic": "market",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "CETIN 的西南部和南中部 BG-RRP DWDM 服务 SLA 模板均列“未保护服务”月度可用率 99.70%。P1 服务中断的通知时限为 1 小时、定期通报间隔为 2 小时、恢复时限为 8 小时；已通知的计划和紧急维护等存在计算排除项。官网目录仍说明一般条款待主管机关最终批准。",
+      "sourceName": "CETIN Bulgaria · NextGenerationEU DWDM Schedule 2 / SLA 模板",
+      "sourceUrl": "https://www.cetinbg.bg/documents/d/cetin.bg/2-2-schedule-2-service-level-agreement",
+      "sourceDate": "未标注",
+      "period": "两份 PDF 及目录未标发布日期，2026-10-14 可读快照；仅限 BG-RRP-7.008-0003 西南部、0004 南中部目录所列 DWDM 模板。99.70% 为未保护服务月度合同可用率，1 / 2 / 8 的单位为小时，不是倒换时延或实测结果。",
+      "locator": "两份 PDF 第 2 页 P1 / P2 / P3 表及第 7.1 条的未保护服务可用率表；第 3 页第 7.2–7.3、8–9 条的计算、维护、例外和补偿；目录 https://www.cetinbg.bg/nextgenerationeu 开头的待最终批准提示。",
+      "method": "读取西南部 PDF 并渲染第 2 页核对列归属；与南中部 https://www.cetinbg.bg/documents/d/cetin.bg/2-2-schedule-2-service-level-agreement-1 逐条互校。把模板值、服务实测、正式生效合同及一般服务目录分开。",
+      "boundary": "模板不是已批准、生效或已签的客户 SLA；99.70% 不是 CETIN 全网实测可用率，也不能用来描述 SNCP 保护产品。8 小时是故障恢复时限，不能当作保护倒换时间；P2 / P3 使用 WH，未明确其含义时不转换成连续小时。尚无合同、验收、故障率或主动设备订单证据。",
+      "nextAction": "取得批准决定、生效条款、具名路由订单和保护选项的独立 SLA；核实可用率的排除项、监测计时与实际故障 / 恢复数据，再评估保护或运维改进的必要性。",
+      "checkedAt": "2026-10-14",
+      "scenario": "Transit / 批发",
+      "updatedAt": "2026-10-14"
+    },
+    {
+      "id": "eett-nova-ftth-8g-100g-aggregation-request-20260909",
+      "title": "NOVA 为 8G FTTH 批发交付提出 100G 本地汇聚接口条件",
+      "countries": [
+        "GR"
+      ],
+      "accounts": [
+        "nova-gr"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "EETT 于 2026-09-09 公布 OTE 批发本地接入参考报价修改咨询答复。OTE 拟新增 VPU/FTTH 8Gbps 下载、4Gbps 上传服务；NOVA 原则上支持更高速率，但要求明确地域可用性，并提出：为保证终端交付，在本地 ΟΚΣΥΑ 电路已有 2×10G 接口时，应可按需提供 100G 接口，而现行条款把 100G 升级门槛设在 5×10G。",
+      "sourceName": "EETT · NOVA 对 OTE 8G/4G FTTH 批发接入咨询的非保密答复",
+      "sourceUrl": "https://www.eett.gr/wp-content/uploads/2026/09/%CE%91%CF%80%CE%AC%CE%BD%CF%84%CE%B7%CF%83%CE%B7-Nova_%CE%94%CE%94-8Gbps_%CE%9C%CE%97-%CE%95%CE%9C%CE%A0%CE%99%CE%A3%CE%A4%CE%95%CE%A5%CE%A4%CE%99%CE%9A%CE%9F.pdf",
+      "sourceDate": "2026-09-09",
+      "period": "咨询期 2026-07-28 至 2026-08-31；EETT 于 2026-09-09 公布答复。8/4Gbps 是拟新增终端接入速率，2×10G 与 5×10G 是 NOVA 引述的本地电路接口门槛，100G 是请求提供的聚合接口速率。",
+      "locator": "NOVA 非保密答复第 1 页的拟新增 8/4Gbps 服务与原则立场；第 2 页的地域可用性、ΟΚΣΥΑ 层、现行 5×10G 条件及建议改为 2×10G 后可按需提供 100G。",
+      "method": "读取 EETT 2026-09-09 结果页、原咨询入口及 NOVA 五页非保密答复；把 OTE 的产品意向、NOVA 的技术/竞争意见与尚待形成的监管决定分开记录。",
+      "boundary": "这是市场参与者在监管咨询中的具名意见，不是 EETT 最终决定、OTE 已接受修改或 100G 接口已商用的证明。它提示接入聚合能力可能影响 8G 服务复制，但不能据此推断 NOVA 自有 DWDM/OTN 现网缺口、设备厂家、容量利用率或采购窗口。",
+      "nextAction": "取得 EETT 最终决定和 OTE 生效版参考报价；核实 100G ΟΚΣΥΑ 接口的实际可用区域、申请量、交付拓扑、峰值流量和现有传送余量，再判断是否形成城域汇聚或 OTN/DWDM 增量需求。",
+      "checkedAt": "2026-10-12",
+      "scenario": "移动 / 固网承载",
+      "updatedAt": "2026-10-12"
+    },
+    {
+      "id": "vivacom-bg-rrp-regional-funding-decision-20250519",
+      "title": "VIVACOM 获批保加利亚东北、东南两区域数字基础设施项目资金",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "vivacom-bg"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "保加利亚交通与通信部 2025-05-19 决定将 BG-RRP-7.008-0001（东南部）和 BG-RRP-7.008-0002（东北部）列给 VIVACOM Bulgaria。两项目获批资金分别为 BGN 65,637,035 和 BGN 55,562,719；含自筹的提案总值分别为 BGN 72,930,039 和 BGN 61,736,355。",
+      "sourceName": "保加利亚交通与通信部 · BG-RRP-7.008 资金授予决定 C-17",
+      "sourceUrl": "https://www.mtc.government.bg/sites/default/files/documents/2025-05/%D0%A1-17_19-05-2025__Reshenie%20BFP%20NPVU%20C7.I1.pdf",
+      "sourceDate": "2025-05-19",
+      "period": "决定日期 2025-05-19；金额单位为保加利亚列弗（BGN），分别区分获批公共资金与含自筹的整个项目提案总值；地域限东北部和东南部规划区。",
+      "locator": "决定第 2 页表格第 1–2 行：申请人、区域、项目编号、获批资金及含自筹总值；第 2 页第 IV 项：决定生效后 15 个工作日内签署最终受益人融资合同。",
+      "method": "直接读取交通与通信部资金授予决定，并与 2025-06-10 六份数字网络合同签署公告及 VIVACOM 2026-06-23 项目活动说明互校主体和区域；金额保持原币种与项目整体口径。",
+      "boundary": "这是两项区域数字基础设施项目的整体资金与提案价值，不是 VIVACOM 自有 CAPEX、光传送设备预算、DWDM/OTN TAM 或可竞争采购金额。决定本身不证明全项目完工、RFS、主动设备范围、供应商或验收状态。",
+      "nextAction": "按两个项目编号取得合同变更、竣工/验收、可售路由、纤芯和主动设备工作包；把已签土建/材料合同与仍可能参与的点亮、网管、保护及后续扩容分开。",
+      "checkedAt": "2026-10-12",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-10-12"
+    },
+    {
+      "id": "vivacom-bg-southeast-permit-rs162-20260727",
+      "title": "VIVACOM 东南部项目 7 月仍有具体线路取得施工许可",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "vivacom-bg"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "保加利亚《国家公报》2026-07-31 公告，BG-RRP-7.008-0001-C01 东南部数字基础设施项目于 2026-07-27 获得 RS-162 施工许可，涉及 Stara Zagora—Dalboki 方向既有管井及连接 PD2714、PD2700 等站点的分段。该项目编号在交通与通信部资金决定中对应 VIVACOM Bulgaria。",
+      "sourceName": "保加利亚《国家公报》· RS-162 施工许可",
+      "sourceUrl": "https://dv.parliament.bg/DVWeb/showMaterialDV.jsp?idMat=245082",
+      "sourceDate": "2026-07-27",
+      "period": "施工许可签发 2026-07-27，《国家公报》第 69 期于 2026-07-31 发布；范围仅为 BG-RRP-7.008-0001-C01 东南部项目中所列 Stara Zagora—Dalboki 分段。",
+      "locator": "《国家公报》第 69 期第 174 页公告第 2 项：RS-162、签发日期、项目编号、既有管井和 Stara Zagora—Dalboki 分段；交通与通信部 2025-05-19 决定第 2 页将 0001 映射到 VIVACOM 东南部项目。",
+      "method": "用项目编号将《国家公报》的线路许可与交通与通信部资金决定交叉匹配；只登记具体行政节点，不把许可、建设、竣工、点亮和商用合并。",
+      "boundary": "施工许可不是开工、完成、验收、RFS 或主动设备采购证明；所列站点代码不能推出链路容量、路由保护、设备厂家或客户需求。该条只说明至少一个公开分段在 7 月仍处许可节点，不能单凭它判断整个项目延期或未完工。",
+      "nextAction": "取得该分段及东北/东南全项目的开工、竣工、验收和 RFS 文件；核实实际公里数、端点、纤芯、点亮容量、SRLG、承包商及主动设备采购责任。",
+      "checkedAt": "2026-10-12",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-10-12"
+    },
+    {
+      "id": "vivacom-bg-southeast-permit-rs178-20260828",
+      "title": "VIVACOM 东南部项目 8 月新增 Chirpan–Brezovo / Belozem 分段施工许可",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "vivacom-bg"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "保加利亚《国家公报》2026-09-04 公告，BG-RRP-7.008-0001-C01 东南部数字基础设施项目于 2026-08-28 获得 RS-178 施工许可，范围是 ЮИ08 Chirpan–Brezovo、Belozem 支线路由中，从另一项目 10 号井至 11 号井的分段。该项目编号在交通与通信部资金决定中对应 VIVACOM Bulgaria。",
+      "sourceName": "保加利亚《国家公报》· RS-178 施工许可",
+      "sourceUrl": "https://dv.parliament.bg/DVWeb/showMaterialDV.jsp?idMat=245691",
+      "sourceDate": "2026-08-28",
+      "period": "施工许可签发 2026-08-28，《国家公报》第 81 期于 2026-09-04 发布；范围仅为 BG-RRP-7.008-0001-C01 东南部项目的 ЮИ08 Chirpan–Brezovo、Belozem 支线中所列 10 号井至 11 号井分段。",
+      "locator": "《国家公报》第 81 期第 155 页公告第 16 项：RS-178、签发日期、项目编号、ЮИ08 路由及 10 号井至 11 号井分段；交通与通信部 2025-05-19 决定第 2 页将 0001 映射到 VIVACOM 东南部项目。",
+      "method": "读取《国家公报》原始公告，以 BG-RRP-7.008-0001-C01 与交通和通信部资金决定交叉核对主体和区域；把许可签发日与公报发布日期分列，并将许可、施工、验收、点亮和商用作为不同阶段。",
+      "boundary": "该记录是 9 月公开的行政节点补录，不是 10 月新订单。许可不证明已经开工、建成、验收、RFS 或商用，也不提供长度、纤芯、点亮容量、保护路由、主动设备、供应商、合同或采购权。单一井段不能代表整个东南部项目的完成比例或进度状态。",
+      "nextAction": "取得该分段及东北 / 东南全项目的开工、竣工、验收与 RFS 文件；按端点核实实际长度、纤芯、点亮容量、SRLG、承包商、主动设备和采购责任，并区分已签合同与未覆盖工作包。",
+      "checkedAt": "2026-10-30",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-10-30"
+    },
+    {
+      "id": "ppc-fibergrid-ftth-baseline-20261008",
+      "title": "PPC FiberGrid 披露 230 万 homes passed、150 万可服务",
+      "countries": [
+        "GR"
+      ],
+      "accounts": [
+        "vodafone-gr"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "PPC 于 2026-10-08 披露，PPC FiberGrid 的 FTTH 网络覆盖 230 万 homes passed，其中超过 150 万户和企业在 70 个区域 ready for service；下一目标是 2026 年底达到 200 万 ready for service、2028 年达到 380 万 homes passed。公司同时称其批发产品包括最高 2.5Gbps 的 bitstream 和暗纤。该披露更新了 Vodafone–PPC 潜在合资一方的独立资产基线，但没有报告合资交易进展。",
+      "sourceName": "PPC · PPC FiberGrid 2026-10-08 FTTH 覆盖更新",
+      "sourceUrl": "https://www.ppcgroup.com/en/investor-relations/announcements/stock-news/stock-news-2026/ppc-fiber-ftth-internet-from-ppc-with-100-fiber-now-reaches-15-million-homes-across-greece/",
+      "sourceDate": "2026-10-08",
+      "period": "2026-10-08 公司披露快照；230 万的单位为 homes passed，150 万为 ready-for-service 户和企业，范围为希腊 70 个区域；200 万为 2026 年底目标，380 万为 2028 年 homes-passed 目标；2.5Gbps 为批发 bitstream 最高速率。",
+      "locator": "标题下的覆盖 / 目标要点，以及“PPC FiberGrid: Greece’s second-largest fiber network”小节的网络范围、100% 端到端光纤架构、bitstream 与暗纤段落。",
+      "method": "读取 PPC 10 月 8 日原文，并与 6 月 10 日 Vodafone–PPC 非约束性条款公告按日期和主体分开比较；只把最新数字作为 PPC FiberGrid 独立基线，不与 Vodafone 覆盖直接相加或视为合资资产。",
+      "boundary": "这是 PPC 的 FTTH 接入网自述，不是光传送容量、收入、用户数或设备订单。该公告没有说明 Vodafone–PPC 已签约、获批、交割，也没有界定最终注入合资公司的资产、重叠区域和采购权限；不能把 230 万 homes passed 转换为 DWDM / OTN 市场规模。",
+      "nextAction": "取得约束性交易文件、监管申报 / 批准、交割条件及最终资产清单；再把接入覆盖映射到具名汇聚 / 城域链路、容量余量、现有合同和合资前后采购责任，判断是否存在传送增量工作包。",
+      "checkedAt": "2026-10-09",
+      "scenario": "移动 / 固网承载",
+      "updatedAt": "2026-10-09"
+    },
+    {
+      "id": "eett-ote-svo-consultation-response-20260909",
+      "title": "OTE 批发 SVO 拟增 500M / 1G；NOVA 指出交付架构限制",
+      "countries": [
+        "GR"
+      ],
+      "accounts": [
+        "ote-gr",
+        "nova-gr"
+      ],
+      "topic": "market",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "EETT 于 2026-09-09 公布 OTE 批发租赁线路参考报价咨询反馈。原咨询拟为对称虚拟光接入 SVO 增加 500/500Mbps 和 1/1Gbps，采用 G.987 系列并为这两档提供 10Gbps Ethernet 客户接口。NOVA 的公开答复称，现行 SVO 流量与 VLU-FTTH 共用交付 VLAN，限制技术差异化和中小企业场景使用，并建议复核交付架构与 QoS。",
+      "sourceName": "EETT · OTE 批发租赁线路咨询及 NOVA 公开答复",
+      "sourceUrl": "https://www.eett.gr/anakinosis/apantiseis-diavoulefsis-prosfora-anaforas-ote-gia-parochi-misthomenon-grammon-chondrikis/",
+      "sourceDate": "2026-09-09",
+      "period": "咨询期 2026-07-15 至 2026-09-01 15:00；EETT 于 2026-09-09 公布非保密答复。500/500Mbps 与 1/1Gbps 为拟新增 SVO 对称接入速率；10Gbps 为相应 ONT 客户侧 Ethernet 接口容量。",
+      "locator": "EETT 结果页的日期、咨询期与“相关文件”；咨询 PDF 第 4–5 页的速率、G.987 / G.988 与 10Gbps 接口；NOVA 答复 PDF 第 1–2 页的 VLAN 交付、技术差异化、SME 使用与 QoS 建议。",
+      "method": "交叉读取监管机构的咨询页、咨询原文和随附的 NOVA 非保密答复，分别标注监管提案、市场参与者意见与尚待形成的最终决定；不把答复方观点写成监管结论。",
+      "boundary": "咨询已经结束，但所查页面没有最终批准决定或生效版参考报价。SVO 是基于 PON 的对称虚拟光接入，不等同于 OTN 硬管道、独享波长或 DWDM 设备采购。NOVA 的意见是具名运营商反馈，不足以证明 OTE 已接受修改、全网存在缺陷或已经形成采购窗口。",
+      "nextAction": "取得 EETT 最终决定和 OTE 生效版参考报价；核实 SVO 交付拓扑、VLAN / QoS 机制、采用率与具名企业 SLA，再判断问题应由接入产品调整、批发 Ethernet，还是独立 OTN / 波长方案解决。",
+      "checkedAt": "2026-10-09",
+      "scenario": "移动 / 固网承载",
+      "updatedAt": "2026-10-09"
+    },
+    {
+      "id": "a1-bg-northwest-fiber-monitoring-20260406",
+      "title": "A1 西北部采购光纤监测系统，要求分钟级故障定位",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "a1-bg"
+      ],
+      "topic": "technology",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "保加利亚 EUMIS 归档显示，A1 Bulgaria 于 2026-04-06 公告西北部光纤监测系统采购：交付并安装与监测模块协同工作的有源单元，用于登记光网络事件、在数分钟内定位故障，并在光纤参数恶化时向网络管理中心告警。页面记录 2 份报价且未标记终止。",
+      "sourceName": "保加利亚 EUMIS · A1 西北部光纤监测系统采购归档",
+      "sourceUrl": "https://eumis2020.government.bg/bg/bfff4f78/Offers/Details/84e8ae09-abf3-4307-8b10-7e9ad8d1d1d7",
+      "sourceDate": "2026-04-06",
+      "period": "公告日期 2026-04-06；报价截止 2026-04-14；地域限西北部 BG-RRP-7.008-0007-C01。页面列示预计值 140,605.00，但未显示币种，因此不计入金额或机会测算；2 的单位为提交报价份数。",
+      "locator": "归档正文的程序名称、公告与截止日期；说明第 38–40 行的系统用途；报价位置的 2 份报价及页面“未终止”状态。",
+      "method": "读取 EUMIS 原始程序页，并与同项目归档列表核对区域、项目编号和替代版本；把采购需求、提交报价、授标、安装、验收和当前运行状态分开。",
+      "boundary": "这是已截止的历史采购，不是当前开放机会。2 份报价不等于 2 家供应商已部署；“未终止”也不证明已经授标、签约、安装或验收。监测要求说明该项目的功能目标，不能据此断言 A1 全网存在故障率、监测覆盖缺口或设备老旧问题。",
+      "nextAction": "取得中标决定、合同、技术清单和验收记录；核实当前监测覆盖、定位性能、维护责任及仍未被合同覆盖的扩展或集成工作包，再判断是否存在方案切入入口。",
+      "checkedAt": "2026-10-07",
+      "scenario": "移动 / 固网承载",
+      "updatedAt": "2026-10-07"
+    },
+    {
+      "id": "a1-bg-north-central-fiber-monitoring-20260406",
+      "title": "A1 北中部同步采购光纤监测系统，当前授标与验收仍待取证",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "a1-bg"
+      ],
+      "topic": "technology",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "保加利亚 EUMIS 另有 A1 Bulgaria 北中部采购归档，功能要求与西北部相同：有源单元与监测模块组成系统，登记光网络事件、在数分钟内定位故障，并把光纤参数恶化告警到网络管理中心。该程序同样于 2026-04-06 公告、记录 2 份报价且未标记终止。",
+      "sourceName": "保加利亚 EUMIS · A1 北中部光纤监测系统采购归档",
+      "sourceUrl": "https://eumis2020.government.bg/bg/10e04a67/Offers/Details/d6186f95-4e63-4496-8ca7-75e05bed0a9d",
+      "sourceDate": "2026-04-06",
+      "period": "公告日期 2026-04-06；报价截止 2026-04-14；地域限北中部 BG-RRP-7.008-0006-C02。页面列示预计值 193,270.00，但未显示币种，因此不计入金额或机会测算；2 的单位为提交报价份数。",
+      "locator": "归档正文的程序名称、公告与截止日期；说明第 38–40 行的系统用途；报价位置的 2 份报价及页面“未终止”状态。",
+      "method": "读取 EUMIS 原始程序页，并与西北部独立程序逐项比对区域、项目编号、功能要求和报价状态；两个区域分别登记，不把镜像需求重复解释为同一合同或全网部署。",
+      "boundary": "这是已截止的历史采购，不是当前开放机会；没有授标、供应商、安装范围或验收证据。两个区域的相似需求不能证明统一采购合同，也不能外推为 A1 Bulgaria 全网监测架构、现网厂家或替换计划。",
+      "nextAction": "取得北中部中标、合同与验收资料，并与西北部核对是否为统一技术平台、分别采购或分区运维；仅围绕未覆盖工作包、互通或后续扩展评估进入路径。",
+      "checkedAt": "2026-10-07",
+      "scenario": "移动 / 固网承载",
+      "updatedAt": "2026-10-07"
+    },
+    {
+      "id": "moldtelecom-ceo-selection-applications-20261001",
+      "title": "Moldtelecom 总经理遴选收到 13 份完整申请，尚未宣布任命",
+      "countries": [
+        "MD"
+      ],
+      "accounts": [
+        "mtc-md"
+      ],
+      "topic": "operator",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "Moldtelecom 及摩尔多瓦公共财产署于 2026-10-01 公布：总经理遴选收到 13 份申请材料，均被认定为完整。遴选委员会将另行公布各阶段结果。这是 9 月启动遴选之后的程序进展，未公布获选人或任命决定。",
+      "sourceName": "Moldtelecom · 总经理遴选申请材料公告",
+      "sourceUrl": "https://www.moldtelecom.md/ro/news/575/",
+      "sourceDate": "2026-10-01",
+      "period": "2026-10-01 公告；13 的单位为收到的完整申请材料份数，范围仅为 S.A. Moldtelecom 总经理遴选；未披露网络投资或采购金额。",
+      "locator": "官方公告第 1–3 段：13 dosare、toate fiind complete，以及后续阶段另行公布；摩尔多瓦公共财产署同日公告交叉核对。",
+      "method": "将 Moldtelecom 2026-10-01 公告与公共财产署同日原文互校，并与 2026-09-15 启动遴选的旧记录按阶段衔接；不把申请材料数写成已确定候选人数或录用结果。",
+      "boundary": "收到完整申请不等于完成评选、董事会任命或采购授权变化；没有证据说明光传送规划、预算、招标或订单发生改变。原 9 月公告作为历史阶段保留。",
+      "nextAction": "跟踪遴选委员会与董事会正式决定，并单独核实网络规划、技术签署和采购审批的实际授权链；采购窗口仍需项目资料证明。",
+      "checkedAt": "2026-10-05",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-10-05"
+    },
+    {
+      "id": "moldtelecom-ceo-selection-finalists-20261022",
+      "title": "Moldtelecom 总经理遴选进入 4 名最终候选，下一阶段为 Business Case 与最终面试",
+      "countries": [
+        "MD"
+      ],
+      "accounts": [
+        "mtc-md"
+      ],
+      "topic": "operator",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "Moldtelecom 与摩尔多瓦公共财产署披露：13 份申请中有 6 名候选人于 10 月 15 日进入能力评估面试；完成该第二阶段后，4 人于 10 月 22 日被列为最终候选。第三阶段为提交 Business Case 并参加最终面试，尚未公布获选人或任命决定。",
+      "sourceName": "Moldtelecom · 总经理遴选最终候选阶段公告",
+      "sourceUrl": "https://www.moldtelecom.md/ro/news/582/",
+      "sourceDate": "2026-10-22",
+      "period": "程序链为 2026-10-01 公布 13 份完整申请、2026-10-15 公布 6 名短名单候选、2026-10-22 公布 4 名最终候选；13 的单位为申请，6 与 4 的单位为候选人。公告未披露候选人身份、Business Case 内容、任命日期或网络投资金额。",
+      "locator": "Moldtelecom 公告标题及日期；正文第 1 段的 6 名受邀面试候选与 4 名最终候选，第 2 段的 Business Case 和最终面试；公共财产署 2026-10-15、10-22 同题公告逐阶段互校。",
+      "method": "直接读取运营商 10 月 22 日公告，并与摩尔多瓦公共财产署 10 月 15 日的 6 人短名单公告及 10 月 22 日的 4 人最终候选公告交叉核对；把申请、短名单、最终候选、最终面试和董事会任命分开记录。",
+      "boundary": "这是公司治理遴选的阶段进展，不是任命、生效或采购授权变化。公告没有披露 Business Case 主题、网络战略、光传送预算、招标或订单；候选人身份按公告保密。不能由候选人数减少推定项目优先级、采购窗口或决策速度。",
+      "nextAction": "跟踪第三阶段结果、董事会正式任命及生效日；任命后再以组织文件分别核实网络规划、技术签署、预算与采购审批授权链，不能把治理进度当作光传送机会。",
+      "checkedAt": "2026-10-23",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-10-23"
+    },
+    {
+      "id": "cetin-bg-nrrp-dwdm-wholesale-terms-undated",
+      "title": "CETIN 列出两片区 DWDM 批发服务条款，最终批准仍待确认",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "ppf-bg"
+      ],
+      "topic": "market",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "CETIN Bulgaria 官网 NextGenerationEU 页面列出西南部 BG-RRP-7.008-0003 与南中部 BG-RRP-7.008-0004 的实体基础设施、暗纤和 DWDM 电子通信批发服务一般条款及申请、服务订单和 SLA 模板。页面明确一般条款仍须主管机关最终批准，审批可能导致修改；DWDM 条款仅适用于该投资项目范围。",
+      "sourceName": "CETIN Bulgaria · NextGenerationEU 批发接入条款",
+      "sourceUrl": "https://www.cetinbg.bg/nextgenerationeu",
+      "sourceDate": "未标注",
+      "period": "网页及所查 DWDM 条款 PDF 未标注发布日期；2026-10-05 可见的文件状态。地域限保加利亚西南部和南中部两个 BG-RRP-7.008 项目区域；无已售容量、价格或设备采购量。",
+      "locator": "官网页面开头的服务范围、待最终批准提示及两片区 DWDM 文件目录；西南部 DWDM 一般条款 PDF 第 1 页第 1.2–1.4 条和第 2 页第 3.1–3.2 条。",
+      "method": "读取 CETIN 官网目录与西南部 DWDM 原始条款 PDF，核对两片区项目编号、批发服务类别和审批状态；把批发服务申请流程与传送设备采购流程分开。",
+      "boundary": "条款文件在官网可见，不证明主管机关已最终批准、具体路由可交付、客户已下单或 DWDM 设备存在新采购。网页未注明发布日，不能称为 10 月新推出服务；服务订单表是模板，不是已签合同。",
+      "nextAction": "取得两片区条款最终批准与生效版本、实际开放路由和 DWDM 可售参数；另向 CETIN 核实主动设备合同、剩余工作包及 Yettel / CETIN 各自采购责任。",
+      "checkedAt": "2026-10-05",
+      "scenario": "Transit / 批发",
+      "updatedAt": "2026-10-05"
+    },
+    {
+      "id": "cetin-bg-south-central-permit-stage13-20260825",
+      "title": "CETIN 南中部项目许可于 8 月补充分段，完工状态仍待核实",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "ppf-bg"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "保加利亚《国家公报》2026-09-01 公告：区域发展与公共工程部长以 2026-08-25 第 RS-175 号命令，补充 CETIN Bulgaria 南中部大型数字基础设施项目 BG-RRP-7.008-0004-C01 的既有施工许可。补充内容把第 13 阶段拆为三个路段，涉及 Zlatograd 边境口岸—Pamporovo—Smolyan—Srednogortsi—Zlatograd / Dolen 以及 Rudozem—Chepintsi。该记录证明许可层面的项目推进，不证明线路已经建成、点亮或商用。",
+      "sourceName": "保加利亚《国家公报》第 80 期 · RS-175 许可补充公告",
+      "sourceUrl": "https://dv.parliament.bg/DVWeb/showMaterialDV.jsp?idMat=245629",
+      "sourceDate": "2026-09-01",
+      "period": "命令日期 2026-08-25；《国家公报》第 80 期发布日期 2026-09-01；地域为 Plovdiv、Pazardzhik、Haskovo、Kardzhali、Smolyan 五州及列明路段；未披露长度、容量或金额。",
+      "locator": "第 80 期第 47 页第 31 项：项目编号、五州范围、RS-175 / RS-94 许可关系，以及 Stage 13.1–13.3 路段清单。",
+      "method": "读取政府公报原文，并用 CETIN Bulgaria 官方 NextGenerationEU 页面按 BG-RRP-7.008-0004 项目编号核对最终受益人和南中部项目身份；把施工许可、建设实施、完工、点亮和商用分开。账户范围另按 2026-10-01 研究范围纳入 PPF；该确认不改变原文项目身份和复核日期。",
+      "boundary": "许可补充是行政与施工准备节点，不是开工量、工程验收、RFS、设备采购或订单证明。CETIN 项目页仍列 2026-06-30 为计划结束日，而许可在 2026-08-25 被补充；本轮只能把当前完工时间列为未解决，不能自行认定延期原因或完工比例。",
+      "nextAction": "取得项目最新基线、已完工与待建路段、承包商及主动设备工作包、验收 / RFS 文件；同时确认 CETIN 与 Yettel 的预算和采购权限，PPF 账户范围已于 2026-10-01 由研究范围。",
+      "checkedAt": "2026-09-25",
+      "scenario": "移动 / 固网承载",
+      "updatedAt": "2026-10-01"
+    },
+    {
+      "id": "cetin-bg-5g-balkans-route-plan-20240422",
+      "title": "5G Balkans 计划升级索菲亚—塞尔维亚光路并新建约 100km 连接",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "ppf-bg"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "CETIN Bulgaria 的 2024-04-22 项目公告称，5G Balkans 计划在索菲亚—塞尔维亚跨境交通走廊升级既有光路，并在索菲亚至 Kalotina 段新建约 100km 高速固定连接。项目计划期为 2024-01 至 2026-12，估算总成本超过 1,300 万保加利亚列弗，约一半由 CEF2 提供；Yettel Bulgaria 是关联合作方而非公告所列主要受益人。",
+      "sourceName": "CETIN Bulgaria · 5G Balkans 跨境走廊项目公告",
+      "sourceUrl": "https://www.cetinbg.bg/w/looking-to-the-future-cetin-bulgaria-is-building-the-bulgarian-part-of-the-cross-border-transport-corridor-bulgaria-serbia",
+      "sourceDate": "2024-04-22",
+      "period": "计划执行期 2024-01 至 2026-12；约 100km 指公告所称 Sofia—Kalotina 新建高速固定连接；项目估算成本超过 BGN 13,000,000，约 50% 由 CEF2 提供。",
+      "locator": "官方 Press Releases 索引的 22.04.24 日期；正文项目周期与资金段，以及约 100km Sofia—Kalotina 建设和受益人 / 关联合作方段。",
+      "method": "以 CETIN 官方索引确定发布日期，逐段保留项目计划期、建设范围、长度、资金单位和参与方角色；把既有光路升级与新建连接分开，不把集团或 Yettel 合作方身份外推为采购主体。",
+      "boundary": "这是项目方计划披露，不是 2026 年完工、容量点亮、商业开通或设备中标证明。公告未给出纤对、DWDM / OTN 架构、厂家、链路容量或设备采购金额；PPF 覆盖 CETIN / Yettel 已于 2026-10-01 由研究范围；不改变本条项目阶段。",
+      "nextAction": "核实 2026 年实际完成里程、Sofia—Kalotina 端点和中继、光层容量与保护域、验收节点、设备供应及尚未覆盖的工作包。",
+      "checkedAt": "2026-09-25",
+      "scenario": "Transit / 批发",
+      "updatedAt": "2026-10-01"
+    },
+    {
+      "id": "moldtelecom-ceo-selection-20260915",
+      "title": "Moldtelecom 于 9 月重启总经理遴选，尚未公布任命结果",
+      "countries": [
+        "MD"
+      ],
+      "accounts": [
+        "mtc-md"
+      ],
+      "topic": "operator",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "Moldtelecom 于 2026-09-15 公告，公司董事会启动新的总经理公开遴选，申请截止 2026-09-30 16:00（Chișinău）；最终选择权归董事会。该条是治理和决策链变化信号，不是已任命新总经理，也不证明网络战略、预算或采购发生变化。",
+      "sourceName": "Moldtelecom · Un nou concurs pentru funcția de director general",
+      "sourceUrl": "https://www.moldtelecom.md/ro/news/572/",
+      "sourceDate": "2026-09-15",
+      "period": "遴选公告时点 2026-09-15；申请截止 2026-09-30 16:00（Chișinău）；不含候选人、任命日期或任期。",
+      "locator": "公告标题、首段和期限段；正文关于董事会最终决定权的说明。",
+      "method": "读取 Moldtelecom 官方公告，区分启动遴选、收件截止、候选评估、董事会决定和正式任命；仅把它作为账户治理信号，不据此构造光传送需求。",
+      "boundary": "公告未说明现任 / 代理管理层、技术与采购授权是否改变，也未披露资本开支、光传送项目、招标或订单。总经理遴选不能推导采购暂停、预算释放或设备商机会。",
+      "nextAction": "在董事会公布结果后核实正式任命与生效日；另行确认遴选期间网络规划、技术签署和采购审批的实际授权链。",
+      "checkedAt": "2026-09-25",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-09-25"
+    },
+    {
+      "id": "ug-athens-thessaloniki-completion-20260407",
+      "title": "雅典—塞萨洛尼基 600km 光缆：已披露完工，批发由 UGI 负责",
+      "countries": [
+        "GR",
+        "BG"
+      ],
+      "accounts": [
+        "nova-gr",
+        "vivacom-bg"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "Nova 于 2026-04-07 转述 United Group 的完工公告：United Fiber 建设的雅典—塞萨洛尼基陆上光缆长 600km，连接希腊 8 个城市；区域网络随后经索菲亚延伸至西欧。该光缆的批发服务由 UGI Wholesale 管理。这里补齐的是已披露的路由与商业分工，不是 9 月新增建设或设备订单。",
+      "sourceName": "Nova / United Group · 雅典—塞萨洛尼基光缆完工公告",
+      "sourceUrl": "https://nova.gr/etairia/deltia-typou/h-united-group-oloklhrwse-neo-xersaio-kalwdio-pou-syndeei-thn-a8hna-me-th-thessalonikh-epekteinontas-to-perifereiako-ths-diktyo-optikwn-inwn",
+      "sourceDate": "2026-04-07",
+      "period": "2026-04-07 完工公告快照；600km / 8 城市仅指希腊新建段，不含索菲亚—西欧网络长度。",
+      "locator": "正文第 1–3 段：建设方、600 χλμ.、八城与经索菲亚的区域网络；末段：UGI Wholesale 管理批发服务。",
+      "method": "逐段核对 Nova 希腊语原文，并与 Vivacom 同日同一公告的保加利亚语版本互校；按同一事件去重，不把两家转载当独立验收。拆开物理建成、批发职责与设备采购权限。",
+      "boundary": "完工为项目方披露，未取得独立验收或逐路由商用证明。600km 不是全集团或保加利亚本地总长度；关联两客户用于跨境研究，不代表其共同持有资产。批发管理权不等于设备采购权；纤对、点亮容量、现网厂家、SRLG 和新增订单未披露。本条补充既有账户网络缺口，不替代旧记录。",
+      "nextAction": "分别向 United Fiber / UGI / 本地账户核实资产、运营和采购职责；取得雅典—塞萨洛尼基—索菲亚实际端点、点亮容量、忙时利用率、SRLG 及已签设备合同，再判断是否有未覆盖的扩容工作包。",
+      "checkedAt": "2026-09-23",
+      "scenario": "Transit / 批发",
+      "updatedAt": "2026-09-23"
+    },
+    {
+      "id": "vivacom-cloud-dr-disclosure-20260827",
+      "title": "VIVACOM 已披露本地云与异地灾备能力，DCI 缺口须再验证",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "vivacom-bg"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "Vivacom 于 2026-08-27 说明：其云平台设于网络管理中心 NOC，数据存放在保加利亚，具备冗余供电及电信路由；服务包括云备份和灾难恢复。公司另称拥有地理分离的数据中心及灾备基础设施。这是既有能力的运营方披露，不是新建数据中心或新采购公告。",
+      "sourceName": "Vivacom · Vivacom Cloud: Облакът на сигурността с европейски адрес",
+      "sourceUrl": "https://www.vivacom.bg/za-nas/novini/vivacom-cloud-oblakat-na-sigurnostta-s-evropeiski-adres",
+      "sourceDate": "2026-08-27",
+      "period": "2026-08-27 运营方服务能力披露；地域为保加利亚；站点数量、互联距离、Gb/s、MW、机柜及投资金额均未给出。",
+      "locator": "正文含“данните се съхраняват тук в България”的段落；NOC 及冗余路由段；cloud backup / disaster recovery 段；“географски отдалечени центрове за данни”异地数据中心段。",
+      "method": "按运营方自述提取数据所在地、平台位置、冗余方式与服务类型；将已披露能力与尚无证据的端点、容量和采购分开。未采纳文章的法规符合性或安全效果作为独立核验结论。",
+      "boundary": "地理分离和冗余路由不证明端到端物理独立、双活、确定时延或某个 RPO / RTO。未披露具体地址、复制流量、OTN / DWDM 方案、GPU 数量或设备商。云集成表述不代表超大规模云厂商在其机房入驻，也不证明存在新增传送预算。本条是 9 月补充核验的 8 月披露，不是新近投产事件。",
+      "nextAction": "先取得主备站点与复制关系、RPO / RTO、峰值复制流量、现有 DCI 余量及全路径 SRLG，再验证是否需要扩容或独立保护；能力存在本身不构成新增设备商机。",
+      "checkedAt": "2026-09-23",
+      "scenario": "DCI",
+      "updatedAt": "2026-09-23"
+    },
+    {
+      "id": "a1-bg-fiber-footprint-20261001",
+      "title": "A1 Bulgaria 自述近 30,000km 光纤；覆盖口径不能换算为传送站点覆盖率",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "a1-bg"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "A1 Bulgaria 公司简介自述拥有近 30,000km 光纤，基础设施覆盖 80 个城市、145 个小居民点及 1,726,779 户。页面没有为这组网络数字注明统计截止日。",
+      "sourceName": "A1 Bulgaria · За А1 България",
+      "sourceUrl": "https://www.a1.bg/za-a1",
+      "sourceDate": "未标注",
+      "period": "无明确统计截止日的公司页披露；2026-10-01 回查；km 为网页所称自有光纤长度，户数为基础设施覆盖口径。",
+      "locator": "За А1 България 正文含 30 000 км、80 града、145、1 726 779 的段落。",
+      "method": "从 2026-09-28 历史研究摘要定位线索，再读取一手原文；区分本地与集团、披露与实际验收、已截止采购与当前可进入机会。",
+      "boundary": "不视为经独立审计的当前光纤资产清单；光纤长度、家庭覆盖与 DWDM 站点数不是同一指标，不能计算全国传送覆盖率、设备老旧率或可替换数量。",
+      "nextAction": "取得带日期的国内骨干 / 城域节点清单、路由、设备与利用率，以具名链路定位突破点。",
+      "checkedAt": "2026-10-01",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-10-01"
+    },
+    {
+      "id": "a1-bg-north-progress-20260626",
+      "title": "A1 北部项目 6 月披露光纤进度；尚非全网或 DWDM 验收证明",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "a1-bg"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "A1 2026-06-26 公告披露西北部与北中部项目：251/271 个基站、59/64 个市镇已获光纤连接；新建 793/950km，另升级既有光纤 1,254km。",
+      "sourceName": "A1 Bulgaria · 北部数字基础设施进度公告",
+      "sourceUrl": "https://newscenter.a1.bg/a1-predstavi-kak-novata-cifrova-infrastruktura-se-podobri-svrzanostta-v-severozapadnia-i-severnia-centralen-rajon",
+      "sourceDate": "2026-06-26",
+      "period": "2026-06-26 公告时点；限西北部与北中部项目；基站、市镇、新建 km 与升级 km 分别计量。",
+      "locator": "正文 До момента 段的 251/271、59/64、793/950 与 1 254 公里。",
+      "method": "从 2026-09-28 历史研究摘要定位线索，再读取一手原文；区分本地与集团、披露与实际验收、已截止采购与当前可进入机会。",
+      "boundary": "不是 2026 年 10 月最新完工量；项目基站连接比例不能当全国覆盖率，也不证明 DWDM 已验收、未采购或仍有工作包可争取。",
+      "nextAction": "核对最新竣工、DWDM 点亮与验收、现有合同范围，再询问后续容量和保护需求。",
+      "checkedAt": "2026-10-01",
+      "scenario": "移动 / 固网承载",
+      "updatedAt": "2026-10-01"
+    },
+    {
+      "id": "a1-bg-north-central-dwdm-20251205",
+      "title": "A1 北中部 DWDM 招标明确 10/100G、MPLS 汇聚与既有站点",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "a1-bg"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "EUMIS 归档公告要求在既有站点设计、交付、安装及开通有源 / 无源 DWDM 设备，为 MPLS 汇聚层节点提供 10/100Gbps 容量。公告于 2025-12-05 发布、12-15 截止，记录 2 份报价。",
+      "sourceName": "保加利亚 EUMIS · A1 北中部 DWDM 采购归档",
+      "sourceUrl": "https://eumis2020.government.bg/bg/dc1ea0d2/Offers/Details/b60170e8-ec6b-4e64-829d-4badc5c34b82",
+      "sourceDate": "2025-12-05",
+      "period": "2025 年采购归档；报价截止 2025-12-15；10/100Gbps 为要求速率，2 为提交报价数量。",
+      "locator": "Description；公告与截止日期；Differentiated positions / Брой подадени оферти。",
+      "method": "从 2026-09-28 历史研究摘要定位线索，再读取一手原文；区分本地与集团、披露与实际验收、已截止采购与当前可进入机会。",
+      "boundary": "截止日期已过，不是当前开放招标。页面不足以确认中标商、型号、合同、验收或剩余工作包；预计金额缺少本次核验的币种与税口径，因此不入库。",
+      "nextAction": "取得中标 / 合同 / 验收文件及本地采购授权，区分既定交付与后续可参与扩容。",
+      "checkedAt": "2026-10-01",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-10-01"
+    },
+    {
+      "id": "a1-bg-northwest-dwdm-20251205",
+      "title": "A1 西北部 DWDM 采购另有独立归档，记录 2 份报价",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "a1-bg"
+      ],
+      "topic": "network",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "EUMIS 列有 A1 Bulgaria 西北部 DWDM 设计、交付、安装、配置与开通采购；2025-12-05 公告、12-15 截止，记录 2 份报价。它与北中部采购分别登记。",
+      "sourceName": "保加利亚 EUMIS · A1 西北部 DWDM 采购归档",
+      "sourceUrl": "https://eumis2020.government.bg/bg/8cec2ba4/Offers/Details/2b2926a0-9127-4175-a2b6-e298b9cd34b5",
+      "sourceDate": "2025-12-05",
+      "period": "2025 年采购归档；截止 2025-12-15；2 份报价不是供应商部署数量。",
+      "locator": "Procedure subject；公告与截止日期；西北部采购 Lot 的报价数。",
+      "method": "从 2026-09-28 历史研究摘要定位线索，再读取一手原文；区分本地与集团、披露与实际验收、已截止采购与当前可进入机会。",
+      "boundary": "未核实中标、型号与验收；本页正文没有北中部公告的完整 10/100G 说明，因此不跨项目复制技术要求。也不能把旧招标当当前采购窗口。",
+      "nextAction": "读取该项目技术附件及最终采购结果，确认线路、容量、合同覆盖与后续扩容责任人。",
+      "checkedAt": "2026-10-01",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-10-01"
+    },
+    {
+      "id": "a1-bg-northwest-cancelled-20251205",
+      "title": "A1 西北部早期 DWDM 招标已终止，不能与 12 月版本重复累计",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "a1-bg"
+      ],
+      "topic": "risk",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "同一区域早期归档的公告日期为 2025-08-27、截止为 09-03；页面标记 Canceled Yes、1 份报价，并列有 2025-12-05 终止决定。另有 12 月 5 日发布的独立公告。",
+      "sourceName": "保加利亚 EUMIS · A1 西北部 DWDM 早期归档",
+      "sourceUrl": "https://eumis2020.government.bg/en/s/Offers/Details/43e5d589-5aa1-4ccb-8f16-8d59b2fb673a",
+      "sourceDate": "2025-08-27",
+      "period": "公告 2025-08-27；截止 2025-09-03；终止文件日期 2025-12-05。",
+      "locator": "Canceled Yes；Explanations 终止文件日期；Lot 标注 Terminated、1 份报价。",
+      "method": "从 2026-09-28 历史研究摘要定位线索，再读取一手原文；区分本地与集团、披露与实际验收、已截止采购与当前可进入机会。",
+      "boundary": "不从终止推测设备商被排除、预算取消或项目失败；未核对终止附件原因。两个版本不能累加成两笔独立建设订单。",
+      "nextAction": "以最新版本、终止附件和最终授标文件核对采购沿革及可参与范围。",
+      "checkedAt": "2026-10-01",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-10-01"
+    },
+    {
+      "id": "a1-international-nokia-20250318",
+      "title": "A1 集团国际网 2025 年采用 Nokia 1830 PSS；不能外推保加利亚国内网",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "a1-bg"
+      ],
+      "topic": "technology",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "A1 International Services 于 2025-03-18 披露国际 DWDM 网现代化采用 Nokia 1830 PSS，涉及 6,478km、68 个 ILA 站与 24 个上下波节点，并引入 L 波段。",
+      "sourceName": "A1 International Services · 国际 DWDM 现代化公告",
+      "sourceUrl": "https://internationalbusiness.a1.group/a1-completes-major-modernization-of-international-wdwm-network-with-latest-nokia-technology/",
+      "sourceDate": "2025-03-18",
+      "period": "2025-03-18 国际网改造公告；6,478km 及站点数为该项目范围，不是 A1 Bulgaria 国内网总量。",
+      "locator": "正文 Nokia 1830 PSS / L-band 与 replaced 68 ILA sites and 24 Ad-Drop nodes across 6,478 kilometers 段。",
+      "method": "从 2026-09-28 历史研究摘要定位线索，再读取一手原文；区分本地与集团、披露与实际验收、已截止采购与当前可进入机会。",
+      "boundary": "能证明所披露国际网项目；不能证明保加利亚国内现网厂家、份额、全国排他框架或本地准入政策。公告中的后续升级计划也不自动成为订单。",
+      "nextAction": "将国际网接口及集团技术标准作为本地准入核验问题，另取 A1 Bulgaria 国内网设备清单。",
+      "checkedAt": "2026-10-01",
+      "scenario": "Transit / 批发",
+      "updatedAt": "2026-10-01"
+    },
+    {
+      "id": "a1-bg-dedicated-internet-20261001",
+      "title": "A1 提供保证容量的对称互联网；产品宣传不能证明 OTN 硬管道",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "a1-bg"
+      ],
+      "topic": "market",
+      "kind": "fact",
+      "status": "verified",
+      "summary": "A1 Business Help 的 Dedicated Internet 页面宣称对称互联网连接、100% 保证容量及 24/7 支持。页面未公开 OTN 架构或数值保护指标。",
+      "sourceName": "A1 Bulgaria · Гарантиран интернет",
+      "sourceUrl": "https://help.a1.bg/business/guaranteed/dedicated-internet",
+      "sourceDate": "未标注",
+      "period": "未标注发布日期的产品页；2026-10-01 回查；100% 为运营方保证容量表述，24/7 为支持覆盖。",
+      "locator": "Гарантиран интернет 主体服务说明。",
+      "method": "从 2026-09-28 历史研究摘要定位线索，再读取一手原文；区分本地与集团、披露与实际验收、已截止采购与当前可进入机会。",
+      "boundary": "不证明 ODU / OSU 硬隔离、端到端物理双路由或任何时延 / 倒换 SLA；也不证明产品不满足客户需求。",
+      "nextAction": "与企业产品团队核对具名客户的带宽、保护、隔离和交付问题，以及愿付价格。",
+      "checkedAt": "2026-10-01",
+      "scenario": "OTN 专线",
+      "updatedAt": "2026-10-01"
+    },
+    {
+      "id": "a1-bg-regional-entry-candidate",
+      "title": "A1 方案切入候选 · 从未被合同覆盖的区域扩容或独立工作包进入",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "a1-bg"
+      ],
+      "topic": "opportunity",
+      "kind": "hypothesis",
+      "status": "pending",
+      "summary": "历史国内 DWDM 采购可作为技术需求讨论入口。先核实本地准入、采购结果和剩余范围；仅在存在具名容量 / 保护缺口且采购允许时，选择一条可独立验收的链路提出方案。",
+      "sourceName": "保加利亚 EUMIS · A1 北中部 DWDM 采购归档",
+      "sourceUrl": "https://eumis2020.government.bg/bg/dc1ea0d2/Offers/Details/b60170e8-ec6b-4e64-829d-4badc5c34b82",
+      "sourceDate": "2025-12-05",
+      "period": "2026-10-01 形成的行动假设；依据为 2025 年北中部采购，当前项目状态待核实。",
+      "locator": "Description；公告与截止日期；Differentiated positions / Брой подадени оферти。",
+      "method": "准入 → 工作包 → 路由瓶颈 → 同口径技术与总成本比较 → 客户验收与采购路径；每一步需要客户证据。",
+      "boundary": "不是已确认商机。若全部工作包已签约、现网余量足够或准入不允许，暂停此路径；不能以低价或 800G 标签替代需求证明。",
+      "nextAction": "与本地传送规划及采购核实一份合同覆盖矩阵和一条目标链路；先确定谁能批准试点。",
+      "checkedAt": "",
+      "scenario": "骨干 / 城域",
+      "updatedAt": "2026-10-01"
+    },
+    {
+      "id": "a1-bg-enterprise-entry-candidate",
+      "title": "A1 方案切入候选 · 以具名企业连接需求验证专用波长 / OTN 价值",
+      "countries": [
+        "BG"
+      ],
+      "accounts": [
+        "a1-bg"
+      ],
+      "topic": "opportunity",
+      "kind": "hypothesis",
+      "status": "pending",
+      "summary": "从现有保证容量业务进入需求访谈。若存在实际的高带宽、隔离、保护或数据中心互联需求，核实当前产品差距后，再比较专用波长、OTN 与现有 Ethernet / IP 方案。",
+      "sourceName": "A1 Bulgaria · Гарантиран интернет",
+      "sourceUrl": "https://help.a1.bg/business/guaranteed/dedicated-internet",
+      "sourceDate": "未标注",
+      "period": "2026-10-01 行动假设；无已确认企业端点、预算、采购窗口或 DCI 项目。",
+      "locator": "Гарантиран интернет 主体服务说明。",
+      "method": "企业产品负责人提供场景及收入依据，传送规划核验技术交付；用客户同意的验收指标与完整生命周期成本判断。",
+      "boundary": "不把保证容量直接等同 OTN，也不预设现网有缺陷。没有第二端点、愿付需求或差异化价值，或现有产品更合适时，撤回候选。",
+      "nextAction": "取得一个具名客户的端点对、SLA、带宽与业务价值；据此决定是否需要独立试点。",
+      "checkedAt": "",
+      "scenario": "OTN 专线",
+      "updatedAt": "2026-10-01"
+    }
+  ]
+}
