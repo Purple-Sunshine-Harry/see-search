@@ -2,228 +2,474 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>SEE7 光网络情报</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&display=swap">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SEE7 变更追踪</title>
+<meta name="description" content="东南欧七国光传送、运营商、数据中心、海缆与 DCI 的周期变更追踪：证据等级、项目阶段、客户状态与时间节点。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600;700&display=swap">
 <style>
-/* Layout: one reading column; status grid up top, then evidence cards with a stage ladder per item */
+/* Layout: fixed ink sidebar (nav + country index) beside a scrolling workspace; each view = header, filter chips, then cards or tables */
 :root{
-  --bg:#f5f7f8; --surface:#ffffff; --fg:#17212b; --muted:#5b6874; --line:#d9e0e5;
-  --accent:#0b6e8a; --accent-soft:#e1f0f4;
-  --ok:#1f7a4d; --ok-soft:#e3f3ea; --warn:#9a6a00; --warn-soft:#fbf1d9; --idle:#6b7680; --idle-soft:#eceff1;
-  --gA:#1f7a4d; --gB:#0b6e8a; --gC:#9a6a00; --gD:#a33b3b;
+  --side:#0e1f2b; --side-2:#16303f; --side-fg:#d6e2ea; --side-muted:#7f97a6; --side-active:#1d4457;
+  --bg:#f3f6f8; --surface:#ffffff; --sunk:#eaf0f3; --fg:#14212b; --muted:#5a6a77; --line:#d8e1e7;
+  --accent:#0b6e8a; --accent-ink:#ffffff; --accent-soft:#e0f0f5; --accent-line:#a9d3e0;
+  --ok:#1d7a4c; --ok-soft:#e2f3ea; --warn:#946400; --warn-soft:#fbf0d6; --idle:#66727c; --idle-soft:#edf0f2; --hot:#b03a2e; --hot-soft:#fbe7e4;
+  --gA:#1d7a4c; --gB:#0b6e8a; --gC:#946400; --gD:#b03a2e;
   --f-body:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
-  --f-head:"IBM Plex Sans Condensed","Noto Sans SC",system-ui,sans-serif;
-  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --f-head:"IBM Plex Sans Condensed","Noto Sans SC","PingFang SC",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --r:8px;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0f151a; --surface:#162028; --fg:#e4eaee; --muted:#9aa7b2; --line:#26333d;
-  --accent:#4fb6d3; --accent-soft:#12303a;
-  --ok:#5cc58f; --ok-soft:#14301f; --warn:#e0b24a; --warn-soft:#33290f; --idle:#8d98a2; --idle-soft:#1d262d;
-  --gA:#5cc58f; --gB:#4fb6d3; --gC:#e0b24a; --gD:#e57a7a; color-scheme:dark}}
+  --side:#0a161e; --side-2:#12252f; --side-active:#1a3d4e;
+  --bg:#0f171d; --surface:#162129; --sunk:#1b2932; --fg:#e3eaef; --muted:#97a6b1; --line:#26363f;
+  --accent:#4fb3cf; --accent-ink:#06222c; --accent-soft:#12303b; --accent-line:#24566a;
+  --ok:#5cc58f; --ok-soft:#133022; --warn:#e2b34c; --warn-soft:#30280f; --idle:#8e9aa3; --idle-soft:#1e2a31; --hot:#ec8a7e; --hot-soft:#3a1d19;
+  --gA:#5cc58f; --gB:#4fb3cf; --gC:#e2b34c; --gD:#ec8a7e; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0f151a; --surface:#162028; --fg:#e4eaee; --muted:#9aa7b2; --line:#26333d;
-  --accent:#4fb6d3; --accent-soft:#12303a;
-  --ok:#5cc58f; --ok-soft:#14301f; --warn:#e0b24a; --warn-soft:#33290f; --idle:#8d98a2; --idle-soft:#1d262d;
-  --gA:#5cc58f; --gB:#4fb6d3; --gC:#e0b24a; --gD:#e57a7a; color-scheme:dark}
-body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.7}
-.wrap{max-width:920px;margin:0 auto;padding-block:32px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:40px}
-h1,h2,h3{font-family:var(--f-head);text-wrap:balance;margin:0;line-height:1.3}
-h1{font-size:30px;font-weight:600}
-h2{font-size:20px;font-weight:600;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-h2 small{font-family:var(--f-body);font-size:13px;font-weight:400;color:var(--muted)}
-h3{font-size:17px;font-weight:600}
-a{color:var(--accent);word-break:break-all}
-a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  --side:#0a161e; --side-2:#12252f; --side-active:#1a3d4e;
+  --bg:#0f171d; --surface:#162129; --sunk:#1b2932; --fg:#e3eaef; --muted:#97a6b1; --line:#26363f;
+  --accent:#4fb3cf; --accent-ink:#06222c; --accent-soft:#12303b; --accent-line:#24566a;
+  --ok:#5cc58f; --ok-soft:#133022; --warn:#e2b34c; --warn-soft:#30280f; --idle:#8e9aa3; --idle-soft:#1e2a31; --hot:#ec8a7e; --hot-soft:#3a1d19;
+  --gA:#5cc58f; --gB:#4fb3cf; --gC:#e2b34c; --gD:#ec8a7e; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+button,select,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
-.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
-header{display:flex;flex-direction:column;gap:12px}
-.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 24px;font-size:13px;color:var(--muted)}
-.meta b{display:block;color:var(--fg);font-family:var(--f-mono);font-weight:500;font-size:13px}
-.note{font-size:13px;color:var(--muted);border-left:3px solid var(--line);padding-left:12px}
-section{display:flex;flex-direction:column;gap:16px}
-.status{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
-.st{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;background:var(--surface);border:1px solid var(--line);border-radius:6px;font-size:14px}
-.st span:first-child{min-width:0}
-.pill{font-size:12px;padding:2px 8px;border-radius:999px;white-space:nowrap;font-weight:500}
-.p-ok{background:var(--ok-soft);color:var(--ok)}
-.p-idle{background:var(--idle-soft);color:var(--idle)}
-.p-warn{background:var(--warn-soft);color:var(--warn)}
-.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--muted)}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
-.card.boundary{border-style:dashed}
-.card-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start}
-.tags{display:flex;gap:6px;flex-wrap:wrap}
-.tag{font-size:12px;padding:1px 8px;border:1px solid var(--line);border-radius:4px;color:var(--muted)}
-.grade{font-family:var(--f-mono);font-size:12px;font-weight:500;padding:1px 8px;border-radius:4px;border:1px solid currentColor}
+h1,h2,h3{font-family:var(--f-head);margin:0;line-height:1.25;text-wrap:balance}
+
+/* shell */
+.shell{display:grid;grid-template-columns:272px minmax(0,1fr);min-height:100vh}
+.side{background:var(--side);color:var(--side-fg);position:sticky;top:0;height:100vh;overflow-y:auto;display:flex;flex-direction:column;gap:24px;padding:24px 16px;padding-left:max(16px,env(safe-area-inset-left,0px))}
+.brand{display:flex;gap:12px;align-items:center;color:inherit;text-decoration:none;padding:0 8px}
+.brand-mark{width:40px;height:40px;border:1px solid var(--side-2);border-radius:8px;display:grid;place-items:center;background:var(--side-2)}
+.brand b{display:block;font-family:var(--f-head);font-size:19px;font-weight:600;letter-spacing:.01em}
+.brand small{display:block;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;color:var(--side-muted)}
+.side h4{margin:0 0 6px;padding:0 10px;font-size:12px;font-weight:500;color:var(--side-muted);display:flex;justify-content:space-between;letter-spacing:.04em}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav a{display:flex;align-items:center;gap:12px;padding:9px 10px;border-radius:6px;color:var(--side-fg);text-decoration:none;font-size:15px}
+.nav a:hover{background:var(--side-2)}
+.nav a[aria-current="page"]{background:var(--side-active);color:#fff;box-shadow:inset 3px 0 0 #4fb3cf}
+.nav svg{width:18px;height:18px;flex:none;stroke:currentColor;fill:none;stroke-width:1.6}
+.nav .count{margin-left:auto;font-family:var(--f-mono);font-size:12px;background:var(--side-2);padding:0 7px;border-radius:4px;color:var(--side-fg)}
+.cidx a{display:grid;grid-template-columns:30px 1fr auto;gap:6px;padding:6px 10px;border-radius:6px;color:var(--side-fg);text-decoration:none;font-size:14px}
+.cidx a:hover{background:var(--side-2)}
+.cidx a[aria-current="true"]{background:var(--side-active)}
+.cidx code{font-family:var(--f-mono);font-size:12px;color:var(--side-muted);align-self:center}
+.cidx span:last-child{font-family:var(--f-mono);font-size:12px;color:var(--side-muted);align-self:center}
+.side-foot{margin-top:auto;border-top:1px solid var(--side-2);padding:16px 10px 0;display:flex;flex-direction:column;gap:8px;font-size:13px}
+.side-foot a{color:var(--side-fg);text-decoration:none}
+.side-foot a:hover{text-decoration:underline}
+.side-foot p{margin:0;color:var(--side-muted);font-size:12px}
+
+.main{min-width:0;display:flex;flex-direction:column}
+.topbar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:16px;padding-block:12px;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:6px;padding:6px 8px;cursor:pointer}
+.crumb{font-size:14px;color:var(--muted);display:flex;gap:8px;align-items:center;min-width:0;white-space:nowrap}
+.crumb b{color:var(--fg);font-weight:500}
+.search{margin-left:auto;position:relative;width:min(380px,45vw)}
+.search input{width:100%;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:8px 12px 8px 34px;font-size:14px}
+.search svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:16px;height:16px;stroke:var(--muted);fill:none;stroke-width:1.8}
+.content{padding-block:28px 64px;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:24px;max-width:1200px;width:100%}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.head h1{font-size:34px;font-weight:700;margin-top:6px}
+.head p{margin:6px 0 0;color:var(--muted)}
+.window{font-family:var(--f-mono);font-size:13px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 12px;display:flex;flex-direction:column;gap:2px}
+.window span{color:var(--muted);font-family:var(--f-body);font-size:12px}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:7px 14px;cursor:pointer;font-size:14px}
+.chip:hover{border-color:var(--accent-line)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.chip small{font-family:var(--f-mono);opacity:.7;margin-left:4px}
+.filters{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.filters select{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:8px 10px;min-width:150px;font-size:14px}
+.filters .spacer{margin-left:auto;display:flex;gap:14px;align-items:center;font-size:14px;color:var(--muted)}
+.linkbtn{background:none;border:0;color:var(--accent);cursor:pointer;padding:0;font-weight:500}
+
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:2px}
+.kpi b{font-family:var(--f-head);font-size:30px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.1}
+.kpi span{font-size:13px;color:var(--muted)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.panel.tint{background:var(--accent-soft);border-color:var(--accent-line)}
+.panel-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.panel-head h2{font-size:21px;font-weight:600}
+.panel-head p{margin:4px 0 0;color:var(--muted);font-size:14px}
+.go{color:var(--accent);text-decoration:none;font-weight:500;font-size:14px;white-space:nowrap}
+.go:hover{text-decoration:underline}
+.cols{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px}
+
+.acc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px}
+.acc{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;text-decoration:none;color:inherit}
+.acc:hover{border-color:var(--accent-line)}
+.acc.has{border-color:var(--accent-line);box-shadow:inset 3px 0 0 var(--accent)}
+.code{font-family:var(--f-mono);font-size:12px;width:40px;height:34px;display:grid;place-items:center;border-radius:6px;background:var(--sunk);color:var(--muted)}
+.acc b{display:block;font-weight:500;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.acc small{display:block;color:var(--muted);font-size:12.5px}
+.pill{font-size:12px;padding:2px 9px;border-radius:999px;white-space:nowrap;font-weight:500;display:inline-block}
+.p-update{background:var(--ok-soft);color:var(--ok)}
+.p-none{background:var(--idle-soft);color:var(--idle)}
+.p-before{background:var(--warn-soft);color:var(--warn)}
+.p-hi{background:var(--hot-soft);color:var(--hot)}
+.p-mid{background:var(--warn-soft);color:var(--warn)}
+.p-lo{background:var(--idle-soft);color:var(--idle)}
+.grade{font-family:var(--f-mono);font-size:12px;font-weight:500;padding:0 7px;border-radius:4px;border:1px solid currentColor;display:inline-block;line-height:20px}
 .gA{color:var(--gA)}.gB{color:var(--gB)}.gC{color:var(--gC)}.gD{color:var(--gD)}
-.dates{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:4px 16px;font-size:13px}
-.dates dt{color:var(--muted);font-size:12px}
+
+/* items */
+.list{display:flex;flex-direction:column;gap:10px}
+.item{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;cursor:pointer;text-align:left;width:100%}
+.item:hover{border-color:var(--accent-line)}
+.item.before{border-style:dashed}
+.item .ic{width:44px;height:44px;border-radius:8px;background:var(--sunk);display:grid;place-items:center;font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.item .meta{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.item .meta i{font-style:normal;width:1px;height:12px;background:var(--line)}
+.item h3{font-size:18px;font-weight:600;margin:4px 0 6px}
+.item p{margin:0;color:var(--muted);font-size:14.5px}
+.item .foot{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px 16px;font-size:13px;color:var(--muted);align-items:center}
+.item .right{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.mini-ladder{display:flex;gap:2px}
+.mini-ladder span{width:10px;height:6px;border-radius:1px;background:var(--line)}
+.mini-ladder .done{background:var(--accent-line)}
+.mini-ladder .now{background:var(--accent)}
+.stage-label{font-size:12px;color:var(--muted)}
+.empty{background:var(--surface);border:1px dashed var(--line);border-radius:12px;padding:28px;text-align:center;color:var(--muted)}
+
+/* tables */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:13px;font-weight:500;color:var(--muted);background:var(--sunk);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td b{font-weight:500}
+td small{display:block;color:var(--muted);font-size:12.5px}
+.row-link{cursor:pointer}
+.row-link:hover td{background:var(--sunk)}
+
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.ccard{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:inherit}
+.ccard:hover{border-color:var(--accent-line)}
+.ccard h3{font-size:24px;font-weight:600}
+.ccard .en{color:var(--muted);font-size:14px;margin-top:-6px}
+.ccard p{margin:0;font-size:14.5px}
+.ccard .bottom{margin-top:auto;border-top:1px solid var(--line);padding-top:12px;display:flex;justify-content:space-between;gap:8px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+
+.timeline{display:flex;flex-direction:column}
+.tl{display:grid;grid-template-columns:96px 14px minmax(0,1fr);gap:12px;padding-bottom:16px}
+.tl:last-child{padding-bottom:0}
+.tl .d{font-family:var(--f-mono);font-size:13px;color:var(--fg);text-align:right}
+.tl .d small{display:block;color:var(--muted);font-family:var(--f-body)}
+.tl .dot{position:relative}
+.tl .dot::before{content:"";position:absolute;left:3px;top:7px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.tl .dot::after{content:"";position:absolute;left:6px;top:18px;bottom:-16px;width:2px;background:var(--line)}
+.tl:last-child .dot::after{display:none}
+.tl p{margin:0;font-size:14px}
+
+/* dialog */
+dialog{border:0;border-radius:14px;padding:0;width:min(860px,calc(100vw - 32px));max-height:calc(100vh - 48px);background:var(--surface);color:var(--fg);box-shadow:0 24px 64px rgba(0,0,0,.28)}
+dialog::backdrop{background:rgba(8,20,28,.55)}
+.dlg{padding:26px 28px;display:flex;flex-direction:column;gap:18px}
+.dlg-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.dlg h2{font-size:23px;font-weight:600}
+.close{background:var(--sunk);border:0;border-radius:6px;padding:6px 12px;cursor:pointer;flex:none}
+.dates{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:6px 18px;margin:0}
+.dates dt{font-size:12px;color:var(--muted)}
 .dates dd{margin:0;font-family:var(--f-mono);font-size:13px}
 .ladder{display:flex;gap:2px;overflow-x:auto}
-.ladder span{flex:1 0 auto;min-width:52px;text-align:center;font-size:12px;padding:4px 6px;background:var(--idle-soft);color:var(--idle)}
-.ladder span:first-child{border-radius:4px 0 0 4px}.ladder span:last-child{border-radius:0 4px 4px 0}
+.ladder span{flex:1 0 auto;min-width:54px;text-align:center;font-size:12px;padding:5px 6px;background:var(--idle-soft);color:var(--idle)}
+.ladder span:first-child{border-radius:5px 0 0 5px}.ladder span:last-child{border-radius:0 5px 5px 0}
 .ladder .done{background:var(--accent-soft);color:var(--accent)}
-.ladder .now{background:var(--accent);color:var(--surface);font-weight:700}
-.ladder.na span{opacity:.5}
-.split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.split>div{min-width:0}
-.lbl{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.ladder .now{background:var(--accent);color:var(--accent-ink);font-weight:700}
+.ladder.na span{opacity:.45}
+.lbl{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
 .lbl.inf{color:var(--warn)}
-ul{margin:0;padding-left:18px}
-li+li{margin-top:4px}
-.opp{background:var(--accent-soft);border-radius:6px;padding:12px 14px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.split>div{min-width:0}
+.dlg ul{margin:0;padding-left:18px}
+.dlg li+li{margin-top:5px}
+.opp{background:var(--accent-soft);border-radius:8px;padding:12px 14px}
 .verify li::marker{content:"? ";color:var(--warn);font-family:var(--f-mono)}
-.src{font-size:13px}
-.src li{word-break:break-word}
-table{border-collapse:collapse;width:100%;font-size:14px}
-.tbl{overflow-x:auto}
-th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-size:12px;color:var(--muted);font-weight:500}
-footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
-@media (max-width:640px){.split{grid-template-columns:1fr}h1{font-size:24px}}
-</style>
+.srcs li{word-break:break-word;font-size:14px}
+.kb{font-size:13px;color:var(--muted)}
 
+.note{font-size:13px;color:var(--muted);border-left:3px solid var(--line);padding-left:12px;margin:0}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--muted)}
+footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+
+@media (max-width:980px){.cols{grid-template-columns:1fr}}
+@media (max-width:860px){
+  .shell{grid-template-columns:1fr}
+  .side{position:fixed;inset:0 auto 0 0;width:280px;z-index:20;transform:translateX(-100%);transition:transform .2s ease;padding-top:max(24px,env(safe-area-inset-top,0px))}
+  .side.open{transform:none;box-shadow:0 0 0 100vmax rgba(8,20,28,.5)}
+  .menu-btn{display:inline-flex}
+  .topbar{top:env(safe-area-inset-top,0px)}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+  .search{width:auto;flex:1}
+  .crumb span,.crumb svg{display:none}
+  .head h1{font-size:27px}
+  .split{grid-template-columns:1fr}
+  .item{grid-template-columns:minmax(0,1fr)}
+  .item .ic{display:none}
+  .item .right{flex-direction:row;align-items:center;justify-content:flex-start}
+  .content,.topbar{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .dlg{padding:20px}
+}
+@media (prefers-reduced-motion: reduce){.side{transition:none}}
+</style>
 </head>
 <body>
-<div class="wrap">
-<header>
-  <div class="eyebrow">东南欧七国 · 光传送 / 运营商 / DC / 海缆 / DCI / Transit / 企业专线</div>
-  <h1>变更建议包 2026-11-14</h1>
-  <div class="meta">
-    <div>覆盖窗口（Europe/Sofia）<b>2026-11-11 00:00 → 11-14 11:25</b></div>
-    <div>检索日期<b>2026-11-14</b></div>
-    <div>国家<b>GR · BG · CY · RO · MD · MK · AL</b></div>
+<div class="shell">
+  <aside class="side" id="side" aria-label="导航">
+    <a class="brand" href="#view=overview">
+      <span class="brand-mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7fc8dc" stroke-width="1.6"><path d="M2 12h5l2-6 4 12 2-6h7"/></svg></span>
+      <span><b>SEE7 变更追踪</b><small>CHANGE TRACKER</small></span>
+    </a>
+    <div>
+      <h4>周期研究</h4>
+      <nav class="nav" id="nav"></nav>
+    </div>
+    <div class="cidx">
+      <h4><span>国家索引</span><span class="mono">07</span></h4>
+      <div id="cidx"></div>
+    </div>
+    <div class="side-foot">
+      <a href="./knowledge/">公开研究库（ChatGPT 维护）→</a>
+      <a href="https://github.com/Purple-Sunshine-Harry/see-search" target="_blank" rel="noopener">GitHub 仓库 ↗</a>
+      <p>本页由 Claude 维护，每期只追加，不改写研究库口径。</p>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="menu-btn" id="menu" aria-label="打开导航" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <div class="crumb"><span>变更追踪</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg><b id="crumb">本期总览</b></div>
+      <label class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="搜索客户、项目、来源…" autocomplete="off" aria-label="搜索变更条目"></label>
+    </header>
+    <main class="content" id="view" aria-live="polite">
+      <div class="empty">正在载入数据…</div>
+    </main>
   </div>
-  <p class="note">本页仅供人工审阅，内容不是最终结论。evidence-audit、operator-deep-dive、optical-market-intelligence 技能未安装，本期按任务规则执行。部分付费墙内容只读到摘要。每条都把事实与推断分开列出。</p>
-</header>
-
-<section>
-  <h2>客户状态 <small>3 条窗口内更新，2 条窗口前补收</small></h2>
-  <div class="status">
-    <div class="st"><span>OTE / COSMOTE TELEKOM（含 OTEGLOBE）</span><span class="pill p-idle">无可核实更新</span></div>
-    <div class="st"><span>Vodafone Greece</span><span class="pill p-ok">有更新 · #1</span></div>
-    <div class="st"><span>NOVA Greece</span><span class="pill p-idle">无可核实更新</span></div>
-    <div class="st"><span>Vivacom Bulgaria</span><span class="pill p-idle">无可核实更新</span></div>
-    <div class="st"><span>A1 Bulgaria</span><span class="pill p-idle">无可核实更新</span></div>
-    <div class="st"><span>Yettel Bulgaria（商业侧）</span><span class="pill p-idle">无可核实更新</span></div>
-    <div class="st"><span>CETIN Bulgaria（基础设施侧）</span><span class="pill p-idle">无可核实更新</span></div>
-    <div class="st"><span>DIGI Romania</span><span class="pill p-ok">有更新 · #2 #3</span></div>
-    <div class="st"><span>Moldtelecom (MTC)</span><span class="pill p-warn">窗口前 · B2</span></div>
-    <div class="st"><span>Cyta</span><span class="pill p-idle">无可核实更新</span></div>
-    <div class="st"><span>UGI（仅当影响 NOVA / Vivacom）</span><span class="pill p-idle">无直接影响动态</span></div>
-  </div>
-  <div class="legend">
-    <span><span class="grade gA">A</span> 官方 / 监管 / 招标 / 财报</span>
-    <span><span class="grade gB">B</span> 厂商正式发布</span>
-    <span><span class="grade gC">C</span> 权威行业媒体</span>
-    <span><span class="grade gD">D</span> 线索 / 传闻</span>
-  </div>
-</section>
-
-<section id="items"></section>
-<section id="boundary"></section>
-
-<section>
-  <h2>日历提示 <small>非本周期新闻，不计入更新</small></h2>
-  <div class="tbl"><table>
-    <thead><tr><th>日期</th><th>事项</th><th>来源</th></tr></thead>
-    <tbody>
-      <tr><td class="mono">2026-12-02</td><td>ANCOM 就 DIGI 参考接入报价（5,894 个地点，物理光纤接入 + VULA）公众咨询截止</td><td><span class="grade gC">C</span> <a href="https://www.mobilissimo.ro/articole-diverse/digi-trebuie-sa-si-deschida-reteaua-de-internet-catre-concurenta-in-5-894-de-localitati-ancom-consulta-conditiile-de-acces" target="_blank" rel="noopener">Mobilissimo, 2026-11-02</a></td></tr>
-      <tr><td class="mono">2026-12-09</td><td>Moldtelecom FTTR 终端招标截止（见 B2）</td><td><span class="grade gA">A</span> Logos Press</td></tr>
-      <tr><td class="mono">2026 年底</td><td>PPC–Vodafone Greece 光纤 JV 的媒体预期签约时点</td><td><span class="grade gC">C</span> Business Daily, 2026-09-27</td></tr>
-    </tbody>
-  </table></div>
-</section>
-
-<section>
-  <h2>已排除条目</h2>
-  <div class="tbl"><table>
-    <thead><tr><th>条目</th><th>排除原因</th></tr></thead>
-    <tbody>
-      <tr><td>Vivacom 黑色十一月促销、VivaHome 智能家居、eSIM 转号（11-04 至 11-06）</td><td>零售业务，不在范围内</td></tr>
-      <tr><td>NOVA 全国网络中断</td><td>报道日期 2026-01-29，属旧闻</td></tr>
-      <tr><td>COSMOTE TELEKOM 雅典 AI 数据中心</td><td>报道日期 2026-03-27，属旧闻</td></tr>
-      <tr><td>A1 Bulgaria 恢复与韧性计划（RRP）农村网络完工</td><td>报道日期 2026-09-20，属旧闻</td></tr>
-      <tr><td>摩尔多瓦–罗马尼亚 400kV 输电线投运（约 11-09）</td><td>电力项目，没有 OPGW 光纤的证据</td></tr>
-      <tr><td>希腊恢复塞浦路斯"电缆"勘测（GreekReporter, 11-09）</td><td>页面无法读取；推测为 GSI 电力互联</td></tr>
-    </tbody>
-  </table></div>
-</section>
-
-<footer>本期只生成建议包，没有修改任何网站或知识库，也没有对外发送消息。数据文件见同一项目的 data/2026-11-14.json。</footer>
 </div>
+<dialog id="dlg" aria-labelledby="dlg-title"><div id="dlg-body"></div></dialog>
+<noscript><p style="padding:24px">本页需要 JavaScript。结构化数据见 <a href="./data/briefs.json">data/briefs.json</a>。</p></noscript>
 
 <script>
-const STAGES=["规划","许可","融资","采购","合同","建设","验收","商用"];
-const ITEMS=[
-{id:"#1",title:"Vodafone Greece：H1 FY27 财报显示希腊业务增长，PPC 光纤合资仍是框架协议",entity:"Vodafone Greece",country:"希腊",topic:"运营商财报 · FTTH 批发 · 企业公共部门项目",grade:["A","C"],gradeNote:"财报为 A；希腊单国数字来自媒体，为 C",
- dates:{"事件":"财报期截至 2026-09-30","发表":"Group 2026-11-10；希腊媒体 11-11","检索":"2026-11-14"},
- stage:0,stageNote:"PPC JV 处于规划阶段：只签了框架协议（heads of terms），尽调、正式文件和监管审批均未完成",
- facts:["财报原文：\"In Greece, service revenue increased as a result of growth in mobile and fixed service revenue\"。希腊未单独披露增长率，并入 Other Europe（H1 有机 +1.4%，Q2 +1.8%）。","Other Europe 的 Vodafone Business 有机服务收入 Q2 +9.9%，财报归因于希腊公共部门项目交付，含欧盟复苏基金（RRF）项目（RRF 已于 2026-09 关闭）。","PPC JV：双方光纤合计覆盖 >1.6M 户，定位为 50:50 批发开放接入。","媒体（C）：服务收入 €286M（+15.8%，期间口径不清）；自有光纤 >650,000 户；5G 人口覆盖 96.9%。"],
- infer:["RRF 关闭后，下半财年公共部门项目收入可能放缓，企业侧会更依赖私营专线和云连接。","自有 FTTH 从约 620k（2026-09）增至约 650k，说明 JV 签约前仍在自建。"],
- opp:"JV 签约后 6–12 个月，OLT/汇聚、批发 OSS 和开放接入平台可能集中选型，可以提前准备开放接入和城域 WDM/OTN 回传方案。另外，RRF 结束后企业专线和 DCI 需求值得跟进。",
- verify:["€286M 是 Q2 单季还是 H1（对照财报 PDF 的国家附表）","\"fixed broadband customers declined by 6,000\" 是希腊口径还是 Other Europe 口径","JV 是否仍按 2026 年底签约推进"],
- src:[["Vodafone H1 FY27 Results announcement (PDF) — Vodafone Group Plc","https://www.vodafone.com/~/media/Files/V/vodafone/corp/results-and-presentations/vodafone-h1-fy27-results-announcement.pdf"],["Vodafone Group announces H1 FY27 results — Vodafone","https://www.vodafone.com/news/newsroom/corporate-and-financial/vodafone-group-announces-h1-fy27-results"],["Στα 286 εκατ. ευρώ τα έσοδα υπηρεσιών της Vodafone Ελλάδας — To Pontiki","https://www.topontiki.gr/2026/11/11/sta-286-ekat-evro-ta-esoda-ipiresion-tis-vodafone-elladas-me-othisi-apo-psifiaka-erga/"]]},
-{id:"#2",title:"DIGI Romania：Q3 2026 业绩与罗马尼亚运营数据",entity:"Digi Communications N.V. / DIGI România",country:"罗马尼亚",topic:"运营商财报 · 固网宽带",grade:["A","C"],gradeNote:"集团数字为 A；罗马尼亚数字来自电话会转录，为 C",
- dates:{"事件":"2026 Q3","发表":"2026-11-13","检索":"2026-11-14"},
- stage:null,stageNote:"不适用（经营数据）",
- facts:["集团：Q3 收入 €633M（+13%），调整后 EBITDA €197M（+26%）；9M 收入 €1.8B（+11%），EBITDA €528M（+21%）。","集团 Q3 capex €207M；2026 全年指引 €720–730M，未按国家拆分（C）。","罗马尼亚（电话会，C）：Q3 销售约 €336M，服务收入约 €280M，EBITDA 约 €158–159M，利润率 >52%。宽带 RGU >5.3M，移动近 9M，付费电视 6.1M。2026-07-01 起改以欧元计价。","CEO 称正在 \"consolidating the networks in Romania\"。"],
- infer:["\"网络整合\"可能指接入或城域网络的合并、优化（例如 HFC/FTTB 迁移到 FTTH、机房收敛）。目前没有一手细节。"],
- opp:"罗马尼亚利润率高、现金流强。网络整合再加上 ANCOM 的批发开放义务，可能带来 VULA 批发平台、城域汇聚扩容和 OSS/BSS 改造需求。",
- verify:["对照 BVB 上的 Q3 报告原文，核实罗马尼亚分部数字和 capex 拆分","\"consolidating the networks\" 的具体含义"],
- src:[["Digi Communications N.V. 9M 2026 results — Digi Communications N.V. (EuropaWire)","https://news.europawire.eu/digi-communications-n-v-reports-consolidated-revenues-of-18-billion-euros-in-the-first-nine-months-of-2026-up-11-year-on-year-and-528-million-euros-of-adjusted-ebitda-excluding-operating-leases/eu-press-release/2026/11/13/09/23/04/187690/"],["Romanian telco giant Digi reports EUR 1.8 billion in revenues — Romania Insider","https://www.romania-insider.com/business/romanian-telco-giant-digi-reports-eur-18-billion"],["Earnings call transcript: Digi Communications Q3 2026 — Investing.com","https://in.investing.com/news/stock-market-news/earnings-call-transcript-digi-communications-posts-strong-q3-2026-growth-93CH-5703573"]]},
-{id:"#3",title:"DIGI Romania：最高法院（ICCJ）终审维持无罪，反腐局（DNA）案结束",entity:"DIGI România",country:"罗马尼亚",topic:"法律合规（公共部门采购资格风险）",grade:["A"],gradeNote:"上市公司监管披露",
- dates:{"事件":"2026-11-11","发表":"2026-11-11 18:39 布加勒斯特时间","检索":"2026-11-14"},
- stage:null,stageNote:"不适用（司法终结）",
- facts:["ICCJ 驳回 DNA 上诉，维持 2025-11-25 布加勒斯特上诉法院对 Digi Romania S.A.、相关董事和其他当事方的无罪判决。判决为终审。"],
- infer:["DIGI 参与政府和公共部门项目（含此前媒体报道的 SAFE 相关合同）的声誉和资格阻力可能下降。"],
- opp:"中等。DIGI 作为合作伙伴或总包方参与公共项目、企业专线标的时，风险评估分数会降低。",
- verify:["DIGI 在罗马尼亚公共部门和国防通信相关合同的实际进展"],
- src:[["DIGI – Hotărâre definitivă pronunțată de ICCJ în dosarul DNA — Digi Communications N.V. (BVB)","https://m.bvb.ro/FinancialInstruments/SelectedData/NewsItem/DIGI-Hotarare-definitiva-pronuntata-de-ICCJ-in-dosarul-DNA/6DFF9"]]}
+(function(){
+const ICONS={
+ overview:'<path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/>',
+ changes:'<path d="M5 6h14M5 12h14M5 18h9"/><circle cx="19" cy="18" r="2"/>',
+ accounts:'<path d="M4 20V8l6-4 6 4v12M16 20V11h4v9M8 10h4M8 14h4M2 20h20"/>',
+ countries:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/>',
+ opportunities:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/>',
+ calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+ archive:'<path d="M3 5h18v4H3zM5 9v10h14V9M10 13h4"/>'
+};
+const VIEWS=[
+ ["overview","本期总览","SOUTHEAST EUROPE / CHANGE TRACKER"],
+ ["changes","变更条目","EVIDENCE · STAGE · INFERENCE"],
+ ["accounts","重点客户","NINE ACCOUNT GROUPS"],
+ ["countries","国家视图","SEVEN MARKETS"],
+ ["opportunities","机会线索","LEADS TO VERIFY"],
+ ["calendar","时间节点","DEADLINES & TRIGGERS"],
+ ["archive","往期与方法","PERIODS · EXCLUSIONS · METHOD"]
 ];
-const BOUNDARY=[
-{id:"B1",title:"Balkans Digital Gateway Works：希腊–保加利亚–罗马尼亚光纤走廊（Vestitel）",entity:"Vestitel · Digital Realty Greece · 希腊电信监管机构 EETT",country:"希腊 · 保加利亚 · 罗马尼亚",topic:"骨干光纤 · 跨境 DCI · Transit",grade:["C"],gradeNote:"国家通讯社报道推介会，尚无一手文件",
- dates:{"事件":"雅典推介会（2026-11 初）","发表":"BTA 2026-11-05；Novini247 11-07","检索":"2026-11-14"},
- stage:2,stageNote:"融资：报道称 EU 资金 €10.1M（总投资 €24M）。未证实已进入采购或建设，不上调阶段",
- facts:["走廊 Athens–Thessaloniki–Sofia–Bucharest；新建 Burgas–Alexandroupoli、Ofrynio–Serres 两条路由；升级 Sofia–Kulata–Thessaloniki。","单段最高 40 Tbps，总计最高 200 Tbps；工期 36 个月，从 2025-12 起算。","未来可能延伸至摩尔多瓦、乌克兰，以及黑海–爱琴海海缆。另一来源称已获 EETT 批准（C）。"],
- infer:["Vestitel 将成为 Vivacom、A1 BG、Yettel/CETIN 和 OTEGLOBE 在 GR–BG 跨境 Transit 和 DCI 上的新增竞争者或供给方。","与 Digital Realty 同台推介，说明目标客户是 DC 互联和海缆登陆回传。"],
- opp:"高。新建骨干涉及光缆、DWDM/C+L 开放线路和 400G/800G 相干光模块，可以直接接触 Vestitel；也可以向 OTEGLOBE、Vivacom 推既有 Sofia–Thessaloniki 路由扩容方案。",
- verify:["EU 资金来源（CEF Digital？）、项目编号、受益方","光设备和光缆是否已招标或签约","\"EETT 批准\"的具体性质"],
- src:[["Проект за изграждане на високоскоростна оптична мрежа… представен в Атина — BTA","https://www.bta.bg/bg/news/balkans/1241010-proekt-za-izgrazhdane-na-visokoskorostna-optichna-mrezha-svarzvashta-balgariya-"],["Високоскоростната оптична мрежа между Гърция и България ще бъде разширена — Novini247","https://novini247.com/novini/visokoskorostnata-optichna-mreja-mejdu-gartsiya-i-balgariya-shte-bade-razshirena_11374816.html"]]},
-{id:"B2",title:"Moldtelecom：FTTR（GPON/XGS-PON）终端公开招标",entity:"S.A. \"Moldtelecom\"",country:"摩尔多瓦",topic:"FTTH 接入 · 终端采购",grade:["A"],gradeNote:"招标公告",
- dates:{"发表":"2026-11-09","投标截止":"2026-12-09 12:00","检索":"2026-11-14"},
- stage:3,stageNote:"采购：公开招标进行中",
- facts:["采购对象为 GPON/XGS-PON 的光纤到房间（FTTR）终端设备，数量未披露。","在基希讷乌 Bd. Ștefan cel Mare și Sfânt 10 递交，联系人为招标委员会秘书 Victor Gherasim。"],
- infer:["结合 2026 年已发布的 GPON/XGS-PON SFP（05 月）和光缆（09 月）招标，MTC 正在推进 XGS-PON 升级和 FTTR 产品化。"],
- opp:"中。有接入产品线的话可以在 12-09 前投标，也可以借此了解 OLT 和汇聚侧后续扩容。",
- verify:["数量和技术规格书","是否限定厂商或资质"],
- src:[["Licitaţie deschisă privind achiziţionarea echipamentelor terminale FTTR — Logos Press","https://logos-pres.md/articol/licitatie-deschisa-privind-achizitionarea-echipamentelor-terminale-fttr"]]}
-];
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-function ladder(i){
-  if(i===null) return `<div class="ladder na" aria-label="阶段不适用">${STAGES.map(s=>`<span>${s}</span>`).join("")}</div>`;
-  return `<div class="ladder" aria-label="当前阶段：${STAGES[i]}">${STAGES.map((s,k)=>`<span class="${k<i?"done":k===i?"now":""}">${s}</span>`).join("")}</div>`;
-}
-function card(x,boundary){
-  return `<article class="card${boundary?" boundary":""}">
-  <div class="card-top"><div class="tags"><span class="tag mono">${x.id}</span><span class="tag">${esc(x.country)}</span><span class="tag">${esc(x.topic)}</span></div>
-  <div class="tags">${x.grade.map(g=>`<span class="grade g${g}">${g}</span>`).join("")}</div></div>
-  <h3>${esc(x.title)}</h3>
-  <div style="font-size:13px;color:var(--muted)">实体：${esc(x.entity)} · 证据：${esc(x.gradeNote)}</div>
-  <dl class="dates">${Object.entries(x.dates).map(([k,v])=>`<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>
-  <div><div class="lbl">项目阶段</div>${ladder(x.stage)}<div style="font-size:13px;color:var(--muted);margin-top:6px">${esc(x.stageNote)}</div></div>
-  <div class="split"><div><div class="lbl">事实</div><ul>${x.facts.map(f=>`<li>${esc(f)}</li>`).join("")}</ul></div>
-  <div><div class="lbl inf">推断</div><ul>${x.infer.map(f=>`<li>${esc(f)}</li>`).join("")}</ul></div></div>
-  <div class="opp"><div class="lbl">销售机会意义</div>${esc(x.opp)}</div>
-  <div><div class="lbl">待核实</div><ul class="verify">${x.verify.map(f=>`<li>${esc(f)}</li>`).join("")}</ul></div>
-  <div class="src"><div class="lbl">来源</div><ul>${x.src.map(([t,u])=>`<li>${esc(t)}<br><a href="${esc(u)}" target="_blank" rel="noopener">${esc(u)}</a></li>`).join("")}</ul></div>
-  </article>`;
-}
-document.getElementById("items").innerHTML=`<h2>窗口内新增事实 <small>2026-11-11 至 11-14</small></h2>`+ITEMS.map(x=>card(x,false)).join("");
-document.getElementById("boundary").innerHTML=`<h2>窗口前补收 <small>上次已收录的话可以忽略</small></h2>`+BOUNDARY.map(x=>card(x,true)).join("");
-</script>
+const TOPIC_DEFAULT="all";
+let D=null, KB=null;
+const S={view:"overview",country:"all",account:"all",topic:"all",grade:"all",stage:"all",win:"all",q:""};
 
+const $=s=>document.querySelector(s);
+const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const svg=k=>`<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[k]}</svg>`;
+
+function readHash(){
+  const p=new URLSearchParams(location.hash.slice(1));
+  for(const k of Object.keys(S)){ S[k]=p.get(k)||(k==="q"?"":k==="view"?"overview":"all"); }
+  if(!VIEWS.some(v=>v[0]===S.view)) S.view="overview";
+}
+function writeHash(patch){
+  Object.assign(S,patch);
+  const p=new URLSearchParams();
+  p.set("view",S.view);
+  for(const k of ["country","account","topic","grade","stage","win"]) if(S[k]!=="all") p.set(k,S[k]);
+  if(S.q) p.set("q",S.q);
+  const h="#"+p.toString();
+  if(location.hash!==h) location.hash=h; else render();
+}
+const link=patch=>{const n={...S,...patch};const p=new URLSearchParams();p.set("view",n.view);for(const k of ["country","account","topic","grade","stage","win"]) if(n[k]&&n[k]!=="all") p.set(k,n[k]);if(n.q) p.set("q",n.q);return "#"+p.toString();};
+
+const period=()=>D.periods[0];
+const acc=id=>D.accounts.find(a=>a.id===id);
+const ctry=id=>D.countries.find(c=>c.id===id);
+const kbCount=(key,val)=>KB?KB.insights.filter(r=>(r[key]||[]).includes(val)).length:null;
+const kbLink=(key,val)=>`./knowledge/#view=overview&${key}=${encodeURIComponent(val)}`;
+const STATUS={update:["有更新","p-update"],none:["无可核实更新","p-none"],before:["窗口前条目","p-before"]};
+const PRI={"高":"p-hi","中":"p-mid","低":"p-lo"};
+const prioRank={"高":0,"中":1,"低":2};
+
+function filtered(){
+  const q=S.q.trim().toLowerCase();
+  return D.items.filter(it=>
+    (S.country==="all"||it.countries.includes(S.country))&&
+    (S.account==="all"||it.accounts.includes(S.account)||it.relatedAccounts.includes(S.account))&&
+    (S.topic==="all"||it.topic===S.topic)&&
+    (S.grade==="all"||it.grades.includes(S.grade))&&
+    (S.stage==="all"||(S.stage==="na"?it.stage===null:String(it.stage)===S.stage))&&
+    (S.win==="all"||it.window===S.win)&&
+    (!q||JSON.stringify([it.title,it.summary,it.entity,it.facts,it.inferences,it.sources,it.countries.map(c=>ctry(c).name),it.accounts.map(a=>acc(a).name)]).toLowerCase().includes(q))
+  );
+}
+
+function nav(){
+  const counts={changes:D.items.length,opportunities:D.items.length,calendar:period().calendar.length};
+  $("#nav").innerHTML=VIEWS.map(([id,name])=>`<a href="${link({view:id})}" ${S.view===id?'aria-current="page"':""}>${svg(id)}<span>${name}</span>${counts[id]?`<span class="count">${counts[id]}</span>`:""}</a>`).join("");
+  $("#cidx").innerHTML=D.countries.map(c=>{const n=D.items.filter(i=>i.countries.includes(c.id)).length;return `<a href="${link({view:"countries",country:c.id})}" ${S.view==="countries"&&S.country===c.id?'aria-current="true"':""}><code>${c.id}</code><span>${c.name}</span><span>${n||"–"}</span></a>`;}).join("");
+}
+
+function head(title,sub,extra=""){
+  const v=VIEWS.find(x=>x[0]===S.view);
+  return `<div class="head"><div><div class="eyebrow">${v[2]}</div><h1>${esc(title)}</h1><p>${esc(sub)}</p></div>${extra}</div>`;
+}
+function windowBox(){const p=period();return `<div class="window"><span>本期覆盖窗口（${p.tz}）</span>${esc(p.from)} → ${esc(p.to)}</div>`;}
+function countryChips(viewId){
+  return `<div class="chips" role="group" aria-label="按国家筛选"><button class="chip" data-country="all" aria-pressed="${S.country==="all"}">全部国家</button>${D.countries.map(c=>`<button class="chip" data-country="${c.id}" aria-pressed="${S.country===c.id}">${c.name}<small>${D.items.filter(i=>i.countries.includes(c.id)).length||""}</small></button>`).join("")}</div>`;
+}
+function ladderMini(st){if(st===null) return `<span class="stage-label">阶段不适用</span>`;return `<span class="mini-ladder" aria-hidden="true">${D.stages.map((s,k)=>`<span class="${k<st?"done":k===st?"now":""}"></span>`).join("")}</span><span class="stage-label">${D.stages[st]}</span>`;}
+function itemCard(it){
+  const cs=it.countries.map(c=>ctry(c).name).join(" / ");
+  const as=it.accounts.length?it.accounts.map(a=>acc(a).name).join("、"):"其他市场主体";
+  return `<button class="item${it.window==="before"?" before":""}" data-item="${it.id}">
+    <span class="ic">${esc(it.label)}</span>
+    <span style="min-width:0"><span class="meta"><span>${esc(cs)}</span><span>·</span><span>${esc(D.topics[it.topic])}</span><i></i><span>${esc(as)}</span>${it.window==="before"?'<span class="pill p-before">窗口前补收</span>':""}</span>
+    <h3>${esc(it.title)}</h3><p>${esc(it.summary)}</p>
+    <span class="foot"><span>${esc(it.sources[0].title.split(" — ").pop())}</span><span class="mono">${esc(it.dates["发表"]||"")}</span></span></span>
+    <span class="right"><span>${it.grades.map(g=>`<span class="grade g${g}">${g}</span>`).join(" ")}</span><span style="display:flex;gap:6px;align-items:center">${ladderMini(it.stage)}</span></span>
+  </button>`;
+}
+
+/* views */
+function vOverview(){
+  const p=period(), items=D.items;
+  const inWin=items.filter(i=>i.window==="in").length, before=items.length-inWin;
+  const aCount=items.filter(i=>i.grades.includes("A")).length;
+  const vCount=items.reduce((n,i)=>n+i.verify.length,0);
+  const updated=Object.values(p.accountStatus).filter(s=>s==="update").length;
+  const kpis=[[inWin,"窗口内新增条目"],[before,"窗口前补收"],[`${updated}/9`,"有更新的重点客户"],[aCount,"含 A 级证据的条目"],[vCount,"待核实点"]];
+  const accCards=D.accounts.map(a=>{const st=p.accountStatus[a.id]||"none";const n=items.filter(i=>i.accounts.includes(a.id)).length;const k=kbCount("accounts",a.id);
+    return `<a class="acc${st!=="none"?" has":""}" href="${link({view:"changes",account:a.id,country:"all"})}"><span class="code">${a.country}</span><span style="min-width:0"><b>${esc(a.name)}</b><small>${n?`本期 ${n} 条`:"本期 0 条"}${k!==null?` · 研究库 ${k} 条`:""}</small></span><span class="pill ${STATUS[st][1]}">${STATUS[st][0]}</span></a>`;}).join("");
+  const top=[...items].sort((a,b)=>(a.window>b.window?-1:1)||prioRank[a.priority]-prioRank[b.priority]).map(itemCard).join("");
+  return head("本期总览","每期只记录可核实的变化：证据分级、阶段不跳级、事实与推断分开。",windowBox())+
+  `<div class="kpis">${kpis.map(([b,s])=>`<div class="kpi"><b>${b}</b><span>${s}</span></div>`).join("")}</div>
+  <section class="panel tint"><div class="panel-head"><div><div class="eyebrow">YOUR NINE ACCOUNTS</div><h2>先看客户：本期谁有变化</h2><p>顺序沿用你的客户名单；点开进入该客户的本期条目。</p></div><a class="go" href="${link({view:"accounts"})}">客户详情 →</a></div><div class="acc-grid">${accCards}</div></section>
+  <div class="cols"><section class="panel"><div class="panel-head"><h2>本期条目</h2><a class="go" href="${link({view:"changes"})}">筛选全部 →</a></div><div class="list">${top}</div></section>
+  <section class="panel"><div class="panel-head"><h2>即将到来</h2><a class="go" href="${link({view:"calendar"})}">全部节点 →</a></div>${timeline(p.calendar)}<p class="note">${esc(p.note)}</p></section></div>`;
+}
+function vChanges(){
+  const rows=filtered();
+  const accOpts=D.accounts.map(a=>`<option value="${a.id}" ${S.account===a.id?"selected":""}>${esc(a.name)}</option>`).join("");
+  const topicOpts=Object.entries(D.topics).filter(([k])=>D.items.some(i=>i.topic===k)).map(([k,v])=>`<option value="${k}" ${S.topic===k?"selected":""}>${v}</option>`).join("");
+  const stageOpts=D.stages.map((s,k)=>`<option value="${k}" ${S.stage===String(k)?"selected":""}>${s}</option>`).join("")+`<option value="na" ${S.stage==="na"?"selected":""}>不适用</option>`;
+  const gOpts=Object.entries(D.grades).map(([k,v])=>`<option value="${k}" ${S.grade===k?"selected":""}>${k} · ${v}</option>`).join("");
+  return head("变更条目","每条含来源、三种日期、证据等级与项目阶段；点开看事实、推断与待核实点。")+countryChips()+
+  `<div class="filters">
+    <select data-f="topic" aria-label="主题"><option value="all">全部主题</option>${topicOpts}</select>
+    <select data-f="grade" aria-label="证据等级"><option value="all">全部证据等级</option>${gOpts}</select>
+    <select data-f="stage" aria-label="项目阶段"><option value="all">全部阶段</option>${stageOpts}</select>
+    <select data-f="account" aria-label="客户"><option value="all">全部客户</option>${accOpts}</select>
+    <select data-f="win" aria-label="窗口"><option value="all">窗口内 + 补收</option><option value="in" ${S.win==="in"?"selected":""}>仅窗口内</option><option value="before" ${S.win==="before"?"selected":""}>仅窗口前补收</option></select>
+    <span class="spacer"><span class="mono">${rows.length} 条</span><button class="linkbtn" id="reset">重置筛选</button></span></div>
+  <div class="legend">${Object.entries(D.grades).map(([k,v])=>`<span><span class="grade g${k}">${k}</span> ${v}</span>`).join("")}</div>
+  <div class="list">${rows.length?rows.map(itemCard).join(""):`<div class="empty">当前筛选下没有条目。没有可核实动态时，本页不会用旧闻填充。</div>`}</div>`;
+}
+function vAccounts(){
+  const p=period();
+  const list=D.accounts.filter(a=>S.country==="all"||a.country===S.country);
+  const rows=list.map(a=>{const st=p.accountStatus[a.id]||"none";const n=D.items.filter(i=>i.accounts.includes(a.id)).length;const r=D.items.filter(i=>i.relatedAccounts.includes(a.id)).length;const k=kbCount("accounts",a.id);
+    return `<tr class="row-link" data-href="${link({view:"changes",account:a.id,country:"all"})}"><td><b>${esc(a.name)}</b><small>${ctry(a.country).name}</small></td><td>${esc(a.scope)}${p.accountNotes[a.id]?`<small>${esc(p.accountNotes[a.id])}</small>`:""}</td><td><span class="pill ${STATUS[st][1]}">${STATUS[st][0]}</span></td><td class="mono">${n}${r?`<small>另有 ${r} 条相关（推断）</small>`:""}</td><td>${k!==null?`<a href="${kbLink("account",a.id)}">${k} 条 →</a>`:"–"}</td></tr>`;}).join("");
+  return head("重点客户","九个客户群，按你的名单顺序；Yettel 商业侧与 CETIN 基础设施侧分开判断。")+countryChips()+
+  `<div class="tbl"><table><thead><tr><th>客户群</th><th>研究主体 / 边界</th><th>本期状态</th><th>本期条目</th><th>研究库记录</th></tr></thead><tbody>${rows||`<tr><td colspan="5">该国没有列入名单的重点客户。</td></tr>`}</tbody></table></div>
+  <p class="note">“研究库记录”来自同站 /knowledge/（ChatGPT 维护）的公开快照，只做计数与跳转，两边事实不合并。</p>`;
+}
+function vCountries(){
+  if(S.country!=="all"){
+    const c=ctry(S.country); const its=D.items.filter(i=>i.countries.includes(c.id)); const accs=D.accounts.filter(a=>a.country===c.id); const k=kbCount("countries",c.id); const p=period();
+    return head(`${c.name} ${c.en}`,c.watch)+countryChips()+
+    `<div class="kpis"><div class="kpi"><b>${its.length}</b><span>本期条目</span></div><div class="kpi"><b>${accs.length}</b><span>名单内客户</span></div><div class="kpi"><b>${k??"–"}</b><span>研究库记录</span></div></div>
+    ${accs.length?`<section class="panel"><div class="panel-head"><h2>客户状态</h2></div><div class="acc-grid">${accs.map(a=>{const st=p.accountStatus[a.id]||"none";return `<a class="acc${st!=="none"?" has":""}" href="${link({view:"changes",account:a.id,country:"all"})}"><span class="code">${a.country}</span><span style="min-width:0"><b>${esc(a.name)}</b><small>${esc(a.scope)}</small></span><span class="pill ${STATUS[st][1]}">${STATUS[st][0]}</span></a>`;}).join("")}</div></section>`:""}
+    <section class="panel"><div class="panel-head"><h2>本期条目</h2>${k!==null?`<a class="go" href="${kbLink("country",c.id)}">在研究库查看 ${c.name} →</a>`:""}</div><div class="list">${its.length?its.map(itemCard).join(""):`<div class="empty">本期无可核实更新。</div>`}</div></section>`;
+  }
+  return head("国家视图","七个市场的本期变化与长期关注点；点卡片进入单国视图。")+countryChips()+
+  `<div class="cgrid">${D.countries.map(c=>{const n=D.items.filter(i=>i.countries.includes(c.id)).length;const k=kbCount("countries",c.id);return `<a class="ccard" href="${link({view:"countries",country:c.id})}"><span class="code">${c.id}</span><h3>${c.name}</h3><div class="en">${c.en}</div><p>${esc(c.watch)}</p><div class="bottom"><span>本期 ${n} 条${k!==null?` · 研究库 ${k} 条`:""}</span><span style="color:var(--accent)">进入 →</span></div></a>`;}).join("")}</div>`;
+}
+function vOpps(){
+  const rows=filtered().sort((a,b)=>prioRank[a.priority]-prioRank[b.priority]);
+  return head("机会线索","研究口径的线索排序，不是已确认商机；每条都要先过“待核实点”。")+countryChips()+
+  `<div class="tbl"><table><thead><tr><th>线索</th><th>优先级</th><th>阶段</th><th>触发事件</th><th>下一步</th><th>证据</th></tr></thead><tbody>${rows.map(it=>`<tr class="row-link" data-item="${it.id}"><td><b>${esc(it.title)}</b><small>${esc(it.opportunity)}</small></td><td><span class="pill ${PRI[it.priority]}">${it.priority}</span></td><td style="white-space:nowrap">${it.stage===null?"不适用":D.stages[it.stage]}</td><td>${esc(it.trigger)}</td><td>${esc(it.nextStep)}</td><td>${it.grades.map(g=>`<span class="grade g${g}">${g}</span>`).join(" ")}</td></tr>`).join("")||`<tr><td colspan="6">当前筛选下没有线索。</td></tr>`}</tbody></table></div>`;
+}
+function timeline(list){return `<div class="timeline">${[...list].sort((a,b)=>a.date.localeCompare(b.date)).map(e=>`<div class="tl"><div class="d">${esc(e.dateLabel||e.date.slice(5))}<small>${esc(e.dateLabel?"":e.date.slice(0,4))}</small></div><div class="dot"></div><p>${esc(e.event)} <span class="grade g${e.grade}">${e.grade}</span><br><small style="color:var(--muted)">${esc(acc(e.account)?.name||"")} · <a href="${esc(e.url)}" target="_blank" rel="noopener">来源</a></small></p></div>`).join("")}</div>`;}
+function vCalendar(){
+  return head("时间节点","投标截止、咨询期和预期签约等会改变机会窗口的日期。不计入本期新增。")+`<section class="panel">${timeline(period().calendar)}</section>`;
+}
+function vArchive(){
+  return head("往期与方法","每期报告原文、排除的条目，以及证据和阶段的判定规则。")+
+  `<div class="tbl"><table><thead><tr><th>报告期</th><th>覆盖窗口</th><th>条目</th><th>原文</th></tr></thead><tbody>${D.periods.map(p=>`<tr><td class="mono">${p.id}</td><td class="mono">${esc(p.from)} → ${esc(p.to)}<small>${p.tz}</small></td><td class="mono">${D.items.filter(i=>i.period===p.id).length}</td><td><a href="${esc(p.report)}" target="_blank" rel="noopener">Markdown ↗</a></td></tr>`).join("")}</tbody></table></div>
+  <section class="panel"><div class="panel-head"><h2>本期排除的条目</h2></div><div class="tbl" style="border:0"><table><thead><tr><th>条目</th><th>排除原因</th></tr></thead><tbody>${period().excluded.map(([a,b])=>`<tr><td>${esc(a)}</td><td>${esc(b)}</td></tr>`).join("")}</tbody></table></div></section>
+  <section class="panel"><div class="panel-head"><h2>判定规则</h2></div>
+  <div class="legend">${Object.entries(D.grades).map(([k,v])=>`<span><span class="grade g${k}">${k}</span> ${v}</span>`).join("")}</div>
+  <div><div class="lbl">项目阶段（不得跳级）</div><div class="ladder">${D.stages.map(s=>`<span>${s}</span>`).join("")}</div></div>
+  <p class="note">某客户本期没有可核实动态时写“无可核实更新”，不用旧闻填充。发布日期早于窗口的条目单列为“窗口前补收”。与 /knowledge/ 研究库口径独立，不合并对方事实。</p></section>`;
+}
+
+function detail(id){
+  const it=D.items.find(i=>i.id===id); if(!it) return;
+  const ladder=it.stage===null?`<div class="ladder na">${D.stages.map(s=>`<span>${s}</span>`).join("")}</div>`:`<div class="ladder">${D.stages.map((s,k)=>`<span class="${k<it.stage?"done":k===it.stage?"now":""}">${s}</span>`).join("")}</div>`;
+  const rel=it.relatedAccounts.length?`<p class="kb">可能受影响的客户（推断）：${it.relatedAccounts.map(a=>esc(acc(a).name)).join("、")}</p>`:"";
+  $("#dlg-body").innerHTML=`<div class="dlg">
+   <div class="dlg-top"><div><div class="eyebrow">${esc(it.label)} · ${it.countries.map(c=>ctry(c).name).join(" / ")} · ${esc(D.topics[it.topic])}</div><h2 id="dlg-title">${esc(it.title)}</h2></div><button class="close" id="close">关闭</button></div>
+   <div>${it.grades.map(g=>`<span class="grade g${g}">${g}</span>`).join(" ")} <span class="kb">${esc(it.gradeNote)} · 实体：${esc(it.entity)}</span></div>${rel}
+   <dl class="dates">${Object.entries(it.dates).map(([k,v])=>`<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>
+   <div><div class="lbl">项目阶段</div>${ladder}<p class="kb" style="margin:6px 0 0">${esc(it.stageNote)}</p></div>
+   <div class="split"><div><div class="lbl">事实</div><ul>${it.facts.map(f=>`<li>${esc(f)}</li>`).join("")}</ul></div><div><div class="lbl inf">推断</div><ul>${it.inferences.map(f=>`<li>${esc(f)}</li>`).join("")}</ul></div></div>
+   <div class="opp"><div class="lbl">销售机会意义 · 优先级 ${it.priority}</div>${esc(it.opportunity)}<p class="kb" style="margin:8px 0 0">触发事件：${esc(it.trigger)} · 下一步：${esc(it.nextStep)}</p></div>
+   <div><div class="lbl">待核实</div><ul class="verify">${it.verify.map(f=>`<li>${esc(f)}</li>`).join("")}</ul></div>
+   <div><div class="lbl">来源</div><ul class="srcs">${it.sources.map(s=>`<li>${esc(s.title)}<br><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></li>`).join("")}</ul></div>
+  </div>`;
+  const d=$("#dlg"); if(d.showModal) d.showModal(); else d.setAttribute("open","");
+  $("#close").onclick=()=>d.close();
+}
+
+function render(){
+  nav();
+  const v=VIEWS.find(x=>x[0]===S.view);
+  $("#crumb").textContent=v[1];
+  document.title=(S.view==="overview"?"":v[1]+" · ")+"SEE7 变更追踪";
+  const q=$("#q"); if(document.activeElement!==q) q.value=S.q;
+  const fn={overview:vOverview,changes:vChanges,accounts:vAccounts,countries:vCountries,opportunities:vOpps,calendar:vCalendar,archive:vArchive}[S.view];
+  $("#view").innerHTML=fn()+`<footer>数据：<a href="./data/briefs.json">data/briefs.json</a> · 最近一期 ${period().id}（检索 ${period().retrieved}）· 由 Claude 维护。公开研究库见 <a href="./knowledge/">/knowledge/</a>。</footer>`;
+  $("#side").classList.remove("open"); $("#menu").setAttribute("aria-expanded","false");
+}
+
+document.addEventListener("click",e=>{
+  const c=e.target.closest("[data-country]"); if(c){writeHash({country:c.dataset.country});return;}
+  const it=e.target.closest("[data-item]"); if(it){detail(it.dataset.item);return;}
+  const r=e.target.closest("tr[data-href]"); if(r&&!e.target.closest("a")){location.hash=r.dataset.href;return;}
+  if(e.target.id==="reset"){writeHash({country:"all",account:"all",topic:"all",grade:"all",stage:"all",win:"all",q:""});return;}
+  if(e.target===$("#dlg")) $("#dlg").close();
+});
+document.addEventListener("change",e=>{const f=e.target.dataset.f; if(f) writeHash({[f]:e.target.value});});
+let t; $("#q").addEventListener("input",e=>{clearTimeout(t);t=setTimeout(()=>{const v=e.target.value.trim();writeHash({q:v,view:v&&!["changes","opportunities"].includes(S.view)?"changes":S.view});},250);});
+$("#menu").addEventListener("click",()=>{const s=$("#side");s.classList.toggle("open");$("#menu").setAttribute("aria-expanded",s.classList.contains("open"));});
+window.addEventListener("hashchange",()=>{readHash();render();});
+
+fetch("./data/briefs.json").then(r=>{if(!r.ok) throw new Error(r.status);return r.json();}).then(d=>{
+  D=d; readHash(); render();
+  fetch("./knowledge/data.json").then(r=>r.ok?r.json():null).then(k=>{if(k&&Array.isArray(k.insights)){KB=k;render();}}).catch(()=>{});
+}).catch(err=>{$("#view").innerHTML=`<div class="empty">数据载入失败（${esc(err.message)}）。请稍后刷新，或直接查看 <a href="./data/briefs.json">data/briefs.json</a>。</div>`;});
+})();
+</script>
 </body>
 </html>

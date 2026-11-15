@@ -1,0 +1,492 @@
+{
+ "title": "SEE7 变更追踪",
+ "maintainer": "Claude",
+ "note": "每期变更建议包的结构化数据。与 /knowledge/（ChatGPT 维护的公开研究库）口径独立，不合并事实。",
+ "stages": [
+  "规划",
+  "许可",
+  "融资",
+  "采购",
+  "合同",
+  "建设",
+  "验收",
+  "商用"
+ ],
+ "grades": {
+  "A": "官方 / 监管 / 招标 / 财报",
+  "B": "厂商正式发布",
+  "C": "权威行业媒体",
+  "D": "线索 / 传闻"
+ },
+ "topics": {
+  "operator": "运营商与客户",
+  "policy": "政策与监管",
+  "network": "网络与基础设施",
+  "market": "市场与需求",
+  "risk": "风险与约束",
+  "opportunity": "空间机会点"
+ },
+ "countries": [
+  {
+   "id": "GR",
+   "name": "希腊",
+   "en": "Greece",
+   "watch": "FTTH 批发整合、海缆登陆与雅典–克里特 DC 互联"
+  },
+  {
+   "id": "BG",
+   "name": "保加利亚",
+   "en": "Bulgaria",
+   "watch": "GR–BG–RO 跨境骨干、索菲亚 Transit、RRP 农村网络收尾"
+  },
+  {
+   "id": "CY",
+   "name": "塞浦路斯",
+   "en": "Cyprus",
+   "watch": "东地中海海缆登陆与数据中心扩建"
+  },
+  {
+   "id": "RO",
+   "name": "罗马尼亚",
+   "en": "Romania",
+   "watch": "DIGI 批发开放义务、网络整合与 DC 接入"
+  },
+  {
+   "id": "MD",
+   "name": "摩尔多瓦",
+   "en": "Moldova",
+   "watch": "Moldtelecom XGS-PON 升级与对罗马尼亚的冗余互联"
+  },
+  {
+   "id": "MK",
+   "name": "北马其顿",
+   "en": "North Macedonia",
+   "watch": "新进入者带来的承载与汇聚需求"
+  },
+  {
+   "id": "AL",
+   "name": "阿尔巴尼亚",
+   "en": "Albania",
+   "watch": "海陆互联与运营商光纤扩建"
+  }
+ ],
+ "accounts": [
+  {
+   "id": "ote-gr",
+   "name": "OTE / COSMOTE TELEKOM",
+   "country": "GR",
+   "scope": "含 OTEGLOBE 国际批发（单列取证）"
+  },
+  {
+   "id": "vodafone-gr",
+   "name": "Vodafone Greece",
+   "country": "GR",
+   "scope": "含 Fiber2All 与 PPC 光纤 JV"
+  },
+  {
+   "id": "nova-gr",
+   "name": "NOVA Greece",
+   "country": "GR",
+   "scope": "NOVA 优先；UGI 仅在直接影响时纳入"
+  },
+  {
+   "id": "vivacom-bg",
+   "name": "Vivacom Bulgaria",
+   "country": "BG",
+   "scope": "本地经营口径；UGI 仅在直接影响时纳入"
+  },
+  {
+   "id": "a1-bg",
+   "name": "A1 Bulgaria",
+   "country": "BG",
+   "scope": "本地光传送网络"
+  },
+  {
+   "id": "ppf-bg",
+   "name": "Yettel / CETIN Bulgaria",
+   "country": "BG",
+   "scope": "Yettel 商业侧与 CETIN 基础设施侧严格区分"
+  },
+  {
+   "id": "digi-ro",
+   "name": "DIGI Romania",
+   "country": "RO",
+   "scope": "罗马尼亚本地业务；集团口径单列"
+  },
+  {
+   "id": "mtc-md",
+   "name": "Moldtelecom (MTC)",
+   "country": "MD",
+   "scope": "S.A. Moldtelecom"
+  },
+  {
+   "id": "cyta-cy",
+   "name": "Cyta",
+   "country": "CY",
+   "scope": "含数据中心与专线业务"
+  }
+ ],
+ "periods": [
+  {
+   "id": "2026-11-14",
+   "from": "2026-11-11 00:00",
+   "to": "2026-11-14 11:25",
+   "tz": "Europe/Sofia",
+   "retrieved": "2026-11-14",
+   "report": "https://github.com/Purple-Sunshine-Harry/see-search/blob/main/reports/2026-11-14.md",
+   "note": "evidence-audit / operator-deep-dive / optical-market-intelligence 技能未安装，按任务规则执行；部分付费墙内容只读到摘要。",
+   "accountStatus": {
+    "ote-gr": "none",
+    "vodafone-gr": "update",
+    "nova-gr": "none",
+    "vivacom-bg": "none",
+    "a1-bg": "none",
+    "ppf-bg": "none",
+    "digi-ro": "update",
+    "mtc-md": "before",
+    "cyta-cy": "none"
+   },
+   "accountNotes": {
+    "ppf-bg": "Yettel（商业侧）与 CETIN（基础设施侧）均无可核实更新",
+    "vivacom-bg": "窗口内仅零售促销新闻，不在范围内",
+    "nova-gr": "UGI 无直接影响 NOVA / Vivacom 的新动态"
+   },
+   "calendar": [
+    {
+     "date": "2026-12-02",
+     "event": "ANCOM：DIGI 参考接入报价公众咨询截止（5,894 个地点，物理光纤 + VULA）",
+     "grade": "C",
+     "url": "https://www.mobilissimo.ro/articole-diverse/digi-trebuie-sa-si-deschida-reteaua-de-internet-catre-concurenta-in-5-894-de-localitati-ancom-consulta-conditiile-de-acces",
+     "account": "digi-ro"
+    },
+    {
+     "date": "2026-12-09",
+     "event": "Moldtelecom FTTR 终端招标截止 12:00",
+     "grade": "A",
+     "url": "https://logos-pres.md/articol/licitatie-deschisa-privind-achizitionarea-echipamentelor-terminale-fttr",
+     "account": "mtc-md"
+    },
+    {
+     "date": "2026-12-31",
+     "dateLabel": "2026 年底",
+     "event": "PPC–Vodafone Greece 光纤 JV 媒体预期签约时点",
+     "grade": "C",
+     "url": "https://www.businessdaily.gr/epiheiriseis/233933_dei-kai-vodafone-eos-telos-toy-2026-deal-gia-tis-optikes-ines",
+     "account": "vodafone-gr"
+    }
+   ],
+   "excluded": [
+    [
+     "Vivacom 黑色十一月促销、VivaHome 智能家居、eSIM 转号（11-04 至 11-06）",
+     "零售业务，不在范围内"
+    ],
+    [
+     "NOVA 全国网络中断",
+     "报道日期 2026-01-29，属旧闻"
+    ],
+    [
+     "COSMOTE TELEKOM 雅典 AI 数据中心",
+     "报道日期 2026-03-27，属旧闻"
+    ],
+    [
+     "A1 Bulgaria RRP 农村网络完工",
+     "报道日期 2026-09-20，属旧闻"
+    ],
+    [
+     "摩尔多瓦–罗马尼亚 400kV 输电线投运（约 11-09）",
+     "电力项目，没有 OPGW 光纤的证据"
+    ],
+    [
+     "希腊恢复塞浦路斯“电缆”勘测（GreekReporter，11-09）",
+     "页面无法读取；推测为 GSI 电力互联"
+    ]
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "2026-11-14-vfgr-h1fy27",
+   "label": "#1",
+   "period": "2026-11-14",
+   "window": "in",
+   "title": "Vodafone Greece：H1 FY27 财报显示希腊业务增长，PPC 光纤合资仍是框架协议",
+   "summary": "Vodafone H1 FY27 财报称希腊移动与固网服务收入增长；与 PPC 的 50:50 FTTH 合资仍是框架协议（heads of terms），尽调与正式文件未完成。",
+   "entity": "Vodafone Greece",
+   "countries": [
+    "GR"
+   ],
+   "accounts": [
+    "vodafone-gr"
+   ],
+   "relatedAccounts": [],
+   "topic": "operator",
+   "scenario": "移动 / 固网承载",
+   "grades": [
+    "A",
+    "C"
+   ],
+   "gradeNote": "财报为 A；希腊单国数字来自媒体，为 C",
+   "dates": {
+    "事件": "财报期截至 2026-09-30",
+    "发表": "Group 2026-11-10；希腊媒体 11-11",
+    "检索": "2026-11-14"
+   },
+   "stage": 0,
+   "stageNote": "PPC JV 处于规划阶段：只签了框架协议（heads of terms），尽调、正式文件和监管审批均未完成",
+   "facts": [
+    "财报原文：\"In Greece, service revenue increased as a result of growth in mobile and fixed service revenue\"。希腊未单独披露增长率，并入 Other Europe（H1 有机 +1.4%，Q2 +1.8%）。",
+    "Other Europe 的 Vodafone Business 有机服务收入 Q2 +9.9%，财报归因于希腊公共部门项目交付，含欧盟复苏基金（RRF）项目（RRF 已于 2026-09 关闭）。",
+    "PPC JV：双方光纤合计覆盖 >1.6M 户，定位为 50:50 批发开放接入。",
+    "媒体（C）：服务收入 €286M（+15.8%，期间口径不清）；自有光纤 >650,000 户；5G 人口覆盖 96.9%。"
+   ],
+   "inferences": [
+    "RRF 关闭后，下半财年公共部门项目收入可能放缓，企业侧会更依赖私营专线和云连接。",
+    "自有 FTTH 从约 620k（2026-09）增至约 650k，说明 JV 签约前仍在自建。"
+   ],
+   "opportunity": "JV 签约后 6–12 个月，OLT/汇聚、批发 OSS 和开放接入平台可能集中选型，可以提前准备开放接入和城域 WDM/OTN 回传方案。另外，RRF 结束后企业专线和 DCI 需求值得跟进。",
+   "priority": "中",
+   "trigger": "PPC–Vodafone JV 签约（媒体预期 2026 年底）",
+   "nextStep": "跟踪 JV 签约，准备开放接入与城域回传方案",
+   "verify": [
+    "€286M 是 Q2 单季还是 H1（对照财报 PDF 的国家附表）",
+    "\"fixed broadband customers declined by 6,000\" 是希腊口径还是 Other Europe 口径",
+    "JV 是否仍按 2026 年底签约推进"
+   ],
+   "sources": [
+    {
+     "title": "Vodafone H1 FY27 Results announcement (PDF) — Vodafone Group Plc",
+     "url": "https://www.vodafone.com/~/media/Files/V/vodafone/corp/results-and-presentations/vodafone-h1-fy27-results-announcement.pdf"
+    },
+    {
+     "title": "Vodafone Group announces H1 FY27 results — Vodafone",
+     "url": "https://www.vodafone.com/news/newsroom/corporate-and-financial/vodafone-group-announces-h1-fy27-results"
+    },
+    {
+     "title": "Στα 286 εκατ. ευρώ τα έσοδα υπηρεσιών της Vodafone Ελλάδας — To Pontiki",
+     "url": "https://www.topontiki.gr/2026/11/11/sta-286-ekat-evro-ta-esoda-ipiresion-tis-vodafone-elladas-me-othisi-apo-psifiaka-erga/"
+    }
+   ]
+  },
+  {
+   "id": "2026-11-14-digi-q3",
+   "label": "#2",
+   "period": "2026-11-14",
+   "window": "in",
+   "title": "DIGI Romania：Q3 2026 业绩与罗马尼亚运营数据",
+   "summary": "Digi Q3 2026：集团收入 €633M（+13%）；罗马尼亚 EBITDA 率 >52%，宽带 RGU >5.3M；管理层称正在“整合罗马尼亚网络”。",
+   "entity": "Digi Communications N.V. / DIGI România",
+   "countries": [
+    "RO"
+   ],
+   "accounts": [
+    "digi-ro"
+   ],
+   "relatedAccounts": [],
+   "topic": "operator",
+   "scenario": "移动 / 固网承载",
+   "grades": [
+    "A",
+    "C"
+   ],
+   "gradeNote": "集团数字为 A；罗马尼亚数字来自电话会转录，为 C",
+   "dates": {
+    "事件": "2026 Q3",
+    "发表": "2026-11-13",
+    "检索": "2026-11-14"
+   },
+   "stage": null,
+   "stageNote": "不适用（经营数据）",
+   "facts": [
+    "集团：Q3 收入 €633M（+13%），调整后 EBITDA €197M（+26%）；9M 收入 €1.8B（+11%），EBITDA €528M（+21%）。",
+    "集团 Q3 capex €207M；2026 全年指引 €720–730M，未按国家拆分（C）。",
+    "罗马尼亚（电话会，C）：Q3 销售约 €336M，服务收入约 €280M，EBITDA 约 €158–159M，利润率 >52%。宽带 RGU >5.3M，移动近 9M，付费电视 6.1M。2026-07-01 起改以欧元计价。",
+    "CEO 称正在 \"consolidating the networks in Romania\"。"
+   ],
+   "inferences": [
+    "\"网络整合\"可能指接入或城域网络的合并、优化（例如 HFC/FTTB 迁移到 FTTH、机房收敛）。目前没有一手细节。"
+   ],
+   "opportunity": "罗马尼亚利润率高、现金流强。网络整合再加上 ANCOM 的批发开放义务，可能带来 VULA 批发平台、城域汇聚扩容和 OSS/BSS 改造需求。",
+   "priority": "中",
+   "trigger": "罗马尼亚网络整合细节披露；ANCOM 批发报价定稿",
+   "nextStep": "核对 BVB 报告原文的罗马尼亚分部与 capex",
+   "verify": [
+    "对照 BVB 上的 Q3 报告原文，核实罗马尼亚分部数字和 capex 拆分",
+    "\"consolidating the networks\" 的具体含义"
+   ],
+   "sources": [
+    {
+     "title": "Digi Communications N.V. 9M 2026 results — Digi Communications N.V. (EuropaWire)",
+     "url": "https://news.europawire.eu/digi-communications-n-v-reports-consolidated-revenues-of-18-billion-euros-in-the-first-nine-months-of-2026-up-11-year-on-year-and-528-million-euros-of-adjusted-ebitda-excluding-operating-leases/eu-press-release/2026/11/13/09/23/04/187690/"
+    },
+    {
+     "title": "Romanian telco giant Digi reports EUR 1.8 billion in revenues — Romania Insider",
+     "url": "https://www.romania-insider.com/business/romanian-telco-giant-digi-reports-eur-18-billion"
+    },
+    {
+     "title": "Earnings call transcript: Digi Communications Q3 2026 — Investing.com",
+     "url": "https://in.investing.com/news/stock-market-news/earnings-call-transcript-digi-communications-posts-strong-q3-2026-growth-93CH-5703573"
+    }
+   ]
+  },
+  {
+   "id": "2026-11-14-digi-iccj",
+   "label": "#3",
+   "period": "2026-11-14",
+   "window": "in",
+   "title": "DIGI Romania：最高法院（ICCJ）终审维持无罪，反腐局（DNA）案结束",
+   "summary": "ICCJ 于 2026-11-11 终审驳回 DNA 上诉，维持 Digi Romania 及相关当事方无罪判决，案件结束。",
+   "entity": "DIGI România",
+   "countries": [
+    "RO"
+   ],
+   "accounts": [
+    "digi-ro"
+   ],
+   "relatedAccounts": [],
+   "topic": "risk",
+   "scenario": "国家 / 政策",
+   "grades": [
+    "A"
+   ],
+   "gradeNote": "上市公司监管披露",
+   "dates": {
+    "事件": "2026-11-11",
+    "发表": "2026-11-11 18:39 布加勒斯特时间",
+    "检索": "2026-11-14"
+   },
+   "stage": null,
+   "stageNote": "不适用（司法终结）",
+   "facts": [
+    "ICCJ 驳回 DNA 上诉，维持 2025-11-25 布加勒斯特上诉法院对 Digi Romania S.A.、相关董事和其他当事方的无罪判决。判决为终审。"
+   ],
+   "inferences": [
+    "DIGI 参与政府和公共部门项目（含此前媒体报道的 SAFE 相关合同）的声誉和资格阻力可能下降。"
+   ],
+   "opportunity": "中等。DIGI 作为合作伙伴或总包方参与公共项目、企业专线标的时，风险评估分数会降低。",
+   "priority": "低",
+   "trigger": "DIGI 公共部门 / 国防通信合同进展",
+   "nextStep": "复核其公共项目参与的资格风险评估",
+   "verify": [
+    "DIGI 在罗马尼亚公共部门和国防通信相关合同的实际进展"
+   ],
+   "sources": [
+    {
+     "title": "DIGI – Hotărâre definitivă pronunțată de ICCJ în dosarul DNA — Digi Communications N.V. (BVB)",
+     "url": "https://m.bvb.ro/FinancialInstruments/SelectedData/NewsItem/DIGI-Hotarare-definitiva-pronuntata-de-ICCJ-in-dosarul-DNA/6DFF9"
+    }
+   ]
+  },
+  {
+   "id": "2026-11-05-bdgw",
+   "label": "B1",
+   "period": "2026-11-14",
+   "window": "before",
+   "title": "Balkans Digital Gateway Works：希腊–保加利亚–罗马尼亚光纤走廊（Vestitel）",
+   "summary": "Vestitel 在雅典推介 Balkans Digital Gateway Works：Athens–Thessaloniki–Sofia–Bucharest 光纤走廊，总投资 €24M（EU €10.1M），最高 200 Tbps。",
+   "entity": "Vestitel · Digital Realty Greece · 希腊电信监管机构 EETT",
+   "countries": [
+    "GR",
+    "BG",
+    "RO"
+   ],
+   "accounts": [],
+   "relatedAccounts": [
+    "ote-gr",
+    "vivacom-bg",
+    "a1-bg",
+    "ppf-bg"
+   ],
+   "topic": "network",
+   "scenario": "Transit / 批发",
+   "grades": [
+    "C"
+   ],
+   "gradeNote": "国家通讯社报道推介会，尚无一手文件",
+   "dates": {
+    "事件": "雅典推介会（2026-11 初）",
+    "发表": "BTA 2026-11-05；Novini247 11-07",
+    "检索": "2026-11-14"
+   },
+   "stage": 2,
+   "stageNote": "融资：报道称 EU 资金 €10.1M（总投资 €24M）。未证实已进入采购或建设，不上调阶段",
+   "facts": [
+    "走廊 Athens–Thessaloniki–Sofia–Bucharest；新建 Burgas–Alexandroupoli、Ofrynio–Serres 两条路由；升级 Sofia–Kulata–Thessaloniki。",
+    "单段最高 40 Tbps，总计最高 200 Tbps；工期 36 个月，从 2025-12 起算。",
+    "未来可能延伸至摩尔多瓦、乌克兰，以及黑海–爱琴海海缆。另一来源称已获 EETT 批准（C）。"
+   ],
+   "inferences": [
+    "Vestitel 将成为 Vivacom、A1 BG、Yettel/CETIN 和 OTEGLOBE 在 GR–BG 跨境 Transit 和 DCI 上的新增竞争者或供给方。",
+    "与 Digital Realty 同台推介，说明目标客户是 DC 互联和海缆登陆回传。"
+   ],
+   "opportunity": "高。新建骨干涉及光缆、DWDM/C+L 开放线路和 400G/800G 相干光模块，可以直接接触 Vestitel；也可以向 OTEGLOBE、Vivacom 推既有 Sofia–Thessaloniki 路由扩容方案。",
+   "priority": "高",
+   "trigger": "光缆 / DWDM 采购公告或合同",
+   "nextStep": "确认 EU 资金来源与采购状态，接触 Vestitel",
+   "verify": [
+    "EU 资金来源（CEF Digital？）、项目编号、受益方",
+    "光设备和光缆是否已招标或签约",
+    "\"EETT 批准\"的具体性质"
+   ],
+   "sources": [
+    {
+     "title": "Проект за изграждане на високоскоростна оптична мрежа… представен в Атина — BTA",
+     "url": "https://www.bta.bg/bg/news/balkans/1241010-proekt-za-izgrazhdane-na-visokoskorostna-optichna-mrezha-svarzvashta-balgariya-"
+    },
+    {
+     "title": "Високоскоростната оптична мрежа между Гърция и България ще бъде разширена — Novini247",
+     "url": "https://novini247.com/novini/visokoskorostnata-optichna-mreja-mejdu-gartsiya-i-balgariya-shte-bade-razshirena_11374816.html"
+    }
+   ]
+  },
+  {
+   "id": "2026-11-09-mtc-fttr",
+   "label": "B2",
+   "period": "2026-11-14",
+   "window": "before",
+   "title": "Moldtelecom：FTTR（GPON/XGS-PON）终端公开招标",
+   "summary": "Moldtelecom 公开招标 GPON/XGS-PON FTTR 终端，2026-12-09 12:00 截止投标。",
+   "entity": "S.A. \"Moldtelecom\"",
+   "countries": [
+    "MD"
+   ],
+   "accounts": [
+    "mtc-md"
+   ],
+   "relatedAccounts": [],
+   "topic": "network",
+   "scenario": "移动 / 固网承载",
+   "grades": [
+    "A"
+   ],
+   "gradeNote": "招标公告",
+   "dates": {
+    "发表": "2026-11-09",
+    "投标截止": "2026-12-09 12:00",
+    "检索": "2026-11-14"
+   },
+   "stage": 3,
+   "stageNote": "采购：公开招标进行中",
+   "facts": [
+    "采购对象为 GPON/XGS-PON 的光纤到房间（FTTR）终端设备，数量未披露。",
+    "在基希讷乌 Bd. Ștefan cel Mare și Sfânt 10 递交，联系人为招标委员会秘书 Victor Gherasim。"
+   ],
+   "inferences": [
+    "结合 2026 年已发布的 GPON/XGS-PON SFP（05 月）和光缆（09 月）招标，MTC 正在推进 XGS-PON 升级和 FTTR 产品化。"
+   ],
+   "opportunity": "中。有接入产品线的话可以在 12-09 前投标，也可以借此了解 OLT 和汇聚侧后续扩容。",
+   "priority": "中",
+   "trigger": "投标截止 2026-12-09",
+   "nextStep": "获取规格书与数量，评估是否投标",
+   "verify": [
+    "数量和技术规格书",
+    "是否限定厂商或资质"
+   ],
+   "sources": [
+    {
+     "title": "Licitaţie deschisă privind achiziţionarea echipamentelor terminale FTTR — Logos Press",
+     "url": "https://logos-pres.md/articol/licitatie-deschisa-privind-achizitionarea-echipamentelor-terminale-fttr"
+    }
+   ]
+  }
+ ]
+}
