@@ -280,7 +280,7 @@ const VIEWS=[
 ];
 const TOPIC_DEFAULT="all";
 let D=null, KB=null;
-const S={view:"overview",country:"all",account:"all",topic:"all",grade:"all",stage:"all",win:"all",q:""};
+const S={view:"overview",country:"all",account:"all",topic:"all",grade:"all",stage:"all",win:"all",period:"all",q:""};
 
 const $=s=>document.querySelector(s);
 const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -295,14 +295,15 @@ function writeHash(patch){
   Object.assign(S,patch);
   const p=new URLSearchParams();
   p.set("view",S.view);
-  for(const k of ["country","account","topic","grade","stage","win"]) if(S[k]!=="all") p.set(k,S[k]);
+  for(const k of ["country","account","topic","grade","stage","win","period"]) if(S[k]!=="all") p.set(k,S[k]);
   if(S.q) p.set("q",S.q);
   const h="#"+p.toString();
   if(location.hash!==h) location.hash=h; else render();
 }
-const link=patch=>{const n={...S,...patch};const p=new URLSearchParams();p.set("view",n.view);for(const k of ["country","account","topic","grade","stage","win"]) if(n[k]&&n[k]!=="all") p.set(k,n[k]);if(n.q) p.set("q",n.q);return "#"+p.toString();};
+const link=patch=>{const n={...S,...patch};const p=new URLSearchParams();p.set("view",n.view);for(const k of ["country","account","topic","grade","stage","win","period"]) if(n[k]&&n[k]!=="all") p.set(k,n[k]);if(n.q) p.set("q",n.q);return "#"+p.toString();};
 
 const period=()=>D.periods[0];
+const cur=()=>D.items.filter(i=>i.period===period().id);
 const acc=id=>D.accounts.find(a=>a.id===id);
 const ctry=id=>D.countries.find(c=>c.id===id);
 const kbCount=(key,val)=>KB?KB.insights.filter(r=>(r[key]||[]).includes(val)).length:null;
@@ -320,14 +321,15 @@ function filtered(){
     (S.grade==="all"||it.grades.includes(S.grade))&&
     (S.stage==="all"||(S.stage==="na"?it.stage===null:String(it.stage)===S.stage))&&
     (S.win==="all"||it.window===S.win)&&
+    (S.period==="all"||it.period===S.period)&&
     (!q||JSON.stringify([it.title,it.summary,it.entity,it.facts,it.inferences,it.sources,it.countries.map(c=>ctry(c).name),it.accounts.map(a=>acc(a).name)]).toLowerCase().includes(q))
   );
 }
 
 function nav(){
-  const counts={changes:D.items.length,opportunities:D.items.length,calendar:period().calendar.length};
+  const counts={changes:D.items.length,opportunities:cur().length,calendar:period().calendar.length};
   $("#nav").innerHTML=VIEWS.map(([id,name])=>`<a href="${link({view:id})}" ${S.view===id?'aria-current="page"':""}>${svg(id)}<span>${name}</span>${counts[id]?`<span class="count">${counts[id]}</span>`:""}</a>`).join("");
-  $("#cidx").innerHTML=D.countries.map(c=>{const n=D.items.filter(i=>i.countries.includes(c.id)).length;return `<a href="${link({view:"countries",country:c.id})}" ${S.view==="countries"&&S.country===c.id?'aria-current="true"':""}><code>${c.id}</code><span>${c.name}</span><span>${n||"–"}</span></a>`;}).join("");
+  $("#cidx").innerHTML=D.countries.map(c=>{const n=cur().filter(i=>i.countries.includes(c.id)).length;return `<a href="${link({view:"countries",country:c.id})}" ${S.view==="countries"&&S.country===c.id?'aria-current="true"':""}><code>${c.id}</code><span>${c.name}</span><span>${n||"–"}</span></a>`;}).join("");
 }
 
 function head(title,sub,extra=""){
@@ -336,7 +338,7 @@ function head(title,sub,extra=""){
 }
 function windowBox(){const p=period();return `<div class="window"><span>本期覆盖窗口（${p.tz}）</span>${esc(p.from)} → ${esc(p.to)}</div>`;}
 function countryChips(viewId){
-  return `<div class="chips" role="group" aria-label="按国家筛选"><button class="chip" data-country="all" aria-pressed="${S.country==="all"}">全部国家</button>${D.countries.map(c=>`<button class="chip" data-country="${c.id}" aria-pressed="${S.country===c.id}">${c.name}<small>${D.items.filter(i=>i.countries.includes(c.id)).length||""}</small></button>`).join("")}</div>`;
+  return `<div class="chips" role="group" aria-label="按国家筛选"><button class="chip" data-country="all" aria-pressed="${S.country==="all"}">全部国家</button>${D.countries.map(c=>`<button class="chip" data-country="${c.id}" aria-pressed="${S.country===c.id}">${c.name}<small>${cur().filter(i=>i.countries.includes(c.id)).length||""}</small></button>`).join("")}</div>`;
 }
 function ladderMini(st){if(st===null) return `<span class="stage-label">阶段不适用</span>`;return `<span class="mini-ladder" aria-hidden="true">${D.stages.map((s,k)=>`<span class="${k<st?"done":k===st?"now":""}"></span>`).join("")}</span><span class="stage-label">${D.stages[st]}</span>`;}
 function itemCard(it){
@@ -353,7 +355,7 @@ function itemCard(it){
 
 /* views */
 function vOverview(){
-  const p=period(), items=D.items;
+  const p=period(), items=cur();
   const inWin=items.filter(i=>i.window==="in").length, before=items.length-inWin;
   const aCount=items.filter(i=>i.grades.includes("A")).length;
   const vCount=items.reduce((n,i)=>n+i.verify.length,0);
@@ -380,6 +382,7 @@ function vChanges(){
     <select data-f="grade" aria-label="证据等级"><option value="all">全部证据等级</option>${gOpts}</select>
     <select data-f="stage" aria-label="项目阶段"><option value="all">全部阶段</option>${stageOpts}</select>
     <select data-f="account" aria-label="客户"><option value="all">全部客户</option>${accOpts}</select>
+    <select data-f="period" aria-label="报告期"><option value="all">全部报告期</option>${D.periods.map(p=>`<option value="${p.id}" ${S.period===p.id?"selected":""}>${p.id}</option>`).join("")}</select>
     <select data-f="win" aria-label="窗口"><option value="all">窗口内 + 补收</option><option value="in" ${S.win==="in"?"selected":""}>仅窗口内</option><option value="before" ${S.win==="before"?"selected":""}>仅窗口前补收</option></select>
     <span class="spacer"><span class="mono">${rows.length} 条</span><button class="linkbtn" id="reset">重置筛选</button></span></div>
   <div class="legend">${Object.entries(D.grades).map(([k,v])=>`<span><span class="grade g${k}">${k}</span> ${v}</span>`).join("")}</div>
@@ -388,7 +391,7 @@ function vChanges(){
 function vAccounts(){
   const p=period();
   const list=D.accounts.filter(a=>S.country==="all"||a.country===S.country);
-  const rows=list.map(a=>{const st=p.accountStatus[a.id]||"none";const n=D.items.filter(i=>i.accounts.includes(a.id)).length;const r=D.items.filter(i=>i.relatedAccounts.includes(a.id)).length;const k=kbCount("accounts",a.id);
+  const rows=list.map(a=>{const st=p.accountStatus[a.id]||"none";const n=cur().filter(i=>i.accounts.includes(a.id)).length;const r=cur().filter(i=>i.relatedAccounts.includes(a.id)).length;const k=kbCount("accounts",a.id);
     return `<tr class="row-link" data-href="${link({view:"changes",account:a.id,country:"all"})}"><td><b>${esc(a.name)}</b><small>${ctry(a.country).name}</small></td><td>${esc(a.scope)}${p.accountNotes[a.id]?`<small>${esc(p.accountNotes[a.id])}</small>`:""}</td><td><span class="pill ${STATUS[st][1]}">${STATUS[st][0]}</span></td><td class="mono">${n}${r?`<small>另有 ${r} 条相关（推断）</small>`:""}</td><td>${k!==null?`<a href="${kbLink("account",a.id)}">${k} 条 →</a>`:"–"}</td></tr>`;}).join("");
   return head("重点客户","九个客户群，按你的名单顺序；Yettel 商业侧与 CETIN 基础设施侧分开判断。")+countryChips()+
   `<div class="tbl"><table><thead><tr><th>客户群</th><th>研究主体 / 边界</th><th>本期状态</th><th>本期条目</th><th>研究库记录</th></tr></thead><tbody>${rows||`<tr><td colspan="5">该国没有列入名单的重点客户。</td></tr>`}</tbody></table></div>
@@ -396,17 +399,17 @@ function vAccounts(){
 }
 function vCountries(){
   if(S.country!=="all"){
-    const c=ctry(S.country); const its=D.items.filter(i=>i.countries.includes(c.id)); const accs=D.accounts.filter(a=>a.country===c.id); const k=kbCount("countries",c.id); const p=period();
+    const c=ctry(S.country); const its=cur().filter(i=>i.countries.includes(c.id)); const accs=D.accounts.filter(a=>a.country===c.id); const k=kbCount("countries",c.id); const p=period();
     return head(`${c.name} ${c.en}`,c.watch)+countryChips()+
     `<div class="kpis"><div class="kpi"><b>${its.length}</b><span>本期条目</span></div><div class="kpi"><b>${accs.length}</b><span>名单内客户</span></div><div class="kpi"><b>${k??"–"}</b><span>研究库记录</span></div></div>
     ${accs.length?`<section class="panel"><div class="panel-head"><h2>客户状态</h2></div><div class="acc-grid">${accs.map(a=>{const st=p.accountStatus[a.id]||"none";return `<a class="acc${st!=="none"?" has":""}" href="${link({view:"changes",account:a.id,country:"all"})}"><span class="code">${a.country}</span><span style="min-width:0"><b>${esc(a.name)}</b><small>${esc(a.scope)}</small></span><span class="pill ${STATUS[st][1]}">${STATUS[st][0]}</span></a>`;}).join("")}</div></section>`:""}
     <section class="panel"><div class="panel-head"><h2>本期条目</h2>${k!==null?`<a class="go" href="${kbLink("country",c.id)}">在研究库查看 ${c.name} →</a>`:""}</div><div class="list">${its.length?its.map(itemCard).join(""):`<div class="empty">本期无可核实更新。</div>`}</div></section>`;
   }
   return head("国家视图","七个市场的本期变化与长期关注点；点卡片进入单国视图。")+countryChips()+
-  `<div class="cgrid">${D.countries.map(c=>{const n=D.items.filter(i=>i.countries.includes(c.id)).length;const k=kbCount("countries",c.id);return `<a class="ccard" href="${link({view:"countries",country:c.id})}"><span class="code">${c.id}</span><h3>${c.name}</h3><div class="en">${c.en}</div><p>${esc(c.watch)}</p><div class="bottom"><span>本期 ${n} 条${k!==null?` · 研究库 ${k} 条`:""}</span><span style="color:var(--accent)">进入 →</span></div></a>`;}).join("")}</div>`;
+  `<div class="cgrid">${D.countries.map(c=>{const n=cur().filter(i=>i.countries.includes(c.id)).length;const k=kbCount("countries",c.id);return `<a class="ccard" href="${link({view:"countries",country:c.id})}"><span class="code">${c.id}</span><h3>${c.name}</h3><div class="en">${c.en}</div><p>${esc(c.watch)}</p><div class="bottom"><span>本期 ${n} 条${k!==null?` · 研究库 ${k} 条`:""}</span><span style="color:var(--accent)">进入 →</span></div></a>`;}).join("")}</div>`;
 }
 function vOpps(){
-  const rows=filtered().sort((a,b)=>prioRank[a.priority]-prioRank[b.priority]);
+  const rows=filtered().filter(i=>S.period!=="all"||i.period===period().id).sort((a,b)=>prioRank[a.priority]-prioRank[b.priority]);
   return head("机会线索","研究口径的线索排序，不是已确认商机；每条都要先过“待核实点”。")+countryChips()+
   `<div class="tbl"><table><thead><tr><th>线索</th><th>优先级</th><th>阶段</th><th>触发事件</th><th>下一步</th><th>证据</th></tr></thead><tbody>${rows.map(it=>`<tr class="row-link" data-item="${it.id}"><td><b>${esc(it.title)}</b><small>${esc(it.opportunity)}</small></td><td><span class="pill ${PRI[it.priority]}">${it.priority}</span></td><td style="white-space:nowrap">${it.stage===null?"不适用":D.stages[it.stage]}</td><td>${esc(it.trigger)}</td><td>${esc(it.nextStep)}</td><td>${it.grades.map(g=>`<span class="grade g${g}">${g}</span>`).join(" ")}</td></tr>`).join("")||`<tr><td colspan="6">当前筛选下没有线索。</td></tr>`}</tbody></table></div>`;
 }
@@ -457,7 +460,7 @@ document.addEventListener("click",e=>{
   const c=e.target.closest("[data-country]"); if(c){writeHash({country:c.dataset.country});return;}
   const it=e.target.closest("[data-item]"); if(it){detail(it.dataset.item);return;}
   const r=e.target.closest("tr[data-href]"); if(r&&!e.target.closest("a")){location.hash=r.dataset.href;return;}
-  if(e.target.id==="reset"){writeHash({country:"all",account:"all",topic:"all",grade:"all",stage:"all",win:"all",q:""});return;}
+  if(e.target.id==="reset"){writeHash({country:"all",account:"all",topic:"all",grade:"all",stage:"all",win:"all",period:"all",q:""});return;}
   if(e.target===$("#dlg")) $("#dlg").close();
 });
 document.addEventListener("change",e=>{const f=e.target.dataset.f; if(f) writeHash({[f]:e.target.value});});
